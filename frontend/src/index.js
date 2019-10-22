@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Root from './components/root'; // We will create this component shortly
-import configureStore from './store/store'; // We set this up in the last section
+import Root from './components/root';
+import configureStore from './store/store';
 import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
-import { logout } from './actions/session_actions'; // We have not created this action yet, but will do so in the next step
+import { logout } from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
