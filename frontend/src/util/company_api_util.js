@@ -3,8 +3,8 @@
 // export const fetchCompany = companyTicker => (
 //   axios.get(`/api/companies/${companyTicker}`, companyTicker)
 // );
-
-const AlphaVantageAPI = require('alpha-vantage-cli').AlphaVantageAPI;
+import { AlphaVantageAPI } from "alpha-vantage-cli";
+// const AlphaVantageAPI = require('alpha-vantage-cli').AlphaVantageAPI;
 const yourApiKey = 'N8I5YKNOKROBHLSK';
 const alphaVantageAPI = new AlphaVantageAPI(yourApiKey, 'compact', true);
 
