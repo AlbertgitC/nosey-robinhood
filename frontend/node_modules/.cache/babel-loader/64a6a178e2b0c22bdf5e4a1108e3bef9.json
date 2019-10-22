@@ -1,0 +1,1 @@
+{"ast":null,"code":"var clone = require('clone');\n\nmodule.exports = function (options, defaults) {\n  options = options || {};\n  Object.keys(defaults).forEach(function (key) {\n    if (typeof options[key] === 'undefined') {\n      options[key] = clone(defaults[key]);\n    }\n  });\n  return options;\n};","map":null,"metadata":{},"sourceType":"script"}
