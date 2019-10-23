@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import CompaniesContainer from '../companies/companies_container';
+
 
 class MainPage extends React.Component {
 
@@ -8,7 +8,6 @@ class MainPage extends React.Component {
     return (
       <div>
         <h1>NoseyHood welcome page</h1>
-        <CompaniesContainer />
         <Link to="/login">
           <button>Log In</button>
         </Link>

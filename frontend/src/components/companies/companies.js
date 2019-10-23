@@ -1,61 +1,65 @@
 import React from 'react';
+import CanvasJSReact from '../../assets/canvasjs.react';
+const CanvasJS = CanvasJSReact.CanvasJS;
+const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 class Companies extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {companies: []}
-
-    
+    this.state = { company: undefined, dataPoints: [] }
   }
 
   componentDidMount() {
-    this.props.fetchCompanyDaily('MSFT').then(
-      (res) => {this.setState({ companies: this.state.companies.concat([res.company[0]])})}
-    );
-  }
-
-  // companiesLis() {
-  //   this.state.companies.map(
-  //     (company, i) => {
-  //       return (
-  //         <li key={i}>
-  //           <div>
-  //             {company}
-  //           </div>
-  //         </li>
-  //       );
-  //     }
-  //   );
-  // }
-
-  companyInfo() {
-
-    return (
-      <div>
-        {/* <span>{String(this.state.companies[0].Timestamp)}</span> */}
-        <span>Open: {this.state.companies[0].Open}</span>
-        <br/>
-        <span>High: {this.state.companies[0].High}</span>
-        <br />
-        <span>Low: {this.state.companies[0].Low}</span>
-        <br />
-        <span>Close: {this.state.companies[0].Close}</span>
-        <br />
-        <span>Volume: {this.state.companies[0].Volume}</span>
-      </div>
+    
+    this.props.fetchCompanyDaily(this.props.tag).then(
+      (res) => {
+        this.setState({ company: res.company });
+        
+        for (let i = 0; i < 30; i++) {
+          this.setState({
+            dataPoints: this.state.dataPoints.concat([{
+              x: new Date(this.state.company[i].Timestamp),
+              y: this.state.company[i].Close
+            }])
+          });
+        };        
+        
+      }
     );
   }
 
   render() {
+    const options = {
+      animationEnabled: true,
+      exportEnabled: true,
+      theme: "light2", // "light1", "dark1", "dark2"
+      title: {
+        text: this.props.tag
+      },
+      axisY: {
+        // title: "Bounce Rate",
+        includeZero: false,
+        suffix: "$"
+      },
+      axisX: {
+        // title: "Week of Year",
+        // prefix: "W",
+        interval: 2
+      },
+      data: [{
+        type: "line",
+        toolTipContent: "{x}: {y} $",
+        dataPoints: this.state.dataPoints
+      }]
+    }
     
-    if (!this.state.companies[0]) {
+    if (!this.state.company) {
       return null;
     } else {
-      console.log(this.state.companies[0])
-      
+            
       return (
         <div>
-          {this.companyInfo()}
+          <CanvasJSChart options={options} />
         </div>
       );
     }
