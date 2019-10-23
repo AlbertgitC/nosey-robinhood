@@ -60,30 +60,34 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div className="form-container">
-        <form onSubmit={this.handleSubmit}>
-          <div className="form-content-wrapper">
-            <h1 className="welcome-h1">Welcome to Robinhood</h1>
-            <label className="form-label">
-              Email
-              <input className="form-input" type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
-              />
-            </label>
-            <br />
-            <label className="form-label">
-              Password
-              <input className="form-input" type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-              />
-            </label>
-            <br />
-            <input className="submit-button" type="submit" value="Sign In" />
-            {this.renderErrors()}
-          </div>
-        </form>
+      <div className="multi-page-wrapper">
+        <div className="image-div">
+        </div>
+        <div className="form-container">
+          <form onSubmit={this.handleSubmit}>
+            <div className="form-content-wrapper">
+              <h1 className="welcome-h1">Welcome to Robinhood</h1>
+              <label className="form-label">
+                Email
+                <input className="form-input" type="text"
+                  value={this.state.email}
+                  onChange={this.update('email')}
+                />
+              </label>
+              <br />
+              <label className="form-label">
+                Password
+                <input className="form-input" type="password"
+                  value={this.state.password}
+                  onChange={this.update('password')}
+                />
+              </label>
+              <br />
+              <input className="submit-button" type="submit" value="Sign In" />
+              {this.renderErrors()}
+            </div>
+          </form>
+        </div>
       </div>
     );
   }
