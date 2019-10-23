@@ -2,8 +2,12 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const PurchaseRecordSchema = new Schema({
-  company_id: {
-    type: Number,
+  user_id: {
+    type: String,
+    required: true
+  },
+  company_ticker: {
+    type: String,
     require: true
   },
   shares: {
