@@ -7,7 +7,7 @@ import SignupFormContainer from './session/signup_form_container';
 import UserProfileContainer from './user_profile/user_profile_container';
 
 const App = () => (
-  <div>
+  <div className="main-div">
     <Switch>
       <AuthRoute exact path="/" component={MainPage} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
