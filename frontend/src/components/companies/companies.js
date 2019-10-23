@@ -31,24 +31,32 @@ class Companies extends React.Component {
   render() {
     const options = {
       animationEnabled: true,
-      exportEnabled: true,
       theme: "light2", // "light1", "dark1", "dark2"
-      title: {
-        text: this.props.tag
-      },
       axisY: {
-        // title: "Bounce Rate",
+        valueFormatString: " ",
+        yValueFormatString: "$####.00",
         includeZero: false,
-        suffix: "$"
+        gridThickness: 0,
+        tickLength: 0
       },
       axisX: {
-        // title: "Week of Year",
-        // prefix: "W",
-        interval: 2
+        valueFormatString: " ",
+        tickLength: 0,
+        crosshair: {
+          enabled: true,
+          lineDashType: "solid",
+          thickness: 2
+        }
+      },
+      toolTip: {
+        enabled: true,
+        content: "<span style='\"'color: black;'\"'>{x}</span>: <span style='\"'color: #21CE99;'\"'>{y} $</span>",
       },
       data: [{
-        type: "line",
-        toolTipContent: "{x}: {y} $",
+        type: "spline",
+        markerType: "none",
+        lineColor: "#21CE99",
+        yValueFormatString: "$####.00",
         dataPoints: this.state.dataPoints
       }]
     }
@@ -58,9 +66,11 @@ class Companies extends React.Component {
     } else {
             
       return (
-        <div>
+        <div className={this.props.classname}>
+          <h2>{this.props.tag}</h2>
+          <h2>{this.state.company[0].Close.toFixed(2)}</h2>
           <CanvasJSChart options={options} />
-        </div>
+        </div>        
       );
     }
     
