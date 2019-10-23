@@ -1,5 +1,7 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
+import logo from '../../assets/images/robinhood-logo.jpg'
+import security from '../../assets/images/security.png'
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -54,32 +56,54 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <div className="login-form-container">
-        <form onSubmit={this.handleSubmit}>
-          <div className="login-form">
-            <br />
-            <input type="text"
-              value={this.state.email}
-              onChange={this.update('email')}
-              placeholder="Email"
-            />
-            <br />
-            <input type="password"
-              value={this.state.password}
-              onChange={this.update('password')}
-              placeholder="Password"
-            />
-            <br />
-            <input type="password"
-              value={this.state.password2}
-              onChange={this.update('password2')}
-              placeholder="Confirm Password"
-            />
-            <br />
-            <input type="submit" value="Submit" />
-            {this.renderErrors()}
+      <div>
+        <img className="sign-up-logo" src={logo}></img>
+        <nav className="signup-navbar">
+          <Link className="signup-nav-link">Nosey Robinhood</Link>
+          <Link className="signup-nav-link">Home</Link>
+          <Link to="/login" className="signup-nav-link">Login</Link>
+          <Link className="signup-nav-link sign-up-active">Sign Up</Link>
+        </nav>
+        <div className="signup-underline"></div>
+        <div className="main-signup-flex">
+          <div className="signup-form-container">
+            <form className="signup-form" onSubmit={this.handleSubmit}>
+              <h1 className="signup-header">Make Your Money Move</h1>
+              <h2 className="signup-message">Robinhood lets you invest in companies you love, commission-free.</h2>
+              <div className="login-form">
+                <br />
+                <input className="signup-input" type="text"
+                  value={this.state.email}
+                  onChange={this.update('email')}
+                  placeholder="Email"
+                />
+                <br />
+                <input className="signup-input" type="password"
+                  value={this.state.password}
+                  onChange={this.update('password')}
+                  placeholder="Password"
+                />
+                <br />
+                <input className="signup-input" type="password"
+                  value={this.state.password2}
+                  onChange={this.update('password2')}
+                  placeholder="Confirm Password"
+                />
+                <br />
+                <input className="signup-submit" type="submit" value="Sign Up" />
+                {this.renderErrors()}
+              </div>
+            </form>
           </div>
-        </form>
+          <div className="signup-image-div-flex">
+            <img className="security-image" src={security}></img>
+            <h3 className="security-h3">Free Stock Trading.</h3>
+            <h3 className="security-h3">Stop paying up to $10 per trade.</h3>
+            <p className="security-p">We've cut the fat that makes other brokerages costly, like manual account management
+              and hundreds of storefront locations, so we can offer zero commission trading.
+            </p>
+          </div>
+        </div>
       </div>
     );
   }
