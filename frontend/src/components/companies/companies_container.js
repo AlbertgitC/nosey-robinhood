@@ -1,18 +1,21 @@
 import { connect } from 'react-redux';
-import { logout } from '../../actions/session_actions';
 import { fetchCompanyIntraday, fetchCompanyDaily } from '../../actions/company_actions';
-import UserProfile from './user_profile';
+import Companies from './companies';
 
-const mapStateToProps = state => ({
-  loggedIn: state.session.isAuthenticated
-});
+const mapStateToProps = (state) => {
+  return {
+    companies: state.companies
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    logout: () => dispatch(logout()),
     fetchCompanyIntraday: tag => dispatch(fetchCompanyIntraday(tag)),
     fetchCompanyDaily: tag => dispatch(fetchCompanyDaily(tag))
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Companies);
