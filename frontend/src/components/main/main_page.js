@@ -28,7 +28,7 @@ class MainPage extends React.Component {
           <h1 className="splash-hero-h1">A Robinhood Clone</h1>
           <h3 className="splash-hero-h3">Robinhood, a pioneer of commission-free investing, gives you access to investing and more ways to make your money work harder.</h3>
           <video autoPlay loop className="hero-banner-photo" src={heroBanner}></video>
-          <Link className="signup-button-on-splash" to="/signup">Sign Up</Link>
+          <Link className="signup-button-on-splash" to="/signup">Demo</Link>
         </div>
         <section className="splash-commission-section">
           <h1 className="splash-commission-h1">MERN Stack</h1>
