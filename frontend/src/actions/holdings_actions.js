@@ -27,3 +27,8 @@ export const createPurchaseRecord = (companyTicker, purchaseOrder) => dispatch =
   HoldingsApiUtil.createPurchaseRecord(companyTicker, purchaseOrder)
     .then(companyHolding => dispatch(receiveCompanyHolding(companyHolding)))
 );
+
+export const updatePurchaseRecord = purchaseOrder => dispatch => (
+  HoldingsApiUtil.updatePurchaseRecord(purchaseOrder)
+    .then(companyHolding => dispatch(receiveCompanyHolding(companyHolding)))
+);

@@ -14,3 +14,7 @@ export const createPurchaseRecord = (companyTicker, purchaseOrder) => (
     purchaseOrder
   )
 );
+
+export const updatePurchaseRecord = purchaseOrder => (
+  axious.patch('/api/purchase_records/sale', purchaseOrder)
+);

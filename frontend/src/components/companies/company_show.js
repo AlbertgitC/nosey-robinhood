@@ -36,7 +36,9 @@ class CompanyShow extends React.Component {
               companyTicker={this.props.companyTicker}
               companyHoldings={companyHoldings}
               price={price}
-              createPurchaseRecord={this.props.createPurchaseRecord} />
+              createPurchaseRecord={this.props.createPurchaseRecord}
+              updatePurchaseRecord={this.props.updatePurchaseRecord}
+              fetchCompanyHolding={this.props.fetchCompanyHolding} />
           </div>
         </div>
         <div className='company-info'>

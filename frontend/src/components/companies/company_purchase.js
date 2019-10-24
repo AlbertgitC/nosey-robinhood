@@ -1,4 +1,5 @@
 import React from 'react';
+import CompanySaleItem from './company_sale_item';
 
 class CompanyPurchase extends React.Component {
   constructor(props) {
@@ -6,30 +7,49 @@ class CompanyPurchase extends React.Component {
 
     this.state = {
       shares: 0,
-      purchase_price: this.props.price
+      purchase_price: this.props.price,
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handlePurchase = this.handlePurchase.bind(this);
   }
 
   update(field) {
     return e => this.setState({ [field]: e.currentTarget.value });
   }
 
-  handleSubmit() {
+  handlePurchase(e) {
+    e.preventDefault();
     let companyTicker = this.props.companyTicker;
-    this.props.createPurchaseRecord(companyTicker, this.state);
+    this.props.createPurchaseRecord(companyTicker, this.state)
+      .then(() => this.props.fetchCompanyHolding(this.props.companyTicker));
   }
 
   render() {
     let totalShares = 0;
+    let sellShares;
 
     if (this.props.companyHoldings) {
       this.props.companyHoldings.map(purchase => totalShares += purchase.shares);
+
+      sellShares = this.props.companyHoldings.map((purchase, idx) => {
+        if (purchase.shares > 0) {
+          return (
+            <CompanySaleItem
+              key={idx}
+              date={purchase.date}
+              shares={purchase.shares}
+              purchaseId={purchase._id}
+              companyTicker={this.props.companyTicker}
+              updatePurchaseRecord={this.props.updatePurchaseRecord}
+              fetchCompanyHolding={this.props.fetchCompanyHolding} />
+          )
+        }
+      });
     }
 
     return (
-      <div className='purchase-form'>
-        <form onSubmit={this.handleSubmit}>
+      <div className='purchase-sell-form'>
+
+        <form onSubmit={this.handlePurchase} className='purchase-form'>
           <div className='purchase-form-title'>
             {`Buy ${this.props.companyTicker}`}
             {`Current Shares: ${totalShares}`}
@@ -53,6 +73,11 @@ class CompanyPurchase extends React.Component {
           </div>
           <input type='submit' value='Purchase Shares'/>
         </form>
+
+        <ul className='sell-form'>
+          {sellShares}
+        </ul>
+
       </div>
     )
   }

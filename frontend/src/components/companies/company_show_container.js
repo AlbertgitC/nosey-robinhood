@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 import {
   fetchCompanyHolding,
-  createPurchaseRecord
+  createPurchaseRecord,
+  updatePurchaseRecord
 } from '../../actions/holdings_actions';
 import { fetchCompanyDaily } from '../../actions/company_actions';
 import CompanyShow from './company_show';
@@ -28,7 +29,9 @@ const mapDispatchToProps = dispatch => ({
   createPurchaseRecord:
     (companyTicker, purchaseOrder) => (
       dispatch(createPurchaseRecord(companyTicker, purchaseOrder))
-    )
+    ),
+  updatePurchaseRecord:
+    purchaseOrder => dispatch(updatePurchaseRecord(purchaseOrder))
 });
 
 export default connect(
