@@ -8,7 +8,7 @@ router.get('/user/:user_id',
   passport.authenticate('jwt', { session: false }),
   (req, res) => (
     PurchaseRecord.find({ user_id: req.user.id })
-      .then(holdings => res.json(holdings))
+      .then(response => res.json({[response.company_ticker]: response}))
       .catch(err => res.status(404).json({
         noholdingsfound: "No holdings found for this user"
       }))
@@ -16,16 +16,18 @@ router.get('/user/:user_id',
 
 router.get('/company/:company_ticker',
   passport.authenticate('jwt', { session: false }),
-  (req, res) => (
-    PurchaseRecord.findOne({
+  (req, res) => {
+    PurchaseRecord.find({
       user_id: req.user.id,
       company_ticker: req.params.company_ticker
     })
-      .then(holdings => res.json(holdings))
+      .then(response => res.json({
+        [req.params.company_ticker]: response
+      }))
       .catch(err => res.status(404).json({
         noholdingsfound: "No holdings found for this company"
       }))
-));
+});
 
 router.post('/company/:company_ticker/purchase',
   passport.authenticate('jwt', { session: false }),
@@ -39,12 +41,16 @@ router.post('/company/:company_ticker/purchase',
     const newHolding = new PurchaseRecord({
       user_id: req.user.id,
       company_ticker: req.params.company_ticker,
-      shares: req.body.shares
+      shares: req.body.shares,
+      purchase_price: req.body.purchase_price
     });
-    newHolding.save().then(holding => res.json(holding));
+    newHolding.save().then(response => res.json({
+      [response.company_ticker]: response
+    }));
   }
 );
 
 module.exports = router;
 
 // localhost:5000/api/purchase_records/company/payc/purchase
+// [response.data.company_ticker]: response.data
