@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { AlphaVantageAPI } from 'alpha-vantage-cli';
 const alphaVantageKey = require("../keys").alphaVantageKey;
 const alphaVantageAPI = new AlphaVantageAPI(alphaVantageKey, 'compact', true);
