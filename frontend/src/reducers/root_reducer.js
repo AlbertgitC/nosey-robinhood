@@ -7,7 +7,6 @@ import HoldingsReducer from './holdings_reducer';
 const RootReducer = combineReducers({
   session: sessionReducer,
   errors: errorsReducer,
-  companies: companiesReducer,
   holdings: HoldingsReducer
 });
 
