@@ -12,7 +12,6 @@ class Companies extends React.Component {
   }
 
   fetchCompanyDaily(tag) {
-    console.log(alphaVantageKey);
     return axios.get("https://www.alphavantage.co/query",
       { params: {
         function: 'TIME_SERIES_DAILY',
