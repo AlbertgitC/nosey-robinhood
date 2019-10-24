@@ -63,11 +63,10 @@ router.patch('/sale',
       { _id: req.body.purchaseId },
       { $inc: { shares: -(req.body.shares) } })
         .then(response => {
-            // debugger;
-            res.json({
-                [response.company_ticker]: [response]
-              });
+          res.json({
+              [response.company_ticker]: [response]
             });
+          });
   }
 
 );

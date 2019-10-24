@@ -61,6 +61,7 @@ router.post("/login", (req, res) => {
   const password = req.body.password;
 
   User.findOne({ email }).then(user => {
+    debugger;
     if (!user) {
       errors.email = "This email does not exist";
       return res.status(400).json(errors);
@@ -68,7 +69,11 @@ router.post("/login", (req, res) => {
 
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
-        const payload = { id: user.id, email: user.email };
+        const payload = {
+          id: user.id,
+          email: user.email,
+          funds: user.funds
+        };
 
         jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
           res.json({
@@ -87,7 +92,8 @@ router.post("/login", (req, res) => {
 router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
   res.json({ 
     id: req.user.id,
-    email: req.user.email
+    email: req.user.email,
+    funds: req.user.funds
   });
 });
 
