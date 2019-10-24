@@ -1,7 +1,9 @@
 import React from 'react';
+import axios from 'axios';
 import CanvasJSReact from '../../assets/canvasjs.react';
 const CanvasJS = CanvasJSReact.CanvasJS;
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
+const alphaVantageKey = require("../../keys").alphaVantageKey;
 
 class Companies extends React.Component {
   constructor(props) {
@@ -9,21 +11,28 @@ class Companies extends React.Component {
     this.state = { company: undefined, dataPoints: [] }
   }
 
+  fetchCompanyDaily(tag) {
+    return axios.get("https://www.alphavantage.co/query",
+      { params: {
+        function: 'TIME_SERIES_DAILY',
+        symbol: tag,
+        apikey: alphaVantageKey
+      } }
+    )
+  }
+
   componentDidMount() {
-    
-    this.props.fetchCompanyDaily(this.props.tag).then(
-      (res) => {
-        this.setState({ company: res.company });
-        
+    this.fetchCompanyDaily(this.props.tag).then(
+      res => {
+        this.setState({ company: Object.entries(res.data["Time Series (Daily)"]) });
         for (let i = 0; i < 30; i++) {
           this.setState({
             dataPoints: this.state.dataPoints.concat([{
-              x: new Date(this.state.company[i].Timestamp),
-              y: this.state.company[i].Close
+              x: new Date(this.state.company[i][0]),
+              y: parseFloat(this.state.company[i][1]["4. close"])
             }])
           });
-        };        
-        
+        };
       }
     );
   }
@@ -50,7 +59,7 @@ class Companies extends React.Component {
       },
       toolTip: {
         enabled: true,
-        content: "<span style='\"'color: black;'\"'>{x}</span>: <span style='\"'color: #21CE99;'\"'>{y} $</span>",
+        content: "<span style='\"'color: black;'\"'>{x}</span>: <span style='\"'color: #21CE99;'\"'>{y}</span>",
       },
       data: [{
         type: "spline",
@@ -64,11 +73,11 @@ class Companies extends React.Component {
     if (!this.state.company) {
       return null;
     } else {
-            
+      
       return (
         <div className={this.props.classname}>
           <h2>{this.props.tag}</h2>
-          <h2>{this.state.company[0].Close.toFixed(2)}</h2>
+          <h2>${parseFloat(this.state.company[0][1]["4. close"]).toFixed(2)}</h2>
           <CanvasJSChart options={options} />
         </div>        
       );

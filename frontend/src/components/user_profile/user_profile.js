@@ -27,7 +27,7 @@ class UserProfile extends React.Component {
   }
 
   render() {
-    const tag = "AMZN";
+    const tag = "NVDA";
     const classname = "stock-graph";
     return (
       <div>
