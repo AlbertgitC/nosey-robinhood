@@ -14,6 +14,10 @@ const PurchaseRecordSchema = new Schema({
     type: Number,
     require: true
   },
+  purchase_price: {
+    type: Number,
+    require: true
+  },
   date: {
     type: Date,
     default: Date.now
