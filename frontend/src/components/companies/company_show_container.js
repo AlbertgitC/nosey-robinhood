@@ -8,7 +8,7 @@ import CompanyShow from './company_show';
 
 const mapStateToProps = (state, ownProps) => {
   let companyTicker = ownProps.match.params.company_ticker;
-  let company = state.companies ? state.companies[0][0] : { High: 0 };
+  let company = state.companies ? state.companies[0] : { High: 0 };
   let companyHoldings = state.holdings[companyTicker];
   let currentUser = state.session.user;
 
