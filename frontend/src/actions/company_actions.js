@@ -4,7 +4,7 @@ const alphaVantageAPI = new AlphaVantageAPI(alphaVantageKey, 'compact', true);
 
 export const RECEIVE_COMPANY = "RECEIVE_COMPANY";
 
-export const receiveCompany = (company) => ({
+export const receiveCompany = (company, tag) => ({
   type: RECEIVE_COMPANY,
   company
 });
@@ -12,7 +12,7 @@ export const receiveCompany = (company) => ({
 
 export const fetchCompanyDaily = (tag) => dispatch => {
   return alphaVantageAPI.getDailyData(tag).then(
-    (company) => dispatch(receiveCompany(company))
+    (company) => dispatch(receiveCompany(company, tag))
   );
 }
 
