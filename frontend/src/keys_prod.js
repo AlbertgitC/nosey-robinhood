@@ -1,3 +1,3 @@
 module.exports = {
-  alphaVantageKey: process.env.ALPHA_VANTAGE_KEY
+  alphaVantageKey: process.env.REACT_APP_KEY
 }
