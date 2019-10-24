@@ -214,6 +214,208 @@ time, mark, audio, video {
   .sign-up-logo {
     display: none;
   }
+
+
+  /* Mobile Splash */
+
+  .signup-button-on-splash {
+    display: none;
+  }
+  .splash-nav-bar {
+    background-color: rgb(255, 255, 255);
+    height: 60px;
+    box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.2);
+    padding: 0px 10px;
+    display: flex;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .nav-splash-span {
+    display: flex;
+    position: absolute;
+    right: 5%;
+    margin-right: 10px;
+  }
+
+  .splash-nav-link {
+    margin: 18px 7px;
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+    font-family: 'Lato', sans-serif;
+  }
+
+  .splash-nav-logo {
+    font-size: 22px;
+    margin: 16px 0px;
+    font-family: 'Lato', sans-serif;
+    margin-left: 10px;
+  }
+
+  .splash-hero-section {
+    background-color: #21ce99;
+    padding-top: 60px;
+    height: 757px;
+  }
+
+  .splash-hero-h1 {
+    margin-top: 33px;
+    font-size: 50px;
+    font-weight: bold;
+    padding: 20px 20px;
+    font-family: 'Lato', sans-serif;
+  }
+
+  .splash-hero-h3 {
+    font-size: 27px;
+    padding: 0px 20px;
+    font-family: 'Lato', sans-serif;
+  }
+
+  .splash-commission-section {
+    background-color: rgb(255, 255, 255);
+  }
+
+  #express-logo-stack {
+    width: 145px;
+    height: 52px;
+    margin-top: 25px;
+  }
+
+  .node-js-logo-stack {
+   margin-right: 14px;
+  }
+
+  .splash-cash-management {
+     background-color: rgb(242, 242, 242);
+     height: 500px;
+  }
+
+  .logo-splash-item {
+    height: 100px;
+    position: absolute;
+    right: 5%;
+  }
+
+  .hero-banner-photo {
+    width: 100%;
+  }
+
+  .splash-portfolio-section {
+    background-color: black;
+  }
+
+  .redux-logo-splash {
+    right: 44px;
+  }
+
+  .splash-product-section {
+    background-color: rgb(255, 255, 255);
+  }
+
+  #mongoose-logo {
+    width: 120px;
+    height: 66px;
+    margin-top: 20px;
+  }
+
+  .splash-footer {
+    background-color: black;
+  }
+
+  .splash-commission-h1 {
+    margin-top: 10px;
+    font-size: 50px;
+    font-weight: bold;
+    padding: 20px 20px;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+  }
+
+  .stack-item {
+    border-top: 1px solid rgba(217, 219, 224, 0.5);
+    margin: 0px 16px;
+    display: flex;
+    padding-right: 120px;
+  }
+
+  .stack-item-column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .large-stack-image {
+    margin-top: 17px;
+    right: 71px;
+  }
+
+  .passport-js-logo {
+    height: 90px;
+    right: 42px;
+    margin-top: 5px;
+  }
+
+  .stack-item-h3 {
+    color: rgb(45, 49, 56);
+    font-weight: 500;
+    font-size: 18px;
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 5px;
+    margin-top: 20px;
+  }
+
+  .stack-item-p {
+    color: rgba(143, 149, 163, 0.9);
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  .stack-item-type {
+    color: #21ce99;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .github-logo {
+    height: 72px;
+    margin: 20px;
+  }
+
+  .github-stack {
+    border-bottom: 0.5px solid white;
+    display: flex;
+    flex-direction: row;
+    padding-right: 0px;
+  }
+
+  .github-span-container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    margin: auto;
+  }
+
+  .link-out-link-out {
+    text-decoration: none;
+  }
+
+
+  .github-h1 {
+    color: white;
+    font-size: 30px;
+    margin-top: 35px;
+    font-family: 'Lato', sans-serif;
+    margin-left: 10px;
+  }
+
+  .github-header {
+    margin: 45px auto;
+    font-size: 44px;
+  }
 }
 
 /* Tablet */
@@ -253,6 +455,9 @@ time, mark, audio, video {
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 50%;
+    position: absolute;
+    height: 100%;
+    overflow: hidden;
   }
 
  .form-container {
@@ -275,7 +480,7 @@ time, mark, audio, video {
   }
 
   .main-div {
-    height: 100%;
+    /* height: 100%; */
     overflow: hidden;
   }
 
@@ -472,6 +677,89 @@ time, mark, audio, video {
     top: 15px;
     width: 75px;
   }
+
+  /* Tablet Splash */
+
+  .splash-nav-bar {
+    background-color: rgb(255, 255, 255);
+    height: 60px;
+    box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.2);
+    padding: 0px 10px;
+    display: flex;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .nav-splash-span {
+    display: flex;
+    position: absolute;
+    right: 5%;
+    margin-right: 10px;
+  }
+
+  .splash-nav-link {
+    margin: 18px 7px;
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+    font-family: 'Lato', sans-serif;
+  }
+
+  .splash-nav-logo {
+    font-size: 22px;
+    margin: 16px 0px;
+    font-family: 'Lato', sans-serif;
+    margin-left: 10px;
+  }
+
+  .signup-splash-link {
+    background-color: #21ce99;
+    padding: 9px;
+    border-radius: 10px;
+    margin-top: 9px;
+  }
+
+  .signup-splash-link:hover {
+    background-color: #18563e;
+    color: white;
+    transition: width 300ms ease 0.5s;
+  }
+
+  .login-splash-link {
+    margin-right: 20px;
+  }
+
+  .login-splash-link:hover {
+    color: #18563e;
+  }
+
+  .splash-hero-section {
+    background-color: #21ce99;
+    padding-top: 60px;
+    height: 757px;
+  }
+
+  .splash-hero-h1 {
+    margin-top: 33px;
+    font-size: 75px;
+    font-weight: bold;
+    padding: 20px 15%;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+  }
+
+  .splash-hero-h3 {
+    font-size: 27px;
+    padding: 0px 15%;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+  }
+
+  .hero-banner-photo {
+    display: none;
+  }
+
 }
 
 /* Desktop */
@@ -653,4 +941,6 @@ time, mark, audio, video {
     font-weight: 100;
     line-height: 1.5;
   }
+
+  /* Desktop Splash */
 }
