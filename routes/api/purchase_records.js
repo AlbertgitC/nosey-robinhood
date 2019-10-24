@@ -17,11 +17,13 @@ router.get('/user/:user_id',
 router.get('/company/:company_ticker',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    PurchaseRecord.findOne({
+    PurchaseRecord.find({
       user_id: req.user.id,
       company_ticker: req.params.company_ticker
     })
-      .then(response => res.json({[response.company_ticker]: response}))
+      .then(response => res.json({
+        [req.params.company_ticker]: response
+      }))
       .catch(err => res.status(404).json({
         noholdingsfound: "No holdings found for this company"
       }))
@@ -42,7 +44,9 @@ router.post('/company/:company_ticker/purchase',
       shares: req.body.shares,
       purchase_price: req.body.purchase_price
     });
-    newHolding.save().then(holding => res.json(holding));
+    newHolding.save().then(response => res.json({
+      [response.company_ticker]: response
+    }));
   }
 );
 

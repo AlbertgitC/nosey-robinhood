@@ -21,13 +21,18 @@ class CompanyPurchase extends React.Component {
   }
 
   render() {
+    let totalShares = 0;
+
+    if (this.props.companyHoldings) {
+      this.props.companyHoldings.map(purchase => totalShares += purchase.shares);
+    }
 
     return (
       <div className='purchase-form'>
         <form onSubmit={this.handleSubmit}>
           <div className='purchase-form-title'>
             {`Buy ${this.props.companyTicker}`}
-            {`Current Shares: ${this.props.shares}`}
+            {`Current Shares: ${totalShares}`}
           </div>
           <div className='purchase-form-order'>
             <div className='purchase-form-order-shares'>

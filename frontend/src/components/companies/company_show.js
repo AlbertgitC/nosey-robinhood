@@ -17,10 +17,12 @@ class CompanyShow extends React.Component {
   // }
 
   render() {
-    let currentShares;
+    let companyHoldings;
+    let price;
 
-    if (this.props.companyHoldings) {
-      currentShares = this.props.companyHoldings.shares;
+    if (this.props.companyHoldings && this.props.company) {
+      companyHoldings = this.props.companyHoldings;
+      price = this.props.company[0].High;
     }
 
     return (
@@ -32,8 +34,8 @@ class CompanyShow extends React.Component {
           <div className='company-purchase'>
             <CompanyPurchase
               companyTicker={this.props.companyTicker}
-              shares={currentShares || 0}
-              price={this.props.company.High}
+              companyHoldings={companyHoldings}
+              price={price}
               createPurchaseRecord={this.props.createPurchaseRecord} />
           </div>
         </div>
