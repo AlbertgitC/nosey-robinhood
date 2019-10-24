@@ -27,12 +27,12 @@ class UserProfile extends React.Component {
   }
 
   render() {
-    const tag = "GOOGL";
+    const tag = "AMZN";
+    const classname = "stock-graph";
     return (
       <div>
         <h1>Investing $30,000.00</h1> {/* change this! */}
-        <div>portfolio stock graph here</div>
-        <CompaniesContainer tag={tag}/>
+        <CompaniesContainer tag={tag} classname={classname}/>
         <button onClick={this.logoutUser}>Logout</button>
       </div>
     );
