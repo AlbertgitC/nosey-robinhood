@@ -12,6 +12,7 @@ class Companies extends React.Component {
   }
 
   fetchCompanyDaily(tag) {
+    console.log(alphaVantageKey);
     return axios.get("https://www.alphavantage.co/query",
       { params: {
         function: 'TIME_SERIES_DAILY',
@@ -73,7 +74,7 @@ class Companies extends React.Component {
     if (!this.state.company) {
       return null;
     } else {
-      console.log(this.state.dataPoints);
+      
       return (
         <div className={this.props.classname}>
           <h2>{this.props.tag}</h2>
