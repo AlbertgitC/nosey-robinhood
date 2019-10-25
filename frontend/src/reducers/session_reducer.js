@@ -8,7 +8,6 @@ import {
   RECEIVE_USER_ORDER
 } from "../actions/users_actions";
 
-
 const initialState = {
   isAuthenticated: false,
   user: {}

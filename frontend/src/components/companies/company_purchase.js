@@ -2,12 +2,16 @@ import React from 'react';
 import CompanySaleItem from './company_sale_item';
 
 class CompanyPurchase extends React.Component {
+
+  // total price needs to be something set to state
+
   constructor(props) {
     super(props);
 
     this.state = {
       shares: 0,
-      purchase_price: this.props.price,
+      purchase_price: this.props.company,
+      totalPrice: (this.state.purchase_price * this.state.shares)
     };
     this.handlePurchase = this.handlePurchase.bind(this);
   }
@@ -20,22 +24,31 @@ class CompanyPurchase extends React.Component {
     e.preventDefault();
     let companyTicker = this.props.companyTicker;
     this.props.createPurchaseRecord(companyTicker, this.state)
-      .then(() => this.props.fetchCompanyHolding(this.props.companyTicker));
+      .then(() => this.props.fetchCompanyHolding(this.props.companyTicker))
+      .then(totalPrice => this.props.createPurchase(totalPrice));
   }
 
   render() {
+    debugger;
     let totalShares = 0;
     let sellShares;
 
     if (this.props.companyHoldings) {
-      this.props.companyHoldings.map(purchase => totalShares += purchase.shares);
+      // this.props.companyHoldings.map(purchase => totalShares += purchase.shares);
 
       sellShares = this.props.companyHoldings.map((purchase, idx) => {
+        totalShares += purchase.shares;
+        const purchased_at = new Date(purchase.date).toLocaleDateString("en-US", {
+          month: 'long',
+          day: 'numeric',
+          year: 'numeric'
+        });
+
         if (purchase.shares > 0) {
           return (
             <CompanySaleItem
               key={idx}
-              date={purchase.date}
+              date={purchased_at}
               shares={purchase.shares}
               purchaseId={purchase._id}
               companyTicker={this.props.companyTicker}
@@ -65,11 +78,11 @@ class CompanyPurchase extends React.Component {
               </label>
             </div>
             <div className='purchase-form-order-price'>
-              {this.props.price}
+              {this.state.purchase_price}
             </div>
           </div>
           <div className='purchase-form-cost'>
-            {[this.props.price] * [this.state.shares]}
+            { this.state.totalPrice }
           </div>
           <input type='submit' value='Purchase Shares'/>
         </form>

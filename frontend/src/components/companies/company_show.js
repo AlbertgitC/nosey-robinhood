@@ -1,6 +1,6 @@
 import React from 'react';
 import CompaniesContainer from './companies_container';
-import CompanyPurchase from './company_purchase';
+import CompanyPurchaseContainer from './company_purchase_container';
 
 class CompanyShow extends React.Component {
 
@@ -17,13 +17,13 @@ class CompanyShow extends React.Component {
   // }
 
   render() {
-    let companyHoldings;
-    let price;
+    // let companyHoldings;
+    // let price;
 
-    if (this.props.companyHoldings && this.props.company) {
-      companyHoldings = this.props.companyHoldings;
-      price = this.props.company[0].Close;
-    }
+    // if (this.props.companyHoldings && this.props.company) {
+    //   companyHoldings = this.props.companyHoldings;
+    //   price = this.props.company[0].Close;
+    // }
 
     return (
       <div>
@@ -32,13 +32,7 @@ class CompanyShow extends React.Component {
             <CompaniesContainer tag={this.props.companyTicker}/>
           </div>
           <div className='company-purchase'>
-            <CompanyPurchase
-              companyTicker={this.props.companyTicker}
-              companyHoldings={companyHoldings}
-              price={price}
-              createPurchaseRecord={this.props.createPurchaseRecord}
-              updatePurchaseRecord={this.props.updatePurchaseRecord}
-              fetchCompanyHolding={this.props.fetchCompanyHolding} />
+            <CompanyPurchaseContainer companyTicker={this.props.companyTicker} />
           </div>
         </div>
         <div className='company-info'>

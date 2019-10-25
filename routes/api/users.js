@@ -70,7 +70,8 @@ router.post("/login", (req, res) => {
       if (isMatch) {
         const payload = {
           id: user.id,
-          email: user.email
+          email: user.email,
+          funds: user.funds
         };
 
         jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
