@@ -1103,6 +1103,12 @@ time, mark, audio, video {
 
   /* Desktop Splash */
 
+  .splash-hero-section {
+    background-color: #21ce99;
+    padding-top: 60px;
+    height: 575px;
+  }
+
   .stack-item {
    margin: 15px 14px;
     display: inline-flex;

@@ -64,10 +64,10 @@ class MainPage extends React.Component {
             </span>
             <img className="node-js-logo-stack logo-splash-item" src={NodeJSLogo} alt="react logo"></img>
           </div>
-          <div className="stack-item mongo-db-card-splash-item">
+          <div className="stack-item">
             <span className="left-column-stack">
             <h3 className="stack-item-h3">MongoDB</h3>
-              <p className="stack-item-p">MongoDB is a general purpose, document-based, distributed database built for modern application developers and for the cloud era.</p>
+              <p className="stack-item-p">MongoDB is a general purpose, document-based, distributed database.</p>
             <p className="stack-item-type">Database</p>
             </span>
             <img className="logo-splash-item large-stack-image" src={MongoDBLogo} alt="react logo"></img>
@@ -115,7 +115,7 @@ class MainPage extends React.Component {
               </span>
             </div>
           </a>
-          <a className="link-out-link-out" target="_blank" href="https://github.com/ZacharyCWilliams">
+            <a className="link-out-link-out" target="_blank" href="https://github.com/JasimAtiyeh">
             <div className="stack-item github-stack github-stack-tablet-card">
               <span className="github-span-container">
                 <h1 className="github-h1">Jasim Atiyeh</h1>
