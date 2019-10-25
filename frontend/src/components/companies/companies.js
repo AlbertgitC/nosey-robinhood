@@ -4,7 +4,7 @@ import { fetchCompanyDaily, fetchCompanyBatchQuote } from '../../actions/company
 import CanvasJSReact from '../../assets/canvasjs.react';
 const CanvasJS = CanvasJSReact.CanvasJS;
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
-const alphaVantageKey = require("../../keys").alphaVantageKey;
+
 
 class Companies extends React.Component {
   constructor(props) {

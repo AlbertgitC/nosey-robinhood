@@ -1,7 +1,8 @@
 import React from 'react';
 import CompaniesContainer from '../companies/companies_container';
 import { fetchCompanyBatchQuote, fetchCompanyDaily } from '../../actions/company_actions';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import '../../assets/user_profile.css';
 
 class UserProfile extends React.Component {
   constructor(props) {
@@ -17,6 +18,8 @@ class UserProfile extends React.Component {
     fetchCompanyBatchQuote(techList).then(
       res => { this.setState({ data: Object.entries(res.data) }); }
     );
+
+    this.props.fetchUser();
   }
 
   logoutUser(e) {
@@ -49,8 +52,8 @@ class UserProfile extends React.Component {
       );
     }
     return (
-      <div>
-        <h1>Investing $30,000.00</h1> {/* change this! */}
+      <div className="user-profile-main">
+        <h1>Investing ${this.props.user.funds}</h1> {/* change this! */}
         <CompaniesContainer tag={this.state.data[0][0]} />
         <ul>
           {this.stockList(this.state.data)}

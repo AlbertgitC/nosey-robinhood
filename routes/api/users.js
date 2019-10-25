@@ -120,5 +120,13 @@ router.post('/sale',
         nofundsfound: "No funds found for this user"
       }));
   });
+  
+router.get('/user', 
+  passport.authenticate('jwt', { session: false }), 
+  (req, res) => {
+    User.find({ _id: req.user.id })
+      .then(user => res.json(user))
+  }
+);
 
 module.exports = router;
