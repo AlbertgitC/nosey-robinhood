@@ -898,10 +898,10 @@ time, mark, audio, video {
 
   .github-stack-tablet-card {
     height: 200px;
-    background-color: white;
+    /* background-color: white;
     width: 200px;
-    opacity: 0.09;
-    border-radius: 6px;
+    opacity: 0.09; */
+    /* border-radius: 6px; */
     /* box-shadow: 1px 1px 1px 1px white; */
     margin: 20px 10px;
     /* background-color: rgb(255,255,255,0.09); */
@@ -915,8 +915,8 @@ time, mark, audio, video {
   }
 
   .github-stack:hover {
-    opacity: 0.16;
-    background-color: white;
+    /* opacity: 0.16;
+    background-color: white; */
   }
 
 }
@@ -1114,7 +1114,7 @@ time, mark, audio, video {
     display: inline-flex;
     padding: 10px;
     width: 25%;
-    height: 170px;
+    height: 155px;
     box-shadow: 0 1px 1px 0 rgba(60,64,67,.08), 0 1px 3px 1px rgba(60,64,67,.16);
     position: relative;
     left: 5%;
@@ -1135,18 +1135,58 @@ time, mark, audio, video {
     flex-direction: column;
   }
 
-  /* .github-stack-tablet-card {
+  .github-stack-tablet-card {
     margin: 15px 14px;
+    display: inline-flex;
     padding: 10px;
     width: 25%;
-    height: 170px;
+    height: 155px;
     box-shadow: 0 1px 1px 0 rgba(60,64,67,.08), 0 1px 3px 1px rgba(60,64,67,.16);
     position: relative;
     left: 5%;
-  } */
+  }
 
   .splash-commission-h1 {
     margin-left: 7%;
     margin-right: 12%;
+  }
+
+  .github-h1-item-stack-tab {
+    margin-left: 7%;
+    margin-right: 12%;
+  }
+
+  .github-flexbox-tab {
+    display: relative;
+  }
+
+  .github-stack-tablet-card {
+    background-color: rgb(225, 225, 225, 0.09);
+    border-radius: 4px;
+  }
+
+  .github-stack-tablet-card:hover {
+    background-color: rgb(225, 225, 225, 0.21);
+  }
+
+  .github-h1 {
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-size: 24px;
+    margin-top: 10px;
+    margin-left: 12px
+  }
+
+  .github-logo {
+    Margin-top: -15px;
+    Margin-left: 55%;
+  }
+
+  .splash-portfolio-section {
+    height: 365px;
+  }
+
+  .github-span-container {
+    width: 100%;
   }
 }

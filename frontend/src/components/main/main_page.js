@@ -91,7 +91,7 @@ class MainPage extends React.Component {
         </section>
         <section className="splash-portfolio-section">
           <h1 className="github-h1-item-stack-tab">Github Accounts</h1>
-          <div className="github-flexbox-tab">
+          {/* <div className="github-flexbox-tab"> */}
           <div className="stack-item github-stack" id="hide-me">
             <span className="github-span-container">
             <h1 className="github-h1 github-header">Github Accounts</h1>
@@ -123,7 +123,7 @@ class MainPage extends React.Component {
               </span>
             </div>
           </a>
-          </div>
+          {/* </div> */}
         </section>
       </div>
     );
