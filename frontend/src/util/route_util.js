@@ -9,7 +9,7 @@ const Auth = ({ component: Component, path, loggedIn, exact }) => (
       <Component {...props} />
     ) : (
         // Redirect to user profile page if the user is authenticated
-        <Redirect to="/users/:userId" />
+        <Redirect to="/user_profile" />
       )
   )} />
 );
