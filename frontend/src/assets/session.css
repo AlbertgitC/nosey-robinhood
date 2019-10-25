@@ -1102,4 +1102,40 @@ time, mark, audio, video {
   }
 
   /* Desktop Splash */
+
+  .stack-item {
+   margin: 15px 14px;
+    display: inline-flex;
+    padding: 10px;
+    width: 25%;
+    height: 170px;
+    box-shadow: 0 1px 1px 0 rgba(60,64,67,.08), 0 1px 3px 1px rgba(60,64,67,.16);
+    position: relative;
+    left: 5%;
+}
+
+  .stack-item:hover {
+    box-shadow: 0 1px 3px 1px rgba(60,64,67,.2), 0 2px 8px 4px rgba(60,64,67,.1);;
+  }
+
+  .stack-item:hover {
+    background-color: #f1f1f1;
+    opacity: 16%;
+    transition: 0.5s ease;
+  }
+
+  .stack-item-column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* .github-stack-tablet-card {
+    margin: 15px 14px;
+    padding: 10px;
+    width: 25%;
+    height: 170px;
+    box-shadow: 0 1px 1px 0 rgba(60,64,67,.08), 0 1px 3px 1px rgba(60,64,67,.16);
+    position: relative;
+    left: 5%;
+  } */
 }
