@@ -1144,4 +1144,9 @@ time, mark, audio, video {
     position: relative;
     left: 5%;
   } */
+
+  .splash-commission-h1 {
+    margin-left: 7%;
+    margin-right: 12%;
+  }
 }
