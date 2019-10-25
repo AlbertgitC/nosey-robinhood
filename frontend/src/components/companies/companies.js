@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { fetchCompanyDaily, fetchCompanyBatchQuote } from '../../actions/company_actions';
 import CanvasJSReact from '../../assets/canvasjs.react';
 const CanvasJS = CanvasJSReact.CanvasJS;
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
@@ -11,18 +12,8 @@ class Companies extends React.Component {
     this.state = { company: undefined, dataPoints: [] }
   }
 
-  fetchCompanyDaily(tag) {
-    return axios.get("https://www.alphavantage.co/query",
-      { params: {
-        function: 'TIME_SERIES_DAILY',
-        symbol: tag,
-        apikey: alphaVantageKey
-      } }
-    )
-  }
-
   componentDidMount() {
-    this.fetchCompanyDaily(this.props.tag).then(
+    fetchCompanyDaily(this.props.tag).then(
       res => {        
         this.setState({ company: Object.entries(res.data["Time Series (Daily)"]) });
         for (let i = 0; i < 30; i++) {
