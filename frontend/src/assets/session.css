@@ -26,12 +26,17 @@ time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;
+  vertical-align: baseline;
+  text-decoration: none;
 }
 
 /* Mobile */
 
 @media only screen and (max-width: 600px) {
+
+  .github-h1-item-stack-tab {
+    display: none;
+  }
 
   /* Login */
 
@@ -416,6 +421,7 @@ time, mark, audio, video {
     margin: 45px auto;
     font-size: 44px;
   }
+
 }
 
 /* Tablet */
@@ -680,6 +686,23 @@ time, mark, audio, video {
 
   /* Tablet Splash */
 
+  #hide-me {
+    display: none;
+  }
+
+  .github-h1-item-stack-tab {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Lato', sans-serif;
+    margin: 25px;
+    margin-left: 3%;
+    margin-right: 3%;
+    border-bottom: 1px solid rgba(255, 255, 255);
+    padding-bottom: 18px;
+    color: white;
+    padding-top: 40px;
+  }
+
   .splash-nav-bar {
     background-color: rgb(255, 255, 255);
     height: 60px;
@@ -871,6 +894,29 @@ time, mark, audio, video {
 
   .splash-portfolio-section {
     background-color: black;
+  }
+
+  .github-stack-tablet-card {
+    height: 200px;
+    background-color: white;
+    width: 200px;
+    opacity: 0.09;
+    border-radius: 6px;
+    /* box-shadow: 1px 1px 1px 1px white; */
+    margin: 20px 10px;
+    /* background-color: rgb(255,255,255,0.09); */
+  }
+
+  .github-flexbox-tab {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0px 86px;
+    flex-wrap: wrap;
+  }
+
+  .github-stack:hover {
+    opacity: 0.16;
+    background-color: white;
   }
 
 }

@@ -90,13 +90,15 @@ class MainPage extends React.Component {
           </div>
         </section>
         <section className="splash-portfolio-section">
-          <div className="stack-item github-stack">
+          <h1 className="github-h1-item-stack-tab">Github Accounts</h1>
+          <div className="github-flexbox-tab">
+          <div className="stack-item github-stack" id="hide-me">
             <span className="github-span-container">
             <h1 className="github-h1 github-header">Github Accounts</h1>
             </span>
           </div>
           <a className="link-out-link-out" target="_blank" href="https://github.com/ZacharyCWilliams">
-            <div className="stack-item github-stack">
+            <div className="stack-item github-stack github-stack-tablet-card">
               <span className="github-span-container">
                 <h1 className="github-h1">Zach Williams</h1>
                 <a className="test">
@@ -106,7 +108,7 @@ class MainPage extends React.Component {
             </div>
           </a>
           <a className="link-out-link-out" target="_blank" href="https://github.com/AlbertgitC">
-            <div className="stack-item github-stack">
+            <div className="stack-item github-stack github-stack-tablet-card">
               <span className="github-span-container">
                 <h1 className="github-h1">Albert Cheng</h1>
                 <img className="github-logo" src={GithubLogo}></img>
@@ -114,13 +116,14 @@ class MainPage extends React.Component {
             </div>
           </a>
           <a className="link-out-link-out" target="_blank" href="https://github.com/ZacharyCWilliams">
-            <div className="stack-item github-stack">
+            <div className="stack-item github-stack github-stack-tablet-card">
               <span className="github-span-container">
                 <h1 className="github-h1">Jasim Atiyeh</h1>
                 <img className="github-logo" src={GithubLogo}></img>
               </span>
             </div>
           </a>
+          </div>
         </section>
       </div>
     );
