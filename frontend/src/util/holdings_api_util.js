@@ -1,20 +1,20 @@
-import axious from 'axios';
+import axios from 'axios';
 
 export const fetchAllHoldings = user => (
-  axious.get(`/api/purchase_records/user/${user.id}`)
+  axios.get(`/api/purchase_records/user/${user.id}`)
 );
 
 export const fetchCompanyHolding = companyTicker => (
-  axious.get(`/api/purchase_records/company/${companyTicker}`)
+  axios.get(`/api/purchase_records/company/${companyTicker}`)
 );
 
 export const createPurchaseRecord = (companyTicker, purchaseOrder) => (
-  axious.post(
+  axios.post(
     `/api/purchase_records/company/${companyTicker}/purchase`,
     purchaseOrder
   )
 );
 
 export const updatePurchaseRecord = purchaseOrder => (
-  axious.patch('/api/purchase_records/sale', purchaseOrder)
+  axios.patch('/api/purchase_records/sale', purchaseOrder)
 );

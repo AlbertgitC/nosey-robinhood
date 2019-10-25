@@ -61,7 +61,6 @@ router.post("/login", (req, res) => {
   const password = req.body.password;
 
   User.findOne({ email }).then(user => {
-    debugger;
     if (!user) {
       errors.email = "This email does not exist";
       return res.status(400).json(errors);
@@ -71,8 +70,7 @@ router.post("/login", (req, res) => {
       if (isMatch) {
         const payload = {
           id: user.id,
-          email: user.email,
-          funds: user.funds
+          email: user.email
         };
 
         jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
@@ -92,9 +90,36 @@ router.post("/login", (req, res) => {
 router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
   res.json({ 
     id: req.user.id,
-    email: req.user.email,
-    funds: req.user.funds
+    email: req.user.email
   });
 });
+
+router.post('/purchase',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => (
+    User.findOneAndUpdate(
+      { _id: req.user.id },
+      { $inc: { funds: -(req.body.funds) } })
+      .then(response => res.json({
+        response
+      }))
+      .catch(err => res.status(404).json({
+        nofundsfound: "No funds found for this user"
+      }))
+  ));
+
+router.post('/sale',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => (
+    User.findOneAndUpdate(
+      { user_id: req.user.id },
+      { $inc: { funds: req.body.funds } })
+      .then(response => res.json({
+        [response.user_id]: response
+      }))
+      .catch(err => res.status(404).json({
+        nofundsfound: "No funds found for this user"
+      }))
+  ));
 
 module.exports = router;

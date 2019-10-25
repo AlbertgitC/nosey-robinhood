@@ -22,7 +22,7 @@ class CompanyShow extends React.Component {
 
     if (this.props.companyHoldings && this.props.company) {
       companyHoldings = this.props.companyHoldings;
-      price = this.props.company[0].High;
+      price = this.props.company[0].Close;
     }
 
     return (
