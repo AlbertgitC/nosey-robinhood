@@ -1,23 +1,35 @@
 import React from 'react';
 import CompanySaleItem from './company_sale_item';
+import { fetchCompanyDaily } from "../../actions/company_actions";
 
 class CompanyPurchase extends React.Component {
 
-  // total price needs to be something set to state
-
   constructor(props) {
     super(props);
-
     this.state = {
       shares: 0,
-      purchase_price: this.props.company,
-      totalPrice: (this.state.purchase_price * this.state.shares)
+      price: 0,
+      totalPrice: 0
     };
     this.handlePurchase = this.handlePurchase.bind(this);
   }
 
+  componentDidMount() {
+    fetchCompanyDaily(this.props.companyTicker)
+      .then(company => {
+        this.setState({
+          price: Object.entries(company.data["Time Series (Daily)"])[0][1]["4. close"]
+        });
+      });
+  }
+
   update(field) {
-    return e => this.setState({ [field]: e.currentTarget.value });
+    return e => {
+      this.setState({
+        totalPrice: this.state.price * e.currentTarget.value
+      });
+      this.setState({ [field]: e.currentTarget.value });
+    }
   }
 
   handlePurchase(e) {
@@ -25,16 +37,16 @@ class CompanyPurchase extends React.Component {
     let companyTicker = this.props.companyTicker;
     this.props.createPurchaseRecord(companyTicker, this.state)
       .then(() => this.props.fetchCompanyHolding(this.props.companyTicker))
-      .then(totalPrice => this.props.createPurchase(totalPrice));
+      .then(() => (
+        this.props.createPurchase(this.state)
+      ));
   }
 
   render() {
-    debugger;
     let totalShares = 0;
     let sellShares;
 
     if (this.props.companyHoldings) {
-      // this.props.companyHoldings.map(purchase => totalShares += purchase.shares);
 
       sellShares = this.props.companyHoldings.map((purchase, idx) => {
         totalShares += purchase.shares;
@@ -44,7 +56,7 @@ class CompanyPurchase extends React.Component {
           year: 'numeric'
         });
 
-        if (purchase.shares > 0) {
+        if (purchase.shares > 0 && this.state.price > 0) {
           return (
             <CompanySaleItem
               key={idx}
@@ -53,7 +65,9 @@ class CompanyPurchase extends React.Component {
               purchaseId={purchase._id}
               companyTicker={this.props.companyTicker}
               updatePurchaseRecord={this.props.updatePurchaseRecord}
-              fetchCompanyHolding={this.props.fetchCompanyHolding} />
+              fetchCompanyHolding={this.props.fetchCompanyHolding}
+              createSale={this.props.createSale}
+              price={this.state.price} />
           )
         }
       });

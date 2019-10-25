@@ -6,7 +6,7 @@ import { fetchCompanyBatchQuote, fetchCompanyDaily } from '../../actions/company
 class CompanyShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { company: undefined }
+    this.state = { company: undefined };
   }
 
   componentDidMount() {
@@ -17,27 +17,7 @@ class CompanyShow extends React.Component {
     );
   }
 
-  // componentDidUpdate() {
-  //   let companyTicker = this.props.companyTicker;
-  //   this.props.fetchCompanyHolding(companyTicker);
-  //   this.props.fetchCompanyDaily(companyTicker);
-  // }
-
   render() {
-    // let companyHoldings;
-    // let price;
-
-<<<<<<< HEAD
-    // if (this.props.companyHoldings && this.props.company) {
-    //   companyHoldings = this.props.companyHoldings;
-    //   price = this.props.company[0].Close;
-    // }
-=======
-    if (this.props.companyHoldings && this.state.company) {
-      companyHoldings = this.props.companyHoldings;
-      price = this.state.company[0][1]["4. close"];
-    }
->>>>>>> master
 
     return (
       <div>

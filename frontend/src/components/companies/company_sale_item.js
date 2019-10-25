@@ -7,21 +7,30 @@ class CompanySaleItem extends React.Component {
       shares: 0,
       currentShares: this.props.shares,
       purchaseId: this.props.purchaseId,
-      companyTicker: this.props.companyTicker
+      companyTicker: this.props.companyTicker,
+      price: this.props.price,
+      totalSale: 0
     };
     this.handleSale = this.handleSale.bind(this);
   }
 
   update(field) {
-    return e => this.setState({
-      [field]: parseInt(e.currentTarget.value)
-    });
+    return e => {
+      this.setState({
+        totalSale: this.state.price * e.currentTarget.value
+      });
+      this.setState({
+        [field]: e.currentTarget.value
+      });
+    };
   }
 
   handleSale(e) {
+    debugger;
     e.preventDefault();
     this.props.updatePurchaseRecord(this.state)
-      .then(() => this.props.fetchCompanyHolding(this.props.companyTicker));
+      .then(() => this.props.fetchCompanyHolding(this.props.companyTicker))
+      .then(() => this.props.createSale(this.state));
   }
 
   render() {
@@ -44,6 +53,9 @@ class CompanySaleItem extends React.Component {
               type='number'
               onChange={this.update('shares')}
               />
+          </div>
+          <div className='sell-form-total-sale'>
+            Sale: {this.state.totalSale}
           </div>
           <input type='submit' value='Sell Shares' />
         </form>

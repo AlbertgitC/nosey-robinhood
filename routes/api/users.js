@@ -8,8 +8,6 @@ const passport = require('passport');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 
-// router.get("/test", (req, res) => res.json({ msg: "This is the users route"}));
-
 router.post("/register", (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
 
@@ -97,30 +95,31 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
 
 router.post('/purchase',
   passport.authenticate('jwt', { session: false }),
-  (req, res) => (
+  (req, res) => {
     User.findOneAndUpdate(
       { _id: req.user.id },
-      { $inc: { funds: -(req.body.funds) } })
+      { $inc: { funds: -(req.body.totalPrice) } })
       .then(response => res.json({
         response
       }))
       .catch(err => res.status(404).json({
         nofundsfound: "No funds found for this user"
-      }))
-  ));
+      }));
+  });
 
 router.post('/sale',
   passport.authenticate('jwt', { session: false }),
-  (req, res) => (
+  (req, res) => {
+    debugger;
     User.findOneAndUpdate(
-      { user_id: req.user.id },
-      { $inc: { funds: req.body.funds } })
+      { _id: req.user.id },
+      { $inc: { funds: req.body.totalSale } })
       .then(response => res.json({
-        [response.user_id]: response
+        response
       }))
       .catch(err => res.status(404).json({
         nofundsfound: "No funds found for this user"
-      }))
-  ));
+      }));
+  });
 
 module.exports = router;
