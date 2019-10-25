@@ -20,19 +20,23 @@ class UserProfile extends React.Component {
     const stockLis = list.map(
       (tag, i) => {
         return (
-          <li></li>
+          <li key={i}>
+            <CompaniesContainer tag={tag} />
+          </li>
         );
       }
     );
+    return stockLis;
   }
 
   render() {
-    const tag = "NVDA";
-    const classname = "stock-graph";
+    
     return (
       <div>
         <h1>Investing $30,000.00</h1> {/* change this! */}
-        <CompaniesContainer tag={tag} classname={classname}/>
+        <ul>
+          {this.stockList(this.state.techList)}
+        </ul>
         <button onClick={this.logoutUser}>Logout</button>
       </div>
     );

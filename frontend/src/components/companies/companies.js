@@ -23,7 +23,7 @@ class Companies extends React.Component {
 
   componentDidMount() {
     this.fetchCompanyDaily(this.props.tag).then(
-      res => {
+      res => {        
         this.setState({ company: Object.entries(res.data["Time Series (Daily)"]) });
         for (let i = 0; i < 30; i++) {
           this.setState({
@@ -75,7 +75,7 @@ class Companies extends React.Component {
     } else {
       
       return (
-        <div className={this.props.classname}>
+        <div className="stock-graph">
           <h2>{this.props.tag}</h2>
           <h2>${parseFloat(this.state.company[0][1]["4. close"]).toFixed(2)}</h2>
           <CanvasJSChart options={options} />
