@@ -8,6 +8,7 @@ import UserProfileContainer from './user_profile/user_profile_container';
 import CompanyShowContainer from '../components/companies/company_show_container';
 
 const App = () => (
+
   <div className="main-div">
     {/* Nav-bar here */}
     <Switch>

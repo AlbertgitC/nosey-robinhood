@@ -22,8 +22,6 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => ({
   fetchCompanyHolding:
     companyTicker => dispatch(fetchCompanyHolding(companyTicker)),
-  fetchCompanyDaily:
-    companyTicker => dispatch(fetchCompanyDaily(companyTicker)),
   createPurchaseRecord:
     (companyTicker, purchaseOrder) => (
       dispatch(createPurchaseRecord(companyTicker, purchaseOrder))

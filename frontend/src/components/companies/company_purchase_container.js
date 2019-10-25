@@ -11,7 +11,6 @@ import {
 import CompanyPurchase from './company_purchase';
 
 const mapStateToProps = (state, ownProps) => {
-  debugger;
   let companyTicker = ownProps.company_ticker;
   let company = state.companies ? state.companies[0] : { High: 0 };
   let companyHoldings = state.holdings[companyTicker];

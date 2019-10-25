@@ -1,24 +1,37 @@
-import { AlphaVantageAPI } from 'alpha-vantage-cli';
+import axios from 'axios';
 const alphaVantageKey = require("../keys").alphaVantageKey;
-const alphaVantageAPI = new AlphaVantageAPI(alphaVantageKey, 'compact', true);
-
-export const RECEIVE_COMPANY = "RECEIVE_COMPANY";
-
-export const receiveCompany = (company) => ({
-  type: RECEIVE_COMPANY,
-  company
-});
+const iexKey = require("../keys").iexKey;
 
 
-export const fetchCompanyDaily = (tag) => dispatch => {
-  return alphaVantageAPI.getDailyData(tag).then(
-    (company) => dispatch(receiveCompany(company))
-  );
+// export const RECEIVE_COMPANY = "RECEIVE_COMPANY";
+
+// export const receiveCompany = (company, tag) => ({
+//   type: RECEIVE_COMPANY,
+//   company
+// });
+
+export const fetchCompanyDaily = (tag) => {
+  return axios.get("https://www.alphavantage.co/query",
+    {
+      params: {
+        function: 'TIME_SERIES_DAILY',
+        symbol: tag,
+        apikey: alphaVantageKey
+      }
+    }
+  )
 }
 
-export const fetchCompanyIntraday = (tag) => dispatch => {
-  return alphaVantageAPI.getIntradayData(tag, '15min').then(
-    (company) => dispatch(receiveCompany(company))
-  );
+export const fetchCompanyBatchQuote = (tags) => {
+  return axios({
+    transformRequest: [(data, headers) => { delete headers.common.Authorization; return data }],
+    method: 'get',
+    url: "https://cloud.iexapis.com/stable/stock/market/batch",
+    params: {
+      symbols: tags,
+      types: "quote,chart",
+      token: iexKey
+    }
+  })
 }
 

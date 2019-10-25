@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
-import { fetchCompanyIntraday, fetchCompanyDaily } from '../../actions/company_actions';
 import UserProfile from './user_profile';
 
 const mapStateToProps = state => ({
@@ -9,9 +8,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    logout: () => dispatch(logout()),
-    fetchCompanyIntraday: tag => dispatch(fetchCompanyIntraday(tag)),
-    fetchCompanyDaily: tag => dispatch(fetchCompanyDaily(tag))
+    logout: () => dispatch(logout())
   }
 }
 
