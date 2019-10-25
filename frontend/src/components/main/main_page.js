@@ -64,7 +64,7 @@ class MainPage extends React.Component {
             </span>
             <img className="node-js-logo-stack logo-splash-item" src={NodeJSLogo} alt="react logo"></img>
           </div>
-          <div className="stack-item">
+          <div className="stack-item mongo-db-card-splash-item">
             <span className="left-column-stack">
             <h3 className="stack-item-h3">MongoDB</h3>
               <p className="stack-item-p">MongoDB is a general purpose, document-based, distributed database built for modern application developers and for the cloud era.</p>

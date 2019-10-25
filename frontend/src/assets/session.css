@@ -783,11 +783,23 @@ time, mark, audio, video {
   }
 
   .stack-item {
-    border-top: 1px solid rgba(217, 219, 224, 0.5);
-    margin: 0px 16px;
-    display: flex;
-    padding-right: 120px;
-    width: 50%;
+    margin: 10px;
+    display: inline-flex;
+    padding: 10px;
+    width: 41%;
+    height: 150px;
+    margin-left: 3%;
+    box-shadow: 0 1px 1px 0 rgba(60,64,67,.08), 0 1px 3px 1px rgba(60,64,67,.16);
+  }
+
+  .stack-item:hover {
+    box-shadow: 0 1px 3px 1px rgba(60,64,67,.2), 0 2px 8px 4px rgba(60,64,67,.1);;
+  }
+
+  .stack-item:hover {
+    background-color: #f1f1f1;
+    opacity: 16%;
+    transition: 0.5s ease;
   }
 
   .stack-item-column {
@@ -797,8 +809,68 @@ time, mark, audio, video {
 
   .splash-commission-section {
     background-color: rgb(255, 255, 255);
-    display: flex;
+    /* display: flex; */
 
+  }
+
+  .logo-splash-item {
+    /* height: 100px;
+    position: absolute;
+    right: 5%; */
+    display: none;
+  }
+
+  .stack-item-h3 {
+    color: rgb(45, 49, 56);
+    font-weight: 500;
+    font-size: 26px;
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 8px;
+    margin-top: 20px;
+  }
+
+  .stack-item-p {
+    color: rgba(143, 149, 163, 0.9);
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .stack-item-type {
+    color: #21ce99;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .splash-commission-h1 {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Lato', sans-serif;
+    margin: 25px;
+    margin-left: 5%;
+    margin-right: 9%;
+    border-bottom: 1px solid rgba(60,64,67,.08);
+    padding-bottom: 18px;
+  }
+
+  .mongo-db-card-splash-item {
+    width: 89%;
+  }
+
+  #github-accounts-h1-splash {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Lato', sans-serif;
+    margin: 25px;
+    margin-left: 5%;
+    margin-right: 9%;
+    border-bottom: 1px solid rgba(60,64,67,.08);
+    padding-bottom: 18px;
+  }
+
+  .splash-portfolio-section {
+    background-color: black;
   }
 
 }
