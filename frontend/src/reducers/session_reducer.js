@@ -31,12 +31,12 @@ export default function (state = initialState, action) {
         ...state,
         isSignedIn: true
       };
-    case RECEIVE_USER_ORDER:
-      return {
-        ...state,
-        isAuthenticated: !!action.currentUser,
-        user: action.order
-      };
+    // case RECEIVE_USER_ORDER:
+    //   return {
+    //     ...state,
+    //     isAuthenticated: !!action.currentUser,
+    //     user: action.order
+    //   };
     default:
       return state;
   }

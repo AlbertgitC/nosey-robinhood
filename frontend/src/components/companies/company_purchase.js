@@ -35,11 +35,16 @@ class CompanyPurchase extends React.Component {
   handlePurchase(e) {
     e.preventDefault();
     let companyTicker = this.props.companyTicker;
-    this.props.createPurchaseRecord(companyTicker, this.state)
-      .then(() => this.props.fetchCompanyHolding(this.props.companyTicker))
-      .then(() => (
-        this.props.createPurchase(this.state)
-      ));
+    let userFunds = this.props.userFunds;
+    if (userFunds > this.state.totalPrice) {
+      this.props.createPurchaseRecord(companyTicker, this.state)
+        .then(() => this.props.fetchCompanyHolding(this.props.companyTicker))
+        .then(() => (
+          this.props.createPurchase(this.state)
+        ));
+    } else {
+      this.props.purchaseError("Insufficient Funds");
+    }
   }
 
   render() {

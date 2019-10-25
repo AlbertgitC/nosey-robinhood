@@ -26,7 +26,6 @@ class CompanySaleItem extends React.Component {
   }
 
   handleSale(e) {
-    debugger;
     e.preventDefault();
     this.props.updatePurchaseRecord(this.state)
       .then(() => this.props.fetchCompanyHolding(this.props.companyTicker))

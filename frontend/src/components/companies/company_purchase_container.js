@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import {
   fetchCompanyHolding,
   createPurchaseRecord,
-  updatePurchaseRecord
+  updatePurchaseRecord,
+  purchaseError
 } from '../../actions/holdings_actions';
 import {
   createPurchase,
@@ -14,11 +15,13 @@ const mapStateToProps = (state, ownProps) => {
   let companyTicker = ownProps.companyTicker;
   let company = state.companies ? state.companies[0] : { High: 0 };
   let companyHoldings = state.holdings[companyTicker];
+  let userFunds = state.user.funds;
 
   return {
     companyTicker,
     company,
     companyHoldings,
+    userFunds
   };
 };
 
@@ -31,10 +34,9 @@ const mapDispatchToProps = dispatch => ({
     ),
   updatePurchaseRecord:
     purchaseOrder => dispatch(updatePurchaseRecord(purchaseOrder)),
-  createPurchase:
-    purchaseOrder => dispatch(createPurchase(purchaseOrder)),
-  createSale:
-    SaleOrder => dispatch(createSale(SaleOrder)),
+  createPurchase: purchaseOrder => dispatch(createPurchase(purchaseOrder)),
+  createSale: SaleOrder => dispatch(createSale(SaleOrder)),
+  purchaseError: errorMessage => dispatch(purchaseError(errorMessage))
 });
 
 export default connect(

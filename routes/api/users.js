@@ -110,7 +110,6 @@ router.post('/purchase',
 router.post('/sale',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    debugger;
     User.findOneAndUpdate(
       { _id: req.user.id },
       { $inc: { funds: req.body.totalSale } })
