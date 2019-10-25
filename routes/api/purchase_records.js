@@ -45,9 +45,30 @@ router.post('/company/:company_ticker/purchase',
       purchase_price: req.body.purchase_price
     });
     newHolding.save().then(response => res.json({
-      [response.company_ticker]: response
+      [response.company_ticker]: [response]
     }));
   }
+);
+
+router.patch('/sale',
+  passport.authenticate('jwt', { session: false }),
+  [check('shares').isNumeric()],
+  (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(422).json({ errors: errors.array() });
+    }
+
+    PurchaseRecord.findOneAndUpdate(
+      { _id: req.body.purchaseId },
+      { $inc: { shares: -(req.body.shares) } })
+        .then(response => {
+          res.json({
+              [response.company_ticker]: [response]
+            });
+          });
+  }
+
 );
 
 module.exports = router;

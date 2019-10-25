@@ -8,8 +8,6 @@ const passport = require('passport');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 
-// router.get("/test", (req, res) => res.json({ msg: "This is the users route"}));
-
 router.post("/register", (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
 
@@ -68,7 +66,11 @@ router.post("/login", (req, res) => {
 
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
-        const payload = { id: user.id, email: user.email };
+        const payload = {
+          id: user.id,
+          email: user.email,
+          funds: user.funds
+        };
 
         jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
           res.json({
@@ -91,6 +93,34 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
   });
 });
 
+router.post('/purchase',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    User.findOneAndUpdate(
+      { _id: req.user.id },
+      { $inc: { funds: -(req.body.totalPrice) } })
+      .then(response => res.json({
+        response
+      }))
+      .catch(err => res.status(404).json({
+        nofundsfound: "No funds found for this user"
+      }));
+  });
+
+router.post('/sale',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    User.findOneAndUpdate(
+      { _id: req.user.id },
+      { $inc: { funds: req.body.totalSale } })
+      .then(response => res.json({
+        response
+      }))
+      .catch(err => res.status(404).json({
+        nofundsfound: "No funds found for this user"
+      }));
+  });
+  
 router.get('/user', 
   passport.authenticate('jwt', { session: false }), 
   (req, res) => {

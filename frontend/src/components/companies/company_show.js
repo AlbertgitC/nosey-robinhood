@@ -1,12 +1,12 @@
 import React from 'react';
 import CompaniesContainer from './companies_container';
-import CompanyPurchase from './company_purchase';
+import CompanyPurchaseContainer from './company_purchase_container';
 import { fetchCompanyBatchQuote, fetchCompanyDaily } from '../../actions/company_actions';
 
 class CompanyShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { company: undefined }
+    this.state = { company: undefined };
   }
 
   componentDidMount() {
@@ -17,20 +17,7 @@ class CompanyShow extends React.Component {
     );
   }
 
-  // componentDidUpdate() {
-  //   let companyTicker = this.props.companyTicker;
-  //   this.props.fetchCompanyHolding(companyTicker);
-  //   this.props.fetchCompanyDaily(companyTicker);
-  // }
-
   render() {
-    let companyHoldings;
-    let price;
-
-    if (this.props.companyHoldings && this.state.company) {
-      companyHoldings = this.props.companyHoldings;
-      price = this.state.company[0][1]["4. close"];
-    }
 
     return (
       <div>
@@ -39,11 +26,7 @@ class CompanyShow extends React.Component {
             <CompaniesContainer tag={this.props.companyTicker}/>
           </div>
           <div className='company-purchase'>
-            <CompanyPurchase
-              companyTicker={this.props.companyTicker}
-              companyHoldings={companyHoldings}
-              price={price}
-              createPurchaseRecord={this.props.createPurchaseRecord} />
+            <CompanyPurchaseContainer companyTicker={this.props.companyTicker} />
           </div>
         </div>
         <div className='company-info'>
