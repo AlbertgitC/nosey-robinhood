@@ -35,3 +35,15 @@ export const fetchCompanyBatchQuote = (tags) => {
   })
 }
 
+export const fetchCompanySearch = searchRequest => (
+  axios.get("https://www.alphavantage.co/query",
+  {
+    params: {
+      function: 'SYMBOL_SEARCH',
+      keywords: searchRequest,
+      apikey: alphaVantageKey,
+      datatype: 'json'
+    }
+  })
+);
+

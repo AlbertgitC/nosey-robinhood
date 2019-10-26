@@ -5,7 +5,7 @@ class CompanySaleItem extends React.Component {
     super(props);
     this.state = {
       shares: 0,
-      currentShares: this.props.shares,
+      currentShares: Number(this.props.shares),
       purchaseId: this.props.purchaseId,
       companyTicker: this.props.companyTicker,
       price: this.props.price,
@@ -20,16 +20,20 @@ class CompanySaleItem extends React.Component {
         totalSale: this.state.price * e.currentTarget.value
       });
       this.setState({
-        [field]: e.currentTarget.value
+        [field]: Number(e.currentTarget.value)
       });
     };
   }
 
   handleSale(e) {
     e.preventDefault();
-    this.props.updatePurchaseRecord(this.state)
-      .then(() => this.props.fetchCompanyHolding(this.props.companyTicker))
-      .then(() => this.props.createSale(this.state));
+    if (this.state.currentShares >= this.state.shares) {
+      this.props.updatePurchaseRecord(this.state)
+        .then(() => this.props.fetchCompanyHolding(this.props.companyTicker))
+        .then(() => this.props.createSale(this.state));
+    } else {
+      this.props.holdingError("Not enough shares");
+    }
   }
 
   render() {

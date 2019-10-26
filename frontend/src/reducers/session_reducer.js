@@ -4,10 +4,6 @@ import {
   RECEIVE_USER_SIGN_IN
 } from '../actions/session_actions';
 
-import {
-  RECEIVE_USER_ORDER
-} from "../actions/users_actions";
-
 const initialState = {
   isAuthenticated: false,
   user: {}
@@ -31,12 +27,6 @@ export default function (state = initialState, action) {
         ...state,
         isSignedIn: true
       };
-    // case RECEIVE_USER_ORDER:
-    //   return {
-    //     ...state,
-    //     isAuthenticated: !!action.currentUser,
-    //     user: action.order
-    //   };
     default:
       return state;
   }

@@ -3,7 +3,7 @@ import {
   fetchCompanyHolding,
   createPurchaseRecord,
   updatePurchaseRecord,
-  purchaseError
+  holdingError
 } from '../../actions/holdings_actions';
 import {
   createPurchase,
@@ -36,7 +36,7 @@ const mapDispatchToProps = dispatch => ({
     purchaseOrder => dispatch(updatePurchaseRecord(purchaseOrder)),
   createPurchase: purchaseOrder => dispatch(createPurchase(purchaseOrder)),
   createSale: SaleOrder => dispatch(createSale(SaleOrder)),
-  purchaseError: errorMessage => dispatch(purchaseError(errorMessage))
+  holdingError: errorMessage => dispatch(holdingError(errorMessage)),
 });
 
 export default connect(

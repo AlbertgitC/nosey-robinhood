@@ -4,7 +4,6 @@ import {
   createPurchaseRecord,
   updatePurchaseRecord
 } from '../../actions/holdings_actions';
-import { fetchCompanyDaily } from '../../actions/company_actions';
 import CompanyShow from './company_show';
 
 const mapStateToProps = (state, ownProps) => {
