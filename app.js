@@ -16,7 +16,8 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-mongoose.connect(db, { useNewUrlParser: true })
+mongoose.connect(db, {
+  useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
   .then(() => console.log("Connected to mongoDB successfully!"))
   .catch((err) => console.log(err));
 

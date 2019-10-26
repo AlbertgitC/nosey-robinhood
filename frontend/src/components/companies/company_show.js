@@ -4,6 +4,8 @@ import CompanyPurchaseContainer from './company_purchase_container';
 import { fetchCompanyDaily } from '../../actions/company_actions';
 import CompanyNavbar from './company_navbar';
 import Show from '../../assets/company-show.css';
+import { fetchCompanyBatchQuote, fetchCompanyDaily } from '../../actions/company_actions';
+import WatchListContainer from '../watch_list/watch_list_container';
 
 class CompanyShow extends React.Component {
   constructor(props) {
@@ -45,14 +47,67 @@ class CompanyShow extends React.Component {
   }
 
   render() {
-
+  
     return (
-      <div>
+      <div className='company-show'>
         <CompanyNavbar />
-        <div className='company-show'>
-          <div className='company-graph-purchase'>
-            <div className='company-graph'>
-              <CompaniesContainer tag={this.props.companyTicker}/>
+        <div className='company-graph-purchase'>
+          <div className='company-graph'>
+            <CompaniesContainer tag={this.props.companyTicker}/>
+          </div>
+          <div className='purchase-sell-form-container'>
+            <div className='purchase-sell-form-tabs'>
+              <button
+                className={`purchase-sell-form-tab-button ${this.state.buyButton}`}
+                onClick={this.switchTab}>
+                  Buy
+              </button>
+              <button
+                className={`purchase-sell-form-tab-button ${this.state.sellButton}`}
+                onClick={this.switchTab}>
+                  Sell
+              </button>
+            </div>
+            <div className='company-purchase'>
+              <CompanyPurchaseContainer
+                companyTicker={this.props.companyTicker}
+                buyTab={this.state.buyTab}
+                sellTab={this.state.sellTab} />
+            </div>
+          </div>
+          <div>
+            <WatchListContainer tag={this.props.companyTicker}/>
+          </div>
+        </div>
+        <div className='company-info'>
+          <div className='company-info-description'>
+            <div className = 'company-info-description-title' >
+              About
+            </div>
+            <div className = 'company-info-description-about' >
+              Lorem ipsum dolor sit amet, fabulas offendit aliquando et eos.Vim no delenit
+              commune, aliquam pertinax suavitate no his.Ludus scripta repudiandae has eu, cu
+              sint meliore tractatos cum.Doctus atomorum usu in , mazim virtute necessitatibus ex
+              vim. His ut tota voluptatum, tota appetere ut sit.Eam ad legimus fierent electram,
+              cum ex malis soluta deterruisset, in has duis iriure abhorreant.
+            </div>
+          </div>
+          <div className='company-info-misc'>
+            <div className='company-info-misc-component'>
+              <div className={'company-info-misc-component-title'}>
+                CEO
+              </div>
+              <div className={'company-info-misc-component-description'}>
+                Jasim Atiyeh
+              </div>
+            </div>
+            <div className='company-info-misc-component'>
+              <div className={'company-info-misc-component-title'}>
+                Employees
+              </div>
+              <div className={'company-info-misc-component-description'}>
+                1
+              </div>
             </div>
             <div className='purchase-sell-form-container'>
               <div className='purchase-sell-form-tabs'>

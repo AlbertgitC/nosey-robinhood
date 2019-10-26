@@ -14,16 +14,18 @@ class Companies extends React.Component {
 
   componentDidMount() {
     fetchCompanyDaily(this.props.tag).then(
-      res => {        
-        this.setState({ company: Object.entries(res.data["Time Series (Daily)"]) });
-        for (let i = 0; i < 30; i++) {
-          this.setState({
-            dataPoints: this.state.dataPoints.concat([{
-              x: new Date(this.state.company[i][0]),
-              y: parseFloat(this.state.company[i][1]["4. close"])
-            }])
-          });
-        };
+      res => {
+        if (res) {
+          this.setState({ company: Object.entries(res.data["Time Series (Daily)"]) });
+          for (let i = 0; i < 30; i++) {
+            this.setState({
+              dataPoints: this.state.dataPoints.concat([{
+                x: new Date(this.state.company[i][0]),
+                y: parseFloat(this.state.company[i][1]["4. close"])
+              }])
+            });
+          };
+        }
       }
     );
   }

@@ -129,4 +129,26 @@ router.get('/user',
   }
 );
 
+router.patch('/add_watch_list',
+  (req, res) => {
+    
+    User.findOneAndUpdate(
+      { _id: req.body.id },
+      { $push: { watch_list: req.body.tag } },
+      { new: true }
+    ).then(user => res.json(user.watch_list));
+  }
+);
+
+router.patch('/remove_watch_list',
+  (req, res) => {
+    
+    User.findOneAndUpdate(
+      { _id: req.body.id },
+      { $pull: { watch_list: req.body.tag } },
+      { new: true }
+    ).then(user => res.json(user.watch_list));
+  }
+);
+
 module.exports = router;
