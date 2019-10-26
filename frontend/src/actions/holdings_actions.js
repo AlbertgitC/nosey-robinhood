@@ -1,9 +1,8 @@
 import * as HoldingsApiUtil from '../util/holdings_api_util';
-import { RECEIVE_USER_ORDER } from './users_actions';
 
 export const RECEIVE_ALL_HOLDINGS = 'RECEIVE_ALL_HOLDINGS';
 export const RECEIVE_COMPANY_HOLDING = 'RECEIVE_COMPANY_HOLDING';
-export const RECEIVE_PURCHASE_ERROR = 'RECEIVE_PURCHASE_ERROR';
+export const RECEIVE_HOLDING_ERROR = 'RECEIVE_HOLDING_ERROR';
 
 const receiveAllHoldings = holdings => ({
   type: RECEIVE_ALL_HOLDINGS,
@@ -15,8 +14,8 @@ const receiveCompanyHolding = companyHolding => ({
   companyHolding: companyHolding.data
 });
 
-const receivePurchaseError = errorMessage => ({
-  type: RECEIVE_PURCHASE_ERROR,
+const receiveHoldingError = errorMessage => ({
+  type: RECEIVE_HOLDING_ERROR,
   errorMessage
 });
 
@@ -40,6 +39,6 @@ export const updatePurchaseRecord = purchaseOrder => dispatch => (
     .then(companyHolding => dispatch(receiveCompanyHolding(companyHolding)))
 );
 
-export const purchaseError = errorMessage => dispatch => (
-  dispatch(receivePurchaseError(errorMessage))
+export const holdingError = errorMessage => dispatch => (
+  dispatch(receiveHoldingError(errorMessage))
 );

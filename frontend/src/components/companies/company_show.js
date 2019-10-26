@@ -1,7 +1,7 @@
 import React from 'react';
 import CompaniesContainer from './companies_container';
 import CompanyPurchaseContainer from './company_purchase_container';
-import { fetchCompanyBatchQuote, fetchCompanyDaily } from '../../actions/company_actions';
+import { fetchCompanyDaily } from '../../actions/company_actions';
 
 class CompanyShow extends React.Component {
   constructor(props) {

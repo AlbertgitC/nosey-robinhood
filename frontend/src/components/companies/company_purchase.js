@@ -1,6 +1,9 @@
 import React from 'react';
 import CompanySaleItem from './company_sale_item';
-import { fetchCompanyDaily } from "../../actions/company_actions";
+import {
+  fetchCompanyDaily
+} from "../../actions/company_actions";
+
 
 class CompanyPurchase extends React.Component {
 
@@ -43,7 +46,7 @@ class CompanyPurchase extends React.Component {
           this.props.createPurchase(this.state)
         ));
     } else {
-      this.props.purchaseError("Insufficient Funds");
+      this.props.holdingError("Insufficient Funds");
     }
   }
 
@@ -72,7 +75,8 @@ class CompanyPurchase extends React.Component {
               updatePurchaseRecord={this.props.updatePurchaseRecord}
               fetchCompanyHolding={this.props.fetchCompanyHolding}
               createSale={this.props.createSale}
-              price={this.state.price} />
+              price={this.state.price}
+              holdingError={this.props.holdingError} />
           )
         }
       });
