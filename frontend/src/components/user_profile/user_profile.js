@@ -2,6 +2,7 @@ import React from 'react';
 import CompaniesContainer from '../companies/companies_container';
 import { fetchCompanyBatchQuote, fetchCompanyDaily } from '../../actions/company_actions';
 import { Link } from 'react-router-dom';
+import xor from 'lodash/xor';
 import '../../assets/user_profile.css';
 
 
@@ -9,7 +10,14 @@ class UserProfile extends React.Component {
   constructor(props) {
     super(props);
     this.logoutUser = this.logoutUser.bind(this);
-    this.state = { watchListData: [], stockData: [], techData: [], graphData: null }
+    this.state = { 
+      totalInvest: 0,
+      noseyMSG: "", 
+      watchListData: [], 
+      stockData: [], 
+      techData: [], 
+      graphData: null 
+    }
     this.updateGraph = this.updateGraph.bind(this);
   }
 
@@ -30,6 +38,7 @@ class UserProfile extends React.Component {
         }
       }
     );
+
     this.props.fetchAllHoldings().then(
       () => {
         if (Object.getOwnPropertyNames(this.props.holdings).length > 0) {
@@ -46,12 +55,61 @@ class UserProfile extends React.Component {
         }
       }
     );
+
     // const topList = "VTI,VXUS,AMZN,GOOGL,FB";
     const techList = "GOOGL,NVDA,AMZN,AAPL,MSFT";
     fetchCompanyBatchQuote(techList).then(
       res => { this.setState({ techData: Object.entries(res.data) }); }
     );
     
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (xor(prevState.stockData, this.state.stockData).length !== 0) {
+      if (this.state.stockData.length !== 0) {
+        let totalStockValue = 0;
+        this.state.stockData.map(
+          stockHold => {
+            const totalShares = this.props.holdings[stockHold[0]].reduce(
+              (total, num) => { return total + num; }
+            );
+            totalStockValue += stockHold[1].quote.latestPrice * totalShares;
+          }
+        );
+        const totalInvest = totalStockValue + this.props.user.funds;
+        this.setState({ totalInvest: totalInvest }, () => {
+          if (this.state.totalInvest >= 30000 && this.state.totalInvest < 33000) {
+            this.setState({ noseyMSG: "Well go on, nothing's happening here." })
+          } else if (this.state.totalInvest >= 33000 && this.state.totalInvest < 45000) {
+            this.setState({ noseyMSG: "Time to put the downpay for your dream car!" })
+          } else if (this.state.totalInvest >= 45000) {
+            this.setState({ noseyMSG: "Congratulations! You're the next Warren Buffett!!!" })
+          } else if (this.state.totalInvest < 30000 && this.state.totalInvest >= 27000) {
+            this.setState({ noseyMSG: "Uh-oh, maybe it's just bad luck..." })
+          } else if (this.state.totalInvest < 27000 && this.state.totalInvest >= 15000) {
+            this.setState({ noseyMSG: "Hmm... time to stock up instant noodle!" })
+          } else if (this.state.totalInvest < 15000) {
+            this.setState({ noseyMSG: "Do yourself a favor, never invest in stock market... EVER!" })
+          }
+        });
+      } else {
+        this.setState({ totalInvest: this.props.user.funds }, () => {
+          if (this.state.totalInvest >= 30000 && this.state.totalInvest < 33000) {
+            this.setState({ noseyMSG: "Well go on, nothing's happening here." })
+          } else if (this.state.totalInvest >= 33000 && this.state.totalInvest < 45000) {
+            this.setState({ noseyMSG: "Time to put the downpay for your dream car!" })
+          } else if (this.state.totalInvest >= 45000) {
+            this.setState({ noseyMSG: "Congratulations! You're the next Warren Buffett!!!" })
+          } else if (this.state.totalInvest < 30000 && this.state.totalInvest >= 27000) {
+            this.setState({ noseyMSG: "Uh-oh, maybe it's just bad luck..." })
+          } else if (this.state.totalInvest < 27000 && this.state.totalInvest >= 15000) {
+            this.setState({ noseyMSG: "Hmm... time to stock up instant noodle!" })
+          } else if (this.state.totalInvest < 15000) {
+            this.setState({ noseyMSG: "Do yourself a favor, never invest in stock market... EVER!" })
+          }
+        });
+      }
+    }
   }
 
   logoutUser(e) {
@@ -81,6 +139,7 @@ class UserProfile extends React.Component {
   }
 
   render() {
+
     if (this.state.techData.length === 0) {
       return (
         <div>
@@ -90,8 +149,8 @@ class UserProfile extends React.Component {
     } else if (this.state.watchListData.length === 0 && this.state.stockData.length === 0) {
       return (
         <div className="user-profile-main">
-          <h2>Investing ${this.props.user.funds}</h2>
-          <h1>NOSEY MESSAGE HERE!!!</h1>
+          <h2>Investing ${this.state.totalInvest}</h2>
+          <h1>{this.state.noseyMSG}</h1>
           <CompaniesContainer data={this.state.graphData || this.state.techData[0]} />
           <div>
             <span>Top Tech Stocks</span>
@@ -107,8 +166,8 @@ class UserProfile extends React.Component {
     } else if (this.state.watchListData.length !== 0 && this.state.stockData.length === 0) {
       return (
         <div className="user-profile-main">
-          <h2>Investing ${this.props.user.funds}</h2>
-          <h1>NOSEY MESSAGE HERE!!!</h1>
+          <h2>Investing ${this.state.totalInvest}</h2>
+          <h1>{this.state.noseyMSG}</h1>
           <CompaniesContainer data={this.state.graphData || this.state.watchListData[0]}/>
           <div>
             <span>Watchlist</span>
@@ -129,8 +188,8 @@ class UserProfile extends React.Component {
     } else if (this.state.watchListData.length === 0 && this.state.stockData.length !== 0) {
       return (
         <div className="user-profile-main">
-          <h2>Investing ${this.props.user.funds}</h2>
-          <h1>NOSEY MESSAGE HERE!!!</h1>
+          <h2>Investing ${this.state.totalInvest}</h2>
+          <h1>{this.state.noseyMSG}</h1>
           <CompaniesContainer data={this.state.graphData || this.state.stockData[0]} />
           <div>
             <span>Stocks</span>
@@ -152,8 +211,8 @@ class UserProfile extends React.Component {
     
     return (
       <div className="user-profile-main">
-        <h2>Investing ${this.props.user.funds}</h2>
-        <h1>NOSEY MESSAGE HERE!!!</h1>
+        <h2>Investing ${this.state.totalInvest}</h2>
+        <h1>{this.state.noseyMSG}</h1>
         <CompaniesContainer data={this.state.graphData || this.state.stockData[0]} />
         <div>
           <span>Stocks</span>
