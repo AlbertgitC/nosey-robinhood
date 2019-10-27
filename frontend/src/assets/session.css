@@ -422,6 +422,10 @@ time, mark, audio, video {
     font-size: 44px;
   }
 
+  #green-pied-piper-logo {
+    display: none;
+  }
+
 }
 
 /* Tablet */
@@ -957,6 +961,22 @@ time, mark, audio, video {
     padding: 3px 28px;
   }
 
+   .svg-inline--fa {
+    fill: black;
+    width: 43px;
+    position: relative;
+    top: -8px;
+  }
+
+  #green-pied-piper-logo {
+    /* position: absolute;
+    left: 4%;
+    top: 21px;
+    width: 75px;
+    color: #21ce99; */
+    display: none;
+  }
+
 }
 
 /* Desktop */
@@ -1225,5 +1245,21 @@ time, mark, audio, video {
 
   .github-span-container {
     width: 100%;
+  }
+
+  .svg-inline--fa {
+    fill: black;
+    width: 43px;
+    position: relative;
+    top: -8px;
+  }
+
+  #green-pied-piper-logo {
+    display: unset;
+    position: absolute;
+    left: 18%;
+    top: 21px;
+    width: 75px;
+    color: #21ce99;
   }
 }

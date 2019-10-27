@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import logo from '../../assets/images/robinhood-logo.jpg'
 import security from '../../assets/images/security.png'
+import GreenPiedPiperLogo from '../../assets/greenlogo'
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -57,7 +58,9 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div>
-        <img className="sign-up-logo" src={logo}></img>
+        {/* <img className="sign-up-logo" src={logo}></img> */}
+        {/* <PiedPiperLogo /> */}
+        <GreenPiedPiperLogo />
         <nav className="signup-navbar">
           <Link className="signup-nav-link">Nosey Robinhood</Link>
           <Link className="signup-nav-link">Home</Link>
