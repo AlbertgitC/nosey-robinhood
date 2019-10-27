@@ -2,11 +2,37 @@ import React from 'react';
 import CompaniesContainer from './companies_container';
 import CompanyPurchaseContainer from './company_purchase_container';
 import { fetchCompanyDaily } from '../../actions/company_actions';
+import Show from '../../assets/company-show.css';
 
 class CompanyShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { company: undefined };
+    this.state = {
+      company: undefined,
+      buyTab: '',
+      sellTab: 'hidden',
+      buyButton: 'active',
+      sellButton: ''
+    };
+    this.switchTab = this.switchTab.bind(this);
+  }
+
+  switchTab(e) {
+    if (e.currentTarget.innerText === 'Buy') {
+      this.setState({
+        buyTab: '',
+        sellTab: 'hidden',
+        buyButton: 'active',
+        sellButton: ''
+      });
+    } else if (e.currentTarget.innerText === 'Sell') {
+      this.setState({
+        buyTab: 'hidden',
+        sellTab: '',
+        buyButton: '',
+        sellButton: 'active'
+      });
+    }
   }
 
   componentDidMount() {
@@ -20,13 +46,30 @@ class CompanyShow extends React.Component {
   render() {
 
     return (
-      <div>
-        <div>
+      <div className='company-show'>
+        <div className='company-graph-purchase'>
           <div className='company-graph'>
             <CompaniesContainer tag={this.props.companyTicker}/>
           </div>
-          <div className='company-purchase'>
-            <CompanyPurchaseContainer companyTicker={this.props.companyTicker} />
+          <div>
+            <div className='purchase-sell-form-tabs'>
+              <button
+                className={`purchase-sell-form-tab-button ${this.state.buyButton}`}
+                onClick={this.switchTab}>
+                  Buy
+              </button>
+              <button
+                className={`purchase-sell-form-tab-button ${this.state.sellButton}`}
+                onClick={this.switchTab}>
+                  Sell
+              </button>
+            </div>
+            <div className='company-purchase'>
+              <CompanyPurchaseContainer
+                companyTicker={this.props.companyTicker}
+                buyTab={this.state.buyTab}
+                sellTab={this.state.sellTab} />
+            </div>
           </div>
         </div>
         <div className='company-info'>
@@ -43,67 +86,67 @@ class CompanyShow extends React.Component {
             </div>
           </div>
           <div className='company-info-misc'>
-            <div className='company-info-misc-ceo'>
-              <div>
+            <div className='company-info-misc-component'>
+              <div className={'company-info-misc-component-title'}>
                 CEO
               </div>
-              <div>
+              <div className={'company-info-misc-component-description'}>
                 Jasim Atiyeh
               </div>
             </div>
-            <div className='company-info-misc-employees'>
-              <div>
+            <div className='company-info-misc-component'>
+              <div className={'company-info-misc-component-title'}>
                 Employees
               </div>
-              <div>
+              <div className={'company-info-misc-component-description'}>
                 1
               </div>
             </div>
-            <div className='company-info-misc-headquarters'>
-              <div>
+            <div className='company-info-misc-component'>
+              <div className={'company-info-misc-component-title'}>
                 Headquarters
               </div>
-              <div>
+              <div className={'company-info-misc-component-description'}>
                 Oklahoma City, Oklahoma
               </div>
             </div>
-            <div className='company-info-misc-founded'>
-              <div>
+            <div className='company-info-misc-component'>
+              <div className={'company-info-misc-component-title'}>
                 Founded
               </div>
-              <div>
+              <div className={'company-info-misc-component-description'}>
                 1989
               </div>
             </div>
-            <div className='company-info-misc-market-cap'>
-              <div>
+            <div className='company-info-misc-component'>
+              <div className={'company-info-misc-component-title'}>
                 Market Cap
               </div>
-              <div>
+              <div className={'company-info-misc-component-description'}>
                 12.34T
               </div>
             </div>
-            <div className='company-info-misc-price-earning-ratio'>
-              <div>
+            <div className='company-info-misc-component'>
+              <div className={'company-info-misc-component-title'}>
                 Price-Earning Ratio
               </div>
-              <div>
+              <div className={'company-info-misc-component-description'}>
                 456.85
               </div>
             </div>
-            <div className='company-info-misc-dividend-yield'>
-              <div>
+            <div className='company-info-misc-component'>
+              <div className={'company-info-misc-component-title'}>
                 Dividend Yield
               </div>
-              <div>
+              <div className={'company-info-misc-component-description'}>
                 100.46
               </div>
             </div>
-            <div className='company-info-misc-average-volume'>
-              <div>
+            <div className='company-info-misc-component'>
+              <div className={'company-info-misc-component-title'}>
                 Average Volume
               </div>
-              <div>
+              <div className={'company-info-misc-component-description'}>
                 432.48K
               </div>
             </div>

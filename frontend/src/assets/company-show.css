@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css?family=Lato%7CRoboto+Condensed&display=swap');
+
+.canvasjs-chart-credit {
+  display: none;
+}
+
+.vsc-controller {
+  display: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+/* @media only screen and (max-width: 600px) { */
+  
+  
+/* } */
+
+/* @media only screen and (min-width: 992px) { */
+  .company-show {
+    font-family: 'Lato', sans-serif; /*"DIN Pro", -apple-system, BlinkMacSystemFont, sans-serif; */
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.25px;
+    line-height: 19px;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 -6px;
+    flex-direction: column;
+  }
+
+  .company-graph-purchase {
+    display: flex;
+    margin: 0 auto;
+    padding-top: 36px;
+  }
+    
+  .company-info {
+    margin: 0 auto;
+    width: 678.656px;
+    padding-top: 36px;
+  }
+
+  .company-info-description-title {
+    margin-bottom: 30px;
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: -0.14px;
+    line-height: 30px;
+  }
+
+  .company-info-description {
+    margin-bottom: 30px;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 22px;
+  }
+
+  .company-info-misc {
+    display: flex;
+    flex-wrap: wrap;
+
+  }
+
+  .company-info-misc-component {
+    flex-basis: calc(25% - 12px);
+    margin: 0 6px 12px;
+  }
+
+  .company-info-misc-component-title {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-weight: 500;
+  }
+
+  .company-info-misc-component-descirption {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .purchase-sell-form {
+    width: 275px;
+    height: 360px;
+    border-radius: 4px;
+    box-shadow: 3px 10px 5px 3px #ccc;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    white-space: nowrap;
+  }
+
+  .purchase-sell-form::-webkit-scrollbar { width: 0 !important }
+
+  .purchase-form-title {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 24px;
+    font-size: 16px;
+  }
+
+  .purchase-form {
+    padding: 0px 24px;
+  }
+
+  .purchase-form-component {
+    display: flex;
+    justify-content: space-between;
+    min-height: 48px;
+    align-items: center;
+  }
+
+  .purchase-form-order {
+    padding-top: 30px;
+  }
+
+  .purchase-form-submit {
+    display: flex;
+    align-items: center;
+    height: 48px;
+  }
+
+  .purchase-form input[type='submit'] {
+    margin: 13px 0px auto;
+    background-color: #21ce99;
+    width: 100%;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 48px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.25px;
+    line-height: 19px;
+  }
+
+  .purchase-form input[type='number'] {
+    border: 1px solid;
+    border-radius: 4px;
+    height: 34px;
+    line-height: 1.5em;
+    outline: 0;
+    padding: 0 13px;
+    width: 54px;
+    text-align: right;
+  }
+
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .current-funds {
+    text-align: right;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .active {
+    border-bottom: none !important;
+  }
+
+  .purchase-sell-form-tabs {
+    display: flex;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .purchase-sell-form-tab-button {
+    font-size: 13px;
+    border: 1px solid;
+    width: 100%;
+    padding: 5px 0px;
+    border-radius: 19px 19px 0px 0px;
+  }
+
+  .sell-form {
+    padding: 7px;
+  }
+
+  .sell-form::after {
+    background-color: black;
+    content: '';
+    display: block;
+    height: 1px;
+    margin-top: 10px;
+  }
+
+  .sell-form-date {
+    padding-bottom: 5px;
+  }
+
+  .sell-form-columns {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .sell-form-total-shares {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .sell-form-total-sale {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .sell-form-column-left {
+    display: flex;
+    flex-direction: column;
+    width: 70px;
+    justify-content: space-around;
+  }
+
+  .sell-form-column-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .sell-form-column-right input[type='number'] {
+    border: 1px solid;
+    border-radius: 4px;
+    height: 24px;
+    line-height: 1.5em;
+    outline: 0;
+    padding: 0 13px;
+    width: 44px;
+    text-align: right;
+    margin-bottom: 8px;
+  }
+
+  .sell-form-column-right input[type='submit'] {
+    background-color: #21ce99;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 28px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.25px;
+    line-height: 19px;
+  }
+
+/* } */

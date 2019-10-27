@@ -15,7 +15,7 @@ const mapStateToProps = (state, ownProps) => {
   let companyTicker = ownProps.companyTicker;
   let company = state.companies ? state.companies[0] : { High: 0 };
   let companyHoldings = state.holdings[companyTicker];
-  let userFunds = state.session.user.funds;
+  let userFunds = state.session.user.funds.toFixed(2);
 
   return {
     companyTicker,

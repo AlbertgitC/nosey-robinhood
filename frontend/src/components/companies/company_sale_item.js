@@ -50,17 +50,33 @@ class CompanySaleItem extends React.Component {
           <div className='sell-form-date'>
             {purchased_at}
           </div>
-          <div className='sell-form-shares'>
-            Shares: {this.state.currentShares}
-            <input
-              type='number'
-              onChange={this.update('shares')}
-              />
+          <div className='sell-form-columns'>
+            <div className='sell-form-column-left'>
+              <div className='sell-form-total-shares'>
+                <div>
+                  Shares:
+                </div>
+                <div>
+                  {this.state.currentShares}
+                </div>
+              </div>
+              <div className='sell-form-total-sale'>
+                <div>
+                  Sale:
+                </div>
+                <div>
+                  {this.state.totalSale.toFixed(2)}
+                </div>
+              </div>
+            </div>
+            <div className='sell-form-column-right'>
+              <input
+                type='number'
+                onChange={this.update('shares')}
+                />
+              <input type='submit' value='Sell Shares' />
+            </div>
           </div>
-          <div className='sell-form-total-sale'>
-            Sale: {this.state.totalSale}
-          </div>
-          <input type='submit' value='Sell Shares' />
         </form>
       </li>
     )
