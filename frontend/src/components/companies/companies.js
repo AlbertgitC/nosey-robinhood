@@ -13,21 +13,43 @@ class Companies extends React.Component {
   }
 
   componentDidMount() {
-    fetchCompanyDaily(this.props.tag).then(
-      res => {
-        if (res) {
-          this.setState({ company: Object.entries(res.data["Time Series (Daily)"]) });
-          for (let i = 0; i < 30; i++) {
-            this.setState({
-              dataPoints: this.state.dataPoints.concat([{
-                x: new Date(this.state.company[i][0]),
-                y: parseFloat(this.state.company[i][1]["4. close"])
-              }])
-            });
-          };
+    if (this.props.tag) {
+      fetchCompanyDaily(this.props.tag).then(
+        res => {
+          if (res.data["Time Series (Daily)"]) {
+            this.setState({ company: Object.entries(res.data["Time Series (Daily)"]) });
+            for (let i = 0; i < 30; i++) {
+              this.setState({
+                dataPoints: this.state.dataPoints.concat([{
+                  x: new Date(this.state.company[i][0]),
+                  y: parseFloat(this.state.company[i][1]["4. close"])
+                }])
+              });
+            };
+          }
         }
-      }
-    );
+      );
+    } else {
+      this.updateData();
+    }    
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ company: undefined, dataPoints: [] }, () => {
+      this.updateData(nextProps.data);
+    });
+  }
+
+  async updateData(props = this.props.data) {
+    await this.setState({ company: props });
+    for (let i = 0; i < this.state.company[1].chart.length; i++) {
+      this.setState({
+        dataPoints: this.state.dataPoints.concat([{
+          x: new Date(this.state.company[1].chart[i].date),
+          y: this.state.company[1].chart[i].close
+        }])
+      });
+    };
   }
 
   render() {
@@ -64,8 +86,8 @@ class Companies extends React.Component {
     }
     
     if (!this.state.company) {
-      return null;
-    } else {
+      return (<div>Sorry API limit reached :(</div>);
+    } else if (this.props.tag) {
       
       return (
         <div>
@@ -74,6 +96,14 @@ class Companies extends React.Component {
             <h2>${parseFloat(this.state.company[0][1]["4. close"]).toFixed(2)}</h2>
             <CanvasJSChart options={options} />
           </div> 
+        </div>
+      );
+    } else {
+      return (
+        <div className="stock-graph">
+          <h2>{this.state.company[0]}</h2>
+          <h2>${this.state.company[1].quote.latestPrice}</h2>
+          <CanvasJSChart options={options} />
         </div>
       );
     }

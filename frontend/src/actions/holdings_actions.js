@@ -19,8 +19,8 @@ const receiveHoldingError = errorMessage => ({
   errorMessage
 });
 
-export const fetchAllHoldings = user => dispatch => (
-  HoldingsApiUtil.fetchAllHoldings(user)
+export const fetchAllHoldings = () => dispatch => (
+  HoldingsApiUtil.fetchAllHoldings()
     .then(holdings => dispatch(receiveAllHoldings(holdings)))
 );
 

@@ -3,15 +3,28 @@ const router = express.Router();
 const passport = require('passport');
 const PurchaseRecord = require('../../models/Purchase_Record');
 const { check, validationResult } = require('express-validator');
+const merge = require('lodash/merge');
 
-router.get('/user/:user_id',
+router.get('/user_holdings',
   passport.authenticate('jwt', { session: false }),
   (req, res) => (
     PurchaseRecord.find({ user_id: req.user.id })
-      .then(response => res.json({[response.company_ticker]: response}))
-      .catch(err => res.status(404).json({
-        noholdingsfound: "No holdings found for this user"
-      }))
+      .then( response => {
+        if (response.length === 0) {
+          return res.json({});
+        }
+        let holdings = {};
+        response.map(
+          record => {
+            if (holdings.hasOwnProperty(record.company_ticker)) {
+              holdings[record.company_ticker].push(record.shares);
+            } else {
+              holdings[record.company_ticker] = [record.shares]
+            }
+          }
+        );
+        return res.json(holdings);
+      })
 ));
 
 router.get('/company/:company_ticker',
