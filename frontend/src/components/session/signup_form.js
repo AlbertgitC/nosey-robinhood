@@ -58,14 +58,12 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div>
-        {/* <img className="sign-up-logo" src={logo}></img> */}
-        {/* <PiedPiperLogo /> */}
         <GreenPiedPiperLogo />
         <nav className="signup-navbar">
-          <Link className="signup-nav-link">Nosey Robinhood</Link>
-          <Link className="signup-nav-link">Home</Link>
+          <Link to="/" className="signup-nav-link">Nosey Robinhood</Link>
+          <Link to="/" className="signup-nav-link">Home</Link>
           <Link to="/login" className="signup-nav-link">Login</Link>
-          <Link className="signup-nav-link sign-up-active">Sign Up</Link>
+          <Link to="/signup" className="signup-nav-link sign-up-active">Sign Up</Link>
         </nav>
         <div className="signup-underline"></div>
         <div className="main-signup-flex">
