@@ -690,6 +690,10 @@ time, mark, audio, video {
     display: none;
   }
 
+  .github-stack-tablet-card:hover {
+    background-color: rgb(225, 225, 225, 0.21);
+  }
+
   .github-h1-item-stack-tab {
     font-size: 20px;
     font-weight: 700;
@@ -701,6 +705,15 @@ time, mark, audio, video {
     padding-bottom: 18px;
     color: white;
     padding-top: 40px;
+  }
+
+  .github-h1 {
+    color: white;
+    font-family: 'Lato', sans-serif;
+    text-decoration: none;
+    font-size: 22px;
+    text-align: center;
+    margin-top: 10px;
   }
 
   .splash-nav-bar {
@@ -859,6 +872,10 @@ time, mark, audio, video {
     margin-bottom: 8px;
   }
 
+  .github-span-container {
+    width: 100%;
+  }
+
   .stack-item-type {
     color: #21ce99;
     font-family: 'Lato', sans-serif;
@@ -894,18 +911,33 @@ time, mark, audio, video {
 
   .splash-portfolio-section {
     background-color: black;
+    height: 365px
   }
 
   .github-stack-tablet-card {
-    height: 200px;
+    /* height: 200px;
     /* background-color: white;
     width: 200px;
     opacity: 0.09; */
     /* border-radius: 6px; */
     /* box-shadow: 1px 1px 1px 1px white; */
-    margin: 20px 10px;
-    /* background-color: rgb(255,255,255,0.09); */
+    /* margin: 20px 10px;
+    background-color: rgb(255,255,255,0.09); */
+    margin: 15px 14px;
+    display: inline-flex;
+    padding: 10px;
+    width: 180px;
+    height: 180px;
+    box-shadow: 0 1px 1px 0 rgba(60,64,67,.08), 0 1px 3px 1px rgba(60,64,67,.16);
+    position: relative;
+    left: 5%;
+    background-color: rgb(225, 225, 225, 0.09);
+    border-radius: 4px;
   }
+
+  .github-stack-tablet-card:hover {
+     background-color: rgb(225, 225, 225, 0.21);
+    }
 
   .github-flexbox-tab {
     display: flex;
@@ -917,6 +949,12 @@ time, mark, audio, video {
   .github-stack:hover {
     /* opacity: 0.16;
     background-color: white; */
+  }
+
+  .github-logo {
+    margin-top: 10px;
+    position: relative;
+    padding: 3px 28px;
   }
 
 }
@@ -1144,6 +1182,8 @@ time, mark, audio, video {
     box-shadow: 0 1px 1px 0 rgba(60,64,67,.08), 0 1px 3px 1px rgba(60,64,67,.16);
     position: relative;
     left: 5%;
+    background-color: rgb(225, 225, 225, 0.09);
+    border-radius: 4px;
   }
 
   .splash-commission-h1 {
@@ -1160,11 +1200,6 @@ time, mark, audio, video {
     display: relative;
   }
 
-  .github-stack-tablet-card {
-    background-color: rgb(225, 225, 225, 0.09);
-    border-radius: 4px;
-  }
-
   .github-stack-tablet-card:hover {
     background-color: rgb(225, 225, 225, 0.21);
   }
@@ -1174,12 +1209,14 @@ time, mark, audio, video {
     font-family: 'Lato', sans-serif;
     font-size: 24px;
     margin-top: 10px;
-    margin-left: 12px
+    margin-left: 12px;
+    text-align: left;
   }
 
   .github-logo {
     Margin-top: -15px;
     Margin-left: 55%;
+    padding: 0;
   }
 
   .splash-portfolio-section {
