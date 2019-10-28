@@ -26,7 +26,12 @@ class CompanyPurchase extends React.Component {
           });
         });
     }
+    this.props.fetchUser();
   }
+
+  // componentDidUpdate() {
+  //   this.props.fetchUser();
+  // }
 
   update(field) {
     return e => {
@@ -43,10 +48,11 @@ class CompanyPurchase extends React.Component {
     let userFunds = this.props.userFunds;
     if (userFunds > this.state.totalPrice) {
       this.props.createPurchaseRecord(companyTicker, this.state)
-        .then(() => this.props.fetchCompanyHolding(this.props.companyTicker))
-        .then(() => (
-          this.props.createPurchase(this.state)
-        ));
+      .then(() => (
+        this.props.createPurchase(this.state)
+        ))
+      .then(() => this.props.fetchCompanyHolding(this.props.companyTicker))
+      .then(() => this.props.fetchUser());
     } else {
       this.props.holdingError("Insufficient Funds");
     }
@@ -78,7 +84,8 @@ class CompanyPurchase extends React.Component {
               fetchCompanyHolding={this.props.fetchCompanyHolding}
               createSale={this.props.createSale}
               price={this.state.price}
-              holdingError={this.props.holdingError} />
+              holdingError={this.props.holdingError}
+              fetchUser={this.props.fetchUser} />
           )
         }
       });
@@ -92,9 +99,6 @@ class CompanyPurchase extends React.Component {
           <div className='purchase-form-title'>
             <div>
               {`Buy ${this.props.companyTicker}`}
-            </div>
-            <div className='current-funds'>
-              Funds: $ {this.props.userFunds}
             </div>
           </div>
           <div className='purchase-form-order'>
@@ -128,6 +132,9 @@ class CompanyPurchase extends React.Component {
             <input type='submit' value='Purchase Shares'/>
           </div>
         </form>
+        <div className={`current-funds ${this.props.buyTab}`}>
+          Funds: $ {this.props.userFunds}
+        </div>
 
         <ul className={`sell-form-list ${this.props.sellTab}`}>
           {sellShares}

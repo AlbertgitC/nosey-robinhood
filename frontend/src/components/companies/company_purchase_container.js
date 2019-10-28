@@ -9,6 +9,7 @@ import {
   createPurchase,
   createSale
 } from "../../actions/users_actions";
+import { fetchUser } from '../../actions/user_actions';
 import CompanyPurchase from './company_purchase';
 
 const mapStateToProps = (state, ownProps) => {
@@ -37,6 +38,7 @@ const mapDispatchToProps = dispatch => ({
   createPurchase: purchaseOrder => dispatch(createPurchase(purchaseOrder)),
   createSale: SaleOrder => dispatch(createSale(SaleOrder)),
   holdingError: errorMessage => dispatch(holdingError(errorMessage)),
+  fetchUser: () => dispatch(fetchUser())
 });
 
 export default connect(
