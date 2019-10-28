@@ -67,7 +67,6 @@ button:focus {
   padding-top: 36px;
 }
 
-<<<<<<< HEAD
 .company-info-description-title {
   margin-bottom: 30px;
   font-size: 26px;
@@ -75,7 +74,6 @@ button:focus {
   letter-spacing: -0.14px;
   line-height: 30px;
 }
-=======
 /* @media only screen and (min-width: 992px) { */
   .company-show {
     font-family: "DIN Pro", -apple-system, BlinkMacSystemFont, sans-serif;
@@ -90,7 +88,6 @@ button:focus {
     margin: 0 -6px;
     flex-direction: column; */
   }
->>>>>>> 4f774da77efa6f66c6a59df39db9939f16aa8d5d
 
 .company-info-description {
   margin-bottom: 30px;
@@ -103,18 +100,15 @@ button:focus {
 .company-info-misc {
   display: flex;
   flex-wrap: wrap;
-
-<<<<<<< HEAD
 }
-=======
-  .company-graph-title {
-    font-size: 36px;
-    line-height: 42px;
-    font-weight: 500;
-    letter-spacing: -0.29px;
-    margin-bottom: 5px;
-  }
->>>>>>> 4f774da77efa6f66c6a59df39db9939f16aa8d5d
+
+.company-graph-title {
+  font-size: 36px;
+  line-height: 42px;
+  font-weight: 500;
+  letter-spacing: -0.29px;
+  margin-bottom: 5px;
+}
 
 .company-info-misc-component {
   flex-basis: calc(25% - 12px);
@@ -166,14 +160,12 @@ button:focus {
   padding: 0px 24px;
 }
 
-<<<<<<< HEAD
 .purchase-form-component {
   display: flex;
   justify-content: space-between;
   min-height: 48px;
   align-items: center;
 }
-=======
   .purchase-sell-form-watch {
     display: flex;
     flex-direction: column;
@@ -185,7 +177,6 @@ button:focus {
     box-shadow: 0px 10px 20px 4px #ccc;
     border-radius: 19px 19px 8px 8px;
   }
->>>>>>> 4f774da77efa6f66c6a59df39db9939f16aa8d5d
 
 .purchase-form-order {
   padding-top: 30px;
@@ -465,4 +456,4 @@ input[type=number]::-webkit-outer-spin-button {
     background-color: whitesmoke;
   }
 
-/* } */
+}
