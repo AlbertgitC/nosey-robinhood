@@ -118,10 +118,12 @@
 }
 
 .stock-list a {
+  color: black;
   font-size: 14px;
 }
 
 .holding-stock-list a {
+  color: black;
   font-size: 14px;
 }
 
