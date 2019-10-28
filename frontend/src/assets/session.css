@@ -1336,6 +1336,10 @@ html, body, h1, h3, p, h2 {
     display: unset;
   }
 
+  .company-search-bar {
+    border: 0;
+  }
+
   .company-search-bar-nav {
     height: 30px;
     width: 400px;
@@ -1353,6 +1357,18 @@ html, body, h1, h3, p, h2 {
     border: 1px solid lightgrey;
     border-radius: 3px;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: gray;
+  }
+
+  .company-search-first {
+    display: flex;
+    align-items: center;
+  }
+
+  .company-search-bar-nav svg {
+    margin-right: 10px;
     margin-left: 12.5%;
   }
 

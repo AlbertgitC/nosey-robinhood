@@ -1,18 +1,22 @@
 import React from 'react';
 import { fetchCompanySearch } from '../../actions/company_actions';
+import { Link } from 'react-router-dom';
+import SearchIcon from '@material-ui/icons/Search';
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import CompanyLogo from '../../assets/companylogo'
+
 
 class CompanySearch extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       searchRequest: '',
-      searchResults: undefined
+      searchResults: undefined,
+      show: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.update = this.update.bind(this);
     this.clearSearch = this.clearSearch.bind(this);
   }
 
@@ -20,12 +24,13 @@ class CompanySearch extends React.Component {
     e.preventDefault();
     fetchCompanySearch(this.state.searchRequest)
       .then(searchResults => this.setState({
-        searchResults: searchResults.bestMatches
+        searchResults: searchResults.data.bestMatches,
+        show: true
       }));
   }
 
-  update(e) {
-    this.setState({ searchRequest: e.currentTarget.value })
+  update(field) {
+    return e => this.setState({ [field]: e.currentTarget.value });
   }
 
   clearSearch() {
@@ -34,15 +39,19 @@ class CompanySearch extends React.Component {
   
   render() {
     let searchResults;
+    let active;
     if (this.state.searchResults) {
+      active = 'results';
       searchResults = this.state.searchResults.map((result, idx) => (
-        <li>
-          <div className='company-search-results-list-company-name'>
-            {result.name}
-          </div>
-          < div className = 'company-search-results-list-company-ticker' >
-            {result.symbol}
-          </div>
+        <li key={idx} className='company-search-results-list-item'>
+          <Link to={`/company/${result['2. name']}`}>
+            <div className='company-search-results-list-company-name'>
+                {result['2. name']}
+            </div>
+            < div className = 'company-search-results-list-company-ticker' >
+              {result['1. symbol']}
+            </div>
+          </Link>
         </li>
       ))
     }
@@ -51,20 +60,31 @@ class CompanySearch extends React.Component {
       <div className='company-search'>
         <CompanyLogo />
         <div className='company-search-input'>
-          {/* < i class = "material-icons" > search </i> */}
-          <form onSubmit={this.handleSubmit}>
-            <input
-              className="company-search-bar-nav"
-              type='text'
-              placeholder='Search'
-              onChange={this.update}/>
+          <form onSubmit={this.handleSubmit} className='company-search-bar-nav'>
+            <div className='company-search-first'>
+              <SearchIcon />
+              <input
+                className="company-search-bar"
+                type='text'
+                placeholder='Search'
+                value={this.state.searchRequest}
+                onChange={this.update('searchRequest')}/>
+            </div>
+          < HighlightOffIcon onClick={this.clearSearch} />
           </form>
-          {/* < i class = "material-icons" onClick={this.clearSearch}> clear </i> */}
         </div>
         <div className='company-search-results'>
-          <ul className='company-search-results-list'>
-            {searchResults}
-          </ul>
+          {this.state.show &&
+            (<>
+              <div className='modal' onClick={() => this.setState({
+                show: false,
+                searchRequest: ''
+              })}></div>
+              <ul className={`company-search-results-list ${active}`}>
+                {searchResults}
+              </ul>
+            </>)
+          }
         </div>
       </div>
     )
