@@ -12,7 +12,8 @@ class UserProfile extends React.Component {
     this.logoutUser = this.logoutUser.bind(this);
     this.state = { 
       totalInvest: 0,
-      noseyMSG: "", 
+      noseyMSG: "",
+      noseyMsgColor: "green", 
       watchListData: [], 
       stockData: [], 
       techData: [], 
@@ -79,17 +80,23 @@ class UserProfile extends React.Component {
         const totalInvest = totalStockValue + this.props.user.funds;
         this.setState({ totalInvest: totalInvest }, () => {
           if (this.state.totalInvest >= 30000 && this.state.totalInvest < 33000) {
-            this.setState({ noseyMSG: "Well go on, nothing's happening here." })
+            this.setState({ noseyMSG: "Well go on, nothing's happening here." });
+            this.setState({noseyMsgColor: "black"});
           } else if (this.state.totalInvest >= 33000 && this.state.totalInvest < 45000) {
-            this.setState({ noseyMSG: "Time to put the downpay for your dream car!" })
+            this.setState({ noseyMSG: "Time to put the downpay for your dream car!" });
+            this.setState({ noseyMsgColor: "green" });
           } else if (this.state.totalInvest >= 45000) {
-            this.setState({ noseyMSG: "Congratulations! You're the next Warren Buffett!!!" })
+            this.setState({ noseyMSG: "Congratulations! You're the next Warren Buffett!!!" });
+            this.setState({ noseyMsgColor: "green" });
           } else if (this.state.totalInvest < 30000 && this.state.totalInvest >= 27000) {
-            this.setState({ noseyMSG: "Uh-oh, maybe it's just bad luck..." })
+            this.setState({ noseyMSG: "Uh-oh, maybe it's just bad luck..." });
+            this.setState({ noseyMsgColor: "black" });
           } else if (this.state.totalInvest < 27000 && this.state.totalInvest >= 15000) {
-            this.setState({ noseyMSG: "Hmm... time to stock up instant noodle!" })
+            this.setState({ noseyMSG: "Hmm... time to stock up instant noodle!" });
+            this.setState({ noseyMsgColor: "red" });
           } else if (this.state.totalInvest < 15000) {
-            this.setState({ noseyMSG: "Do yourself a favor, never invest in stock market... EVER!" })
+            this.setState({ noseyMSG: "Do yourself a favor, never invest in stock market... EVER!" });
+            this.setState({ noseyMsgColor: "red" });
           }
         });
       } else {
@@ -121,6 +128,10 @@ class UserProfile extends React.Component {
     this.setState({ graphData: company });
   }
 
+  closeMsg() {
+    document.getElementsByClassName("nosey-msg")[0].style.display = "none";
+  }
+
   stockList(data) {
     const stockLis = data.map(
       (company, i) => {
@@ -131,6 +142,29 @@ class UserProfile extends React.Component {
               <span>${company[1].quote.latestPrice.toFixed(2)}</span>
             </div>            
             <Link to={`/company/${company[0]}`}>Detail</Link>            
+          </li>
+        );
+      }
+    );
+    return stockLis;
+  }
+
+  holdingStockList(data) {
+    const stockLis = data.map(
+      (company, i) => {
+        const totalShares = this.props.holdings[company[0]].reduce(
+          (total, num) => { return total + num; }
+        );
+        return (
+          <li key={i}>
+            <div>
+              <div onClick={() => this.updateGraph(company)}>
+                <span>{company[0]}</span>
+                <span>${company[1].quote.latestPrice.toFixed(2)}</span>
+              </div>
+              <Link to={`/company/${company[0]}`}>Detail</Link>
+            </div>
+            <div>{totalShares} Shares</div>
           </li>
         );
       }
@@ -149,91 +183,119 @@ class UserProfile extends React.Component {
     } else if (this.state.watchListData.length === 0 && this.state.stockData.length === 0) {
       return (
         <div className="user-profile-main">
-          <h2>Investing ${this.state.totalInvest}</h2>
-          <h1>{this.state.noseyMSG}</h1>
-          <CompaniesContainer data={this.state.graphData || this.state.techData[0]} />
-          <div>
-            <span>Top Tech Stocks</span>
-            <ul>
-              {this.stockList(this.state.techData)}
-            </ul>
+          <div className="user-profile-graph">
+            <div className="nosey-msg">
+              <div id="nosey-msg-close" onClick={this.closeMsg}>X</div>
+              <h1 id={this.state.noseyMsgColor}>{this.state.noseyMSG}</h1>
+            </div>
+            <h2>Investing</h2>
+            <h2>${this.state.totalInvest}</h2>
+            <CompaniesContainer data={this.state.graphData || this.state.techData[0]} />
           </div>
-
-          <button onClick={this.logoutUser}>Logout</button>
+          <div className="user-profile-side">
+            <div>
+              <span>Top Tech Stocks</span>
+              <ul className="stock-list">
+                {this.stockList(this.state.techData)}
+              </ul>
+              <button onClick={this.logoutUser}>Logout</button>
+            </div>
+          </div>
         </div>
       );
 
     } else if (this.state.watchListData.length !== 0 && this.state.stockData.length === 0) {
       return (
         <div className="user-profile-main">
-          <h2>Investing ${this.state.totalInvest}</h2>
-          <h1>{this.state.noseyMSG}</h1>
-          <CompaniesContainer data={this.state.graphData || this.state.watchListData[0]}/>
-          <div>
-            <span>Watchlist</span>
-            <ul>
-              {this.stockList(this.state.watchListData)}
-            </ul>
+          <div className="user-profile-graph">
+            <div className="nosey-msg">
+              <div id="nosey-msg-close" onClick={this.closeMsg}>X</div>
+              <h1 id={this.state.noseyMsgColor}>{this.state.noseyMSG}</h1>
+            </div>
+            <h2>Investing</h2>
+            <h2>${this.state.totalInvest}</h2>
+            <CompaniesContainer data={this.state.graphData || this.state.watchListData[0]}/>
           </div>
-          <div>
-            <span>Top Tech Stocks</span>
-            <ul>
-              {this.stockList(this.state.techData)}
-            </ul>
+          <div className="user-profile-side">
+            <div>
+              <span>Watchlist</span>
+              <ul className="stock-list">
+                {this.stockList(this.state.watchListData)}
+              </ul>
+            </div>
+            <div>
+              <span>Top Tech Stocks</span>
+              <ul className="stock-list">
+                {this.stockList(this.state.techData)}
+              </ul>
+            </div>
+            <button onClick={this.logoutUser}>Logout</button>
           </div>
-
-          <button onClick={this.logoutUser}>Logout</button>
         </div>
       );
     } else if (this.state.watchListData.length === 0 && this.state.stockData.length !== 0) {
       return (
         <div className="user-profile-main">
-          <h2>Investing ${this.state.totalInvest}</h2>
-          <h1>{this.state.noseyMSG}</h1>
-          <CompaniesContainer data={this.state.graphData || this.state.stockData[0]} />
-          <div>
-            <span>Stocks</span>
-            <ul>
-              {this.stockList(this.state.stockData)}
-            </ul>
+          <div className="user-profile-graph">
+            <div className="nosey-msg">
+              <div id="nosey-msg-close" onClick={this.closeMsg}>X</div>
+              <h1 id={this.state.noseyMsgColor}>{this.state.noseyMSG}</h1>
+            </div>
+            <h2>Investing</h2>
+            <h2>${this.state.totalInvest}</h2>
+            <CompaniesContainer data={this.state.graphData || this.state.stockData[0]} />
           </div>
-          <div>
-            <span>Top Tech Stocks</span>
-            <ul>
-              {this.stockList(this.state.techData)}
-            </ul>
+          <div className="user-profile-side">
+            <div>
+              <span>Stocks</span>
+              <ul className="holding-stock-list">
+                {this.holdingStockList(this.state.stockData)}
+              </ul>
+            </div>
+            <div>
+              <span>Top Tech Stocks</span>
+              <ul className="stock-list">
+                {this.stockList(this.state.techData)}
+              </ul>
+            </div>
+            <button onClick={this.logoutUser}>Logout</button>
           </div>
-
-          <button onClick={this.logoutUser}>Logout</button>
         </div>
       );
     }
     
     return (
       <div className="user-profile-main">
-        <h2>Investing ${this.state.totalInvest}</h2>
-        <h1>{this.state.noseyMSG}</h1>
-        <CompaniesContainer data={this.state.graphData || this.state.stockData[0]} />
-        <div>
-          <span>Stocks</span>
-          <ul>
-            {this.stockList(this.state.stockData)}
-          </ul>
+        <div className="user-profile-graph">
+          <div className="nosey-msg">
+            <div id="nosey-msg-close" onClick={this.closeMsg}>X</div>
+            <h1 id={this.state.noseyMsgColor}>{this.state.noseyMSG}</h1>
+          </div>
+          <h2>Investing</h2>
+          <h2>${this.state.totalInvest}</h2>
+          <CompaniesContainer data={this.state.graphData || this.state.stockData[0]} />
         </div>
-        <div>
-          <span>Watchlist</span>
-          <ul>
-            {this.stockList(this.state.watchListData)}
-          </ul>
+        <div className="user-profile-side">
+          <div>
+            <span>Stocks</span>
+            <ul className="holding-stock-list">
+              {this.holdingStockList(this.state.stockData)}
+            </ul>
+          </div>
+          <div>
+            <span>Watchlist</span>
+            <ul className="stock-list">
+              {this.stockList(this.state.watchListData)}
+            </ul>
+          </div>
+          <div>
+            <span>Top Tech Stocks</span>
+            <ul className="stock-list">
+              {this.stockList(this.state.techData)}
+            </ul>
+          </div>
+          <button onClick={this.logoutUser}>Logout</button>
         </div>
-        <div>
-          <span>Top Tech Stocks</span>
-          <ul>
-            {this.stockList(this.state.techData)}
-          </ul>
-        </div>
-        
-        <button onClick={this.logoutUser}>Logout</button>
       </div>
     );
   }

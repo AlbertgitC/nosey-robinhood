@@ -54,7 +54,6 @@ class Companies extends React.Component {
 
   render() {
     const options = {
-      animationEnabled: true,
       theme: "light2", // "light1", "dark1", "dark2"
       axisY: {
         valueFormatString: " ",
