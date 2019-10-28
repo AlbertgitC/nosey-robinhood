@@ -10,7 +10,6 @@ import '../../assets/user_profile.css';
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
-    // this.logoutUser = this.logoutUser.bind(this);
     this.state = { 
       totalInvest: 0,
       noseyMSG: "",
@@ -120,11 +119,6 @@ class UserProfile extends React.Component {
       }
     }
   }
-
-  // logoutUser(e) {
-  //   e.preventDefault();
-  //   this.props.logout();
-  // }
 
   updateGraph(company) {
     this.setState({ graphData: company });
