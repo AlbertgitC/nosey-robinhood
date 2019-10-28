@@ -1,7 +1,6 @@
 import React from 'react';
 import CompaniesContainer from './companies_container';
 import CompanyPurchaseContainer from './company_purchase_container';
-import { fetchCompanyDaily } from '../../actions/company_actions';
 import CompanyNavbar from './company_navbar';
 import Show from '../../assets/company-show.css';
 import { fetchCompanyBatchQuote, fetchCompanyDaily } from '../../actions/company_actions';
