@@ -17,9 +17,9 @@ router.get('/user_holdings',
         response.map(
           record => {
             if (holdings.hasOwnProperty(record.company_ticker)) {
-              holdings[record.company_ticker].push(record.shares);
+              holdings[record.company_ticker].push(record);
             } else {
-              holdings[record.company_ticker] = [record.shares]
+              holdings[record.company_ticker] = [record]
             }
           }
         );
@@ -34,9 +34,15 @@ router.get('/company/:company_ticker',
       user_id: req.user.id,
       company_ticker: req.params.company_ticker
     })
-      .then(response => res.json({
-        [req.params.company_ticker]: response
-      }))
+      .then(response => {
+        if (response.length === 0) {
+          return res.json({});
+        } else {
+          return res.json({
+            [req.params.company_ticker]: response
+          });
+        }
+      })
       .catch(err => res.status(404).json({
         noholdingsfound: "No holdings found for this company"
       }))

@@ -72,14 +72,15 @@ class UserProfile extends React.Component {
         let totalStockValue = 0;
         this.state.stockData.map(
           stockHold => {
-            const totalShares = this.props.holdings[stockHold[0]].reduce(
-              (total, num) => { return total + num; }
+            let totalShares = 0;
+            this.props.holdings[stockHold[0]].map(
+              purchaseRecord => { totalShares += purchaseRecord.shares }
             );
             totalStockValue += stockHold[1].quote.latestPrice * totalShares;
           }
         );
         const totalInvest = totalStockValue + this.props.user.funds;
-        this.setState({ totalInvest: totalInvest }, () => {
+        this.setState({ totalInvest: totalInvest.toFixed(2) }, () => {
           if (this.state.totalInvest >= 30000 && this.state.totalInvest < 33000) {
             this.setState({ noseyMSG: "Well go on, nothing's happening here." });
             this.setState({noseyMsgColor: "black"});
@@ -153,21 +154,26 @@ class UserProfile extends React.Component {
   holdingStockList(data) {
     const stockLis = data.map(
       (company, i) => {
-        const totalShares = this.props.holdings[company[0]].reduce(
-          (total, num) => { return total + num; }
+        let totalShares = 0;
+        this.props.holdings[company[0]].map(
+          purchaseRecord => { totalShares += purchaseRecord.shares }
         );
-        return (
-          <li key={i}>
-            <div>
-              <div onClick={() => this.updateGraph(company)}>
-                <span>{company[0]}</span>
-                <span>${company[1].quote.latestPrice.toFixed(2)}</span>
+        if (totalShares === 0) {
+          return null;
+        } else {
+          return (
+            <li key={i}>
+              <div>
+                <div onClick={() => this.updateGraph(company)}>
+                  <span>{company[0]}</span>
+                  <span>${company[1].quote.latestPrice.toFixed(2)}</span>
+                </div>
+                <Link to={`/company/${company[0]}`}>Detail</Link>
               </div>
-              <Link to={`/company/${company[0]}`}>Detail</Link>
-            </div>
-            <div>{totalShares} Shares</div>
-          </li>
-        );
+              <div>{totalShares} Shares</div>
+            </li>
+          );
+        }
       }
     );
     return stockLis;

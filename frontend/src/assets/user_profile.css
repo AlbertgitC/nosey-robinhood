@@ -1,11 +1,4 @@
 
-@media only screen and (max-width: 600px) {
-  .user-profile-main {
-    background-color: black;
-  }
-
-}
-
 .user-profile-main {
   font-family: 'Lato', sans-serif;
   width: 100%;
@@ -21,7 +14,7 @@
 }
 
 .user-profile-graph {
-  width: 680px;
+  max-width: 680px;
   margin: 0 auto;
 }
 
@@ -178,15 +171,24 @@
   cursor: pointer;
 }
 
-/* nav bar */
+/* mobile view */
 
-.splash-nav-bar {
-  background-color: rgb(255, 255, 255);
-  height: 60px;
-  box-shadow: none;
-  padding: 0px 10px;
-  display: flex;
-  position: fixed;
-  width: 100%;
-  z-index: 1;
+@media only screen and (max-width: 600px) {
+
+  .user-profile-content {
+    flex-direction: column;
+    margin: 94px 10px 0 10px;
+  }
+
+  .user-profile-graph {
+    width: 96%;
+    margin: 0 auto;
+  }
+
+  .user-profile-side {
+    box-shadow: none;
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
 }
