@@ -55,6 +55,7 @@ class Companies extends React.Component {
   render() {
     const options = {
       theme: "light2", // "light1", "dark1", "dark2"
+      backgroundColor: null,
       axisY: {
         valueFormatString: " ",
         yValueFormatString: "$####.00",
