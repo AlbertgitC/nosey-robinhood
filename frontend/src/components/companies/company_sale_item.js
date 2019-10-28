@@ -30,7 +30,8 @@ class CompanySaleItem extends React.Component {
     if (this.state.currentShares >= this.state.shares) {
       this.props.updatePurchaseRecord(this.state)
         .then(() => this.props.fetchCompanyHolding(this.props.companyTicker))
-        .then(() => this.props.createSale(this.state));
+        .then(() => this.props.createSale(this.state))
+        .then(() => this.props.fetchUser());
     } else {
       this.props.holdingError("Not enough shares");
     }
