@@ -1,5 +1,6 @@
 import React from 'react';
 import { fetchCompanySearch } from '../../actions/company_actions';
+import CompanyLogo from '../../assets/companylogo'
 
 class CompanySearch extends React.Component {
 
@@ -48,6 +49,7 @@ class CompanySearch extends React.Component {
 
     return (
       <div className='company-search'>
+        <CompanyLogo />
         <div className='company-search-input'>
           {/* < i class = "material-icons" > search </i> */}
           <form onSubmit={this.handleSubmit}>

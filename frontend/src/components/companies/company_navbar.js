@@ -22,7 +22,7 @@ class CompanyNavbar extends React.Component {
           
           <CompanySearch />
           <span id="company-nav-logo-robinhood">Nosey Robinhood</span>
-          <button onClick={this.logoutUser}>Logout</button>
+          <button className="company-nav-logout-button" onClick={this.logoutUser}>Logout</button>
         </nav>
       </div>
     )

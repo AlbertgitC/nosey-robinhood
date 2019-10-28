@@ -39,7 +39,7 @@ button:focus {
   .company-graph-purchase {
     display: flex;
     /* margin: 0 auto; */
-    padding-top: 36px;
+    padding-top: 86px;
   }
 
   .company-graph {
@@ -187,7 +187,10 @@ button:focus {
   }
 
   .current-funds {
-    text-align: right;
+    text-align: center;
+    top: 40px;
+    position: relative;
+    font-size: 16px;
   }
 
   .hidden {

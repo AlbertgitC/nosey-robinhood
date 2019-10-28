@@ -7,12 +7,17 @@
 }
 
 .user-profile-main {
-  padding-top: 36px;
   font-family: 'Lato', sans-serif;
   width: 100%;
   max-width: 1024px;
   display: flex;
+  flex-direction: column;
   margin: 0 auto;
+}
+
+.user-profile-content {
+  margin-top: 94px;
+  display: flex;
 }
 
 .user-profile-graph {
@@ -45,7 +50,6 @@
   overflow-y: scroll;
   width: 250px;
   box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.01), 0 3px 24px rgba(48, 51, 51, 0.09);
-  /* margin-right: 40px; */
   margin: 0 auto;
 }
 
@@ -172,4 +176,17 @@
 
 #nosey-msg-close:hover {
   cursor: pointer;
+}
+
+/* nav bar */
+
+.splash-nav-bar {
+  background-color: rgb(255, 255, 255);
+  height: 60px;
+  box-shadow: none;
+  padding: 0px 10px;
+  display: flex;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
 }
