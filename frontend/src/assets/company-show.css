@@ -28,21 +28,46 @@ button:focus {
     font-weight: 400;
     letter-spacing: 0.25px;
     line-height: 19px;
-    margin: 0;
+    margin-left: 190px;
+    /* margin: 0;
     display: flex;
     justify-content: space-between;
     margin: 0 -6px;
-    flex-direction: column;
+    flex-direction: column; */
   }
 
   .company-graph-purchase {
     display: flex;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     padding-top: 36px;
+  }
+
+  .company-graph {
+    width: 690px;
+    /* margin: 0 auto; */
+  }
+
+  .company-graph-title {
+    font-size: 36px;
+    line-height: 42px;
+    font-weight: 500;
+    letter-spacing: -0.29px;
+  }
+
+  .company-graph-price {
+    font-size: 36px;
+    font-weight: 400;
+    letter-spacing: -0.7px;
+    line-height: 42px;
+  }
+
+  .canvasjs-chart-canvas {
+    width: 100%;
+    height: 400px;
   }
     
   .company-info {
-    margin: 0 auto;
+    /* margin: 0 auto; */
     width: 678.656px;
     padding-top: 36px;
   }
@@ -85,11 +110,17 @@ button:focus {
     margin-bottom: 0px;
   }
 
+  .purchase-sell-form-container {
+    height: 388px;
+    box-shadow: 0px 10px 20px 4px #ccc;
+    margin-left: 20px;
+    border-radius: 19px 19px 8px 8px;
+  }
+
   .purchase-sell-form {
     width: 275px;
     height: 360px;
     border-radius: 4px;
-    box-shadow: 3px 10px 5px 3px #ccc;
     overflow-y: scroll;
     overflow-x: hidden;
     white-space: nowrap;
@@ -169,13 +200,10 @@ button:focus {
 
   .purchase-sell-form-tabs {
     display: flex;
-    display: flex;
-    justify-content: space-around;
   }
 
   .purchase-sell-form-tab-button {
     font-size: 13px;
-    border: 1px solid;
     width: 100%;
     padding: 5px 0px;
     border-radius: 19px 19px 0px 0px;

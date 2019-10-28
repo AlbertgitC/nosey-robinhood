@@ -51,7 +51,7 @@ class CompanyShow extends React.Component {
           <div className='company-graph'>
             <CompaniesContainer tag={this.props.companyTicker}/>
           </div>
-          <div>
+          <div className='purchase-sell-form-container'>
             <div className='purchase-sell-form-tabs'>
               <button
                 className={`purchase-sell-form-tab-button ${this.state.buyButton}`}
