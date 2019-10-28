@@ -10,7 +10,7 @@ import '../../assets/user_profile.css';
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
-    this.logoutUser = this.logoutUser.bind(this);
+    // this.logoutUser = this.logoutUser.bind(this);
     this.state = { 
       totalInvest: 0,
       noseyMSG: "",
@@ -120,10 +120,10 @@ class UserProfile extends React.Component {
     }
   }
 
-  logoutUser(e) {
-    e.preventDefault();
-    this.props.logout();
-  }
+  // logoutUser(e) {
+  //   e.preventDefault();
+  //   this.props.logout();
+  // }
 
   updateGraph(company) {
     this.setState({ graphData: company });
@@ -200,7 +200,6 @@ class UserProfile extends React.Component {
               <ul className="stock-list">
                 {this.stockList(this.state.techData)}
               </ul>
-              <button onClick={this.logoutUser}>Logout</button>
             </div>
           </div>
         </div>
@@ -232,7 +231,6 @@ class UserProfile extends React.Component {
                 {this.stockList(this.state.techData)}
               </ul>
             </div>
-            <button onClick={this.logoutUser}>Logout</button>
           </div>
         </div>
       );
@@ -262,7 +260,6 @@ class UserProfile extends React.Component {
                 {this.stockList(this.state.techData)}
               </ul>
             </div>
-            <button onClick={this.logoutUser}>Logout</button>
           </div>
         </div>
       );
@@ -271,35 +268,36 @@ class UserProfile extends React.Component {
     return (
       <div className="user-profile-main">
         <CompanyNavbar />
-        <div className="user-profile-graph">
-          <div className="nosey-msg">
-            <div id="nosey-msg-close" onClick={this.closeMsg}>X</div>
-            <h1 id={this.state.noseyMsgColor}>{this.state.noseyMSG}</h1>
+        <div className="user-profile-content">
+          <div className="user-profile-graph">
+            <div className="nosey-msg">
+              <div id="nosey-msg-close" onClick={this.closeMsg}>X</div>
+              <h1 id={this.state.noseyMsgColor}>{this.state.noseyMSG}</h1>
+            </div>
+            <h2>Investing</h2>
+            <h2>${this.state.totalInvest}</h2>
+            <CompaniesContainer data={this.state.graphData || this.state.stockData[0]} />
           </div>
-          <h2>Investing</h2>
-          <h2>${this.state.totalInvest}</h2>
-          <CompaniesContainer data={this.state.graphData || this.state.stockData[0]} />
-        </div>
-        <div className="user-profile-side">
-          <div>
-            <span>Stocks</span>
-            <ul className="holding-stock-list">
-              {this.holdingStockList(this.state.stockData)}
-            </ul>
+          <div className="user-profile-side">
+            <div>
+              <span>Stocks</span>
+              <ul className="holding-stock-list">
+                {this.holdingStockList(this.state.stockData)}
+              </ul>
+            </div>
+            <div>
+              <span>Watchlist</span>
+              <ul className="stock-list">
+                {this.stockList(this.state.watchListData)}
+              </ul>
+            </div>
+            <div>
+              <span>Top Tech Stocks</span>
+              <ul className="stock-list">
+                {this.stockList(this.state.techData)}
+              </ul>
+            </div>
           </div>
-          <div>
-            <span>Watchlist</span>
-            <ul className="stock-list">
-              {this.stockList(this.state.watchListData)}
-            </ul>
-          </div>
-          <div>
-            <span>Top Tech Stocks</span>
-            <ul className="stock-list">
-              {this.stockList(this.state.techData)}
-            </ul>
-          </div>
-          <button onClick={this.logoutUser}>Logout</button>
         </div>
       </div>
     );
