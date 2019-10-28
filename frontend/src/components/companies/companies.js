@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import { fetchCompanyDaily, fetchCompanyBatchQuote } from '../../actions/company_actions';
 import CanvasJSReact from '../../assets/canvasjs.react';
-import CompanyNavbar from './company_navbar';
 const CanvasJS = CanvasJSReact.CanvasJS;
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
@@ -68,7 +67,6 @@ class Companies extends React.Component {
       
       return (
         <div>
-          <CompanyNavbar />
           <div className="stock-graph">
             <h2>{this.props.tag}</h2>
             <h2>${parseFloat(this.state.company[0][1]["4. close"]).toFixed(2)}</h2>
