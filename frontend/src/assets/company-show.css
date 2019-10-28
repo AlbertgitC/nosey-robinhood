@@ -67,6 +67,7 @@ button:focus {
   padding-top: 36px;
 }
 
+<<<<<<< HEAD
 .company-info-description-title {
   margin-bottom: 30px;
   font-size: 26px;
@@ -74,6 +75,22 @@ button:focus {
   letter-spacing: -0.14px;
   line-height: 30px;
 }
+=======
+/* @media only screen and (min-width: 992px) { */
+  .company-show {
+    font-family: "DIN Pro", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.25px;
+    line-height: 19px;
+    margin-left: 190px;
+    /* margin: 0;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 -6px;
+    flex-direction: column; */
+  }
+>>>>>>> 4f774da77efa6f66c6a59df39db9939f16aa8d5d
 
 .company-info-description {
   margin-bottom: 30px;
@@ -87,7 +104,17 @@ button:focus {
   display: flex;
   flex-wrap: wrap;
 
+<<<<<<< HEAD
 }
+=======
+  .company-graph-title {
+    font-size: 36px;
+    line-height: 42px;
+    font-weight: 500;
+    letter-spacing: -0.29px;
+    margin-bottom: 5px;
+  }
+>>>>>>> 4f774da77efa6f66c6a59df39db9939f16aa8d5d
 
 .company-info-misc-component {
   flex-basis: calc(25% - 12px);
@@ -139,12 +166,26 @@ button:focus {
   padding: 0px 24px;
 }
 
+<<<<<<< HEAD
 .purchase-form-component {
   display: flex;
   justify-content: space-between;
   min-height: 48px;
   align-items: center;
 }
+=======
+  .purchase-sell-form-watch {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;;
+  }
+
+  .purchase-sell-form-container {
+    height: 388px;
+    box-shadow: 0px 10px 20px 4px #ccc;
+    border-radius: 19px 19px 8px 8px;
+  }
+>>>>>>> 4f774da77efa6f66c6a59df39db9939f16aa8d5d
 
 .purchase-form-order {
   padding-top: 30px;
@@ -386,5 +427,42 @@ input[type=number]::-webkit-outer-spin-button {
     width: unset;
   }
 
+  .watch-button-container {
+    align-self: center;
+    position: relative;
+    top: 50px;
+  }
 
-}
+  .watch-button {
+    padding: 20px 90px;
+    font-size: 13px;
+    background-color: white;
+    border: 1px solid #21ce99;
+    color: #21ce99;
+  }
+
+  .un-watch-button {
+    padding: 20px 90px;
+    font-size: 13px;
+    background-color: white;
+    border: 1px solid #21ce99;
+    color: #21ce99;
+  }
+
+  .results {
+    border: 1px solid;
+    background-color: white;
+    position: relative;
+  }
+
+  .company-search-results-list-item {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .company-search-results-list-item:hover {
+    background-color: whitesmoke;
+  }
+
+/* } */
