@@ -18,12 +18,14 @@ class CompanyPurchase extends React.Component {
   }
 
   componentDidMount() {
-    fetchCompanyDaily(this.props.companyTicker)
-      .then(company => {
-        this.setState({
-          price: Object.entries(company.data["Time Series (Daily)"])[0][1]["4. close"]
+    if (this.props.companyTicker) {
+      fetchCompanyDaily(this.props.companyTicker)
+        .then(company => {
+          this.setState({
+            price: parseFloat(Object.entries(company.data["Time Series (Daily)"])[0][1]["4. close"])
+          });
         });
-      });
+    }
   }
 
   update(field) {
@@ -84,33 +86,50 @@ class CompanyPurchase extends React.Component {
 
     return (
       <div className='purchase-sell-form'>
-
-        <form onSubmit={this.handlePurchase} className='purchase-form'>
+        <form
+          onSubmit={this.handlePurchase}
+          className={`purchase-form ${this.props.buyTab}`}>
           <div className='purchase-form-title'>
-            {`Buy ${this.props.companyTicker}`}
-            {`Current Shares: ${totalShares}`}
+            <div>
+              {`Buy ${this.props.companyTicker}`}
+            </div>
+            <div className='current-funds'>
+              Funds: $ {this.props.userFunds}
+            </div>
           </div>
           <div className='purchase-form-order'>
-            <div className='purchase-form-order-shares'>
-              <label>Shares
-                <input
-                  type='number'
-                  onChange={this.update('shares')}
-                  value={this.state.shares}
-                  />
-              </label>
+            <div className='purchase-form-component'>
+              <div>Shares</div>
+              <input
+                name='shares'
+                type='number'
+                onChange={this.update('shares')}
+                value={this.state.shares}
+                />
             </div>
-            <div className='purchase-form-order-price'>
-              {this.state.purchase_price}
+            <div className='purchase-form-component'>
+              <div>
+                Market Price
+              </div>
+              <div>
+                {this.state.price}
+              </div>
+            </div>
+            <div className='purchase-form-component'>
+              <div>
+                Estimated Price
+              </div>
+              <div>
+                { this.state.totalPrice.toFixed(2) }
+              </div>
             </div>
           </div>
-          <div className='purchase-form-cost'>
-            { this.state.totalPrice }
+          <div className='purchase-form-submit'>
+            <input type='submit' value='Purchase Shares'/>
           </div>
-          <input type='submit' value='Purchase Shares'/>
         </form>
 
-        <ul className='sell-form'>
+        <ul className={`sell-form-list ${this.props.sellTab}`}>
           {sellShares}
         </ul>
 
