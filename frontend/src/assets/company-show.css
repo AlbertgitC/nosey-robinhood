@@ -23,7 +23,7 @@ button:focus {
 
 /* @media only screen and (min-width: 992px) { */
   .company-show {
-    font-family: 'Lato', sans-serif; /*"DIN Pro", -apple-system, BlinkMacSystemFont, sans-serif; */
+    font-family: "DIN Pro", -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 13px;
     font-weight: 400;
     letter-spacing: 0.25px;
@@ -52,6 +52,7 @@ button:focus {
     line-height: 42px;
     font-weight: 500;
     letter-spacing: -0.29px;
+    margin-bottom: 5px;
   }
 
   .company-graph-price {
@@ -110,10 +111,15 @@ button:focus {
     margin-bottom: 0px;
   }
 
+  .purchase-sell-form-watch {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;;
+  }
+
   .purchase-sell-form-container {
     height: 388px;
     box-shadow: 0px 10px 20px 4px #ccc;
-    margin-left: 20px;
     border-radius: 19px 19px 8px 8px;
   }
 
@@ -277,6 +283,44 @@ button:focus {
     font-weight: 500;
     letter-spacing: 0.25px;
     line-height: 19px;
+  }
+
+  .watch-button-container {
+    align-self: center;
+    position: relative;
+    top: 50px;
+  }
+
+  .watch-button {
+    padding: 20px 90px;
+    font-size: 13px;
+    background-color: white;
+    border: 1px solid #21ce99;
+    color: #21ce99;
+  }
+
+  .un-watch-button {
+    padding: 20px 90px;
+    font-size: 13px;
+    background-color: white;
+    border: 1px solid #21ce99;
+    color: #21ce99;
+  }
+
+  .results {
+    border: 1px solid;
+    background-color: white;
+    position: relative;
+  }
+
+  .company-search-results-list-item {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .company-search-results-list-item:hover {
+    background-color: whitesmoke;
   }
 
 /* } */
