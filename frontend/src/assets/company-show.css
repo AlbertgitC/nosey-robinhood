@@ -74,20 +74,21 @@ button:focus {
   letter-spacing: -0.14px;
   line-height: 30px;
 }
+
 /* @media only screen and (min-width: 992px) { */
-  .company-show {
-    font-family: "DIN Pro", -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 13px;
-    font-weight: 400;
-    letter-spacing: 0.25px;
-    line-height: 19px;
-    margin-left: 190px;
-    /* margin: 0;
-    display: flex;
-    justify-content: space-between;
-    margin: 0 -6px;
-    flex-direction: column; */
-  }
+.company-show {
+  font-family: "DIN Pro", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.25px;
+  line-height: 19px;
+  margin-left: 190px;
+  /* margin: 0;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 -6px;
+  flex-direction: column; */
+}
 
 .company-info-description {
   margin-bottom: 30px;
@@ -166,17 +167,18 @@ button:focus {
   min-height: 48px;
   align-items: center;
 }
-  .purchase-sell-form-watch {
-    display: flex;
-    flex-direction: column;
-    margin-left: 20px;;
-  }
 
-  .purchase-sell-form-container {
-    height: 388px;
-    box-shadow: 0px 10px 20px 4px #ccc;
-    border-radius: 19px 19px 8px 8px;
-  }
+.purchase-sell-form-watch {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;;
+}
+
+.purchase-sell-form-container {
+  height: 388px;
+  box-shadow: 0px 10px 20px 4px #ccc;
+  border-radius: 19px 19px 8px 8px;
+}
 
 .purchase-form-order {
   padding-top: 30px;

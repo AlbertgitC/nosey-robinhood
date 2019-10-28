@@ -59,13 +59,13 @@ class WatchList extends React.Component {
       return null;
     } else if (!this.state.watch_list.includes(this.props.tag)) {
       return (
-        <form onSubmit={this.handleAddWatchList}>
+        <form className="watch-list-button" onSubmit={this.handleAddWatchList}>
           <button className="watch-button" >Watch</button>
         </form>
       );
     } else {
       return (
-        <form onSubmit={this.handleUnwatchList}>
+        <form className="watch-list-button" onSubmit={this.handleUnwatchList}>
           <button className="un-watch-button" >Un-Watch</button>
         </form>
       );
