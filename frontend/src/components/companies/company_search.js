@@ -3,6 +3,8 @@ import { fetchCompanySearch } from '../../actions/company_actions';
 import { Link } from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import CompanyLogo from '../../assets/companylogo'
+
 
 class CompanySearch extends React.Component {
 
@@ -56,6 +58,7 @@ class CompanySearch extends React.Component {
 
     return (
       <div className='company-search'>
+        <CompanyLogo />
         <div className='company-search-input'>
           <form onSubmit={this.handleSubmit} className='company-search-bar-nav'>
             <div className='company-search-first'>

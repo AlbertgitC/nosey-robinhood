@@ -2,8 +2,6 @@
 
 @import url('https://fonts.googleapis.com/css?family=Lato|Roboto+Condensed&display=swap');
 
-/* font-family: 'Lato', sans-serif;
-font-family: 'Roboto Condensed', sans-serif; */
 
 
 /* CSS Reset */
@@ -28,6 +26,10 @@ time, mark, audio, video {
 	font: inherit;
   vertical-align: baseline;
   text-decoration: none;
+}
+
+html, body, h1, h3, p, h2 {
+  font-family: "DIN Pro", -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 /* Mobile */
@@ -59,7 +61,6 @@ time, mark, audio, video {
   }
 
   .welcome-h1 {
-    font-family: 'Lato', sans-serif;
     font-size: 26px;
     font-weight: 600;
     margin-bottom: 40px;
@@ -101,7 +102,6 @@ time, mark, audio, video {
   }
 
   .form-label {
-     font-family: 'Lato', sans-serif;
      font-size: 15px;
      font-weight: 300;
      color: #171718;
@@ -133,7 +133,6 @@ time, mark, audio, video {
     font-size: 36px;
     font-weight: 100;
     margin-bottom: 12px;
-    font-family: 'Lato', sans-serif;
     color: #040d14;
     text-align: center;
   }
@@ -143,7 +142,6 @@ time, mark, audio, video {
     font-weight: 100;
     margin: 10px 9px;
     text-align: center;
-    font-family: 'Lato', sans-serif;
     color: #040d14;
   }
 
@@ -249,13 +247,11 @@ time, mark, audio, video {
     font-size: 20px;
     text-decoration: none;
     color: black;
-    font-family: 'Lato', sans-serif;
   }
 
   .splash-nav-logo {
     font-size: 22px;
     margin: 16px 0px;
-    font-family: 'Lato', sans-serif;
     margin-left: 10px;
   }
 
@@ -270,13 +266,11 @@ time, mark, audio, video {
     font-size: 50px;
     font-weight: bold;
     padding: 20px 20px;
-    font-family: 'Lato', sans-serif;
   }
 
   .splash-hero-h3 {
     font-size: 27px;
     padding: 0px 20px;
-    font-family: 'Lato', sans-serif;
   }
 
   .splash-commission-section {
@@ -335,7 +329,6 @@ time, mark, audio, video {
     font-size: 50px;
     font-weight: bold;
     padding: 20px 20px;
-    font-family: 'Lato', sans-serif;
     text-align: center;
   }
 
@@ -366,21 +359,18 @@ time, mark, audio, video {
     color: rgb(45, 49, 56);
     font-weight: 500;
     font-size: 18px;
-    font-family: 'Lato', sans-serif;
     margin-bottom: 5px;
     margin-top: 20px;
   }
 
   .stack-item-p {
     color: rgba(143, 149, 163, 0.9);
-    font-family: 'Lato', sans-serif;
     font-size: 14px;
     margin-bottom: 5px;
   }
 
   .stack-item-type {
     color: #21ce99;
-    font-family: 'Lato', sans-serif;
     font-size: 14px;
     margin-bottom: 20px;
   }
@@ -413,7 +403,6 @@ time, mark, audio, video {
     color: white;
     font-size: 30px;
     margin-top: 35px;
-    font-family: 'Lato', sans-serif;
     margin-left: 10px;
   }
 
@@ -495,7 +484,6 @@ time, mark, audio, video {
   }
 
   .form-label {
-     font-family: 'Lato', sans-serif;
      font-size: 15px;
      font-weight: 300;
      color: #171718;
@@ -505,7 +493,6 @@ time, mark, audio, video {
   }
   
   .welcome-h1 {
-    font-family: 'Lato', sans-serif;
     font-size: 26px;
     font-weight: 600;
     margin-bottom: 40px;
@@ -538,7 +525,6 @@ time, mark, audio, video {
   }
 
   .form-label {
-     font-family: 'Lato', sans-serif;
      font-size: 15px;
      font-weight: 300;
      color: #171718;
@@ -611,7 +597,6 @@ time, mark, audio, video {
     font-weight: 100;
     margin-bottom: 12px;
     margin-left: 11%;
-    font-family: 'Lato', sans-serif;
     color: #040d14;
     margin-top: 50px;
   }
@@ -620,7 +605,6 @@ time, mark, audio, video {
     font-size: 20px;
     font-weight: 100;
     margin: 10px 11%;
-    font-family: 'Lato', sans-serif;
     color: #040d14;
   }
 
@@ -701,7 +685,6 @@ time, mark, audio, video {
   .github-h1-item-stack-tab {
     font-size: 20px;
     font-weight: 700;
-    font-family: 'Lato', sans-serif;
     margin: 25px;
     margin-left: 3%;
     margin-right: 3%;
@@ -713,7 +696,6 @@ time, mark, audio, video {
 
   .github-h1 {
     color: white;
-    font-family: 'Lato', sans-serif;
     text-decoration: none;
     font-size: 22px;
     text-align: center;
@@ -743,13 +725,11 @@ time, mark, audio, video {
     font-size: 20px;
     text-decoration: none;
     color: black;
-    font-family: 'Lato', sans-serif;
   }
 
   .splash-nav-logo {
     font-size: 22px;
     margin: 16px 0px;
-    font-family: 'Lato', sans-serif;
     margin-left: 10px;
   }
 
@@ -785,7 +765,6 @@ time, mark, audio, video {
     font-size: 73px;
     font-weight: bold;
     padding: 20px 15%;
-    font-family: 'Lato', sans-serif;
     text-align: center;
     margin-bottom: 20px;
   }
@@ -793,7 +772,6 @@ time, mark, audio, video {
   .splash-hero-h3 {
     font-size: 27px;
     padding: 0px 15%;
-    font-family: 'Lato', sans-serif;
     text-align: center;
   }
 
@@ -803,7 +781,6 @@ time, mark, audio, video {
 
   .signup-button-on-splash {
     font-size: 25px;
-    font-family: 'Lato', sans-serif;
     text-decoration: none;
     background-color: white;
     color: black;
@@ -864,14 +841,12 @@ time, mark, audio, video {
     color: rgb(45, 49, 56);
     font-weight: 500;
     font-size: 26px;
-    font-family: 'Lato', sans-serif;
     margin-bottom: 8px;
     margin-top: 20px;
   }
 
   .stack-item-p {
     color: rgba(143, 149, 163, 0.9);
-    font-family: 'Lato', sans-serif;
     font-size: 16px;
     margin-bottom: 8px;
   }
@@ -882,7 +857,6 @@ time, mark, audio, video {
 
   .stack-item-type {
     color: #21ce99;
-    font-family: 'Lato', sans-serif;
     font-size: 16px;
     margin-bottom: 20px;
   }
@@ -890,7 +864,6 @@ time, mark, audio, video {
   .splash-commission-h1 {
     font-size: 20px;
     font-weight: 700;
-    font-family: 'Lato', sans-serif;
     margin: 25px;
     margin-left: 5%;
     margin-right: 9%;
@@ -904,8 +877,7 @@ time, mark, audio, video {
 
   #github-accounts-h1-splash {
     font-size: 20px;
-    font-weight: 700;
-    font-family: 'Lato', sans-serif;
+    font-weight: 700; 
     margin: 25px;
     margin-left: 5%;
     margin-right: 9%;
@@ -919,14 +891,6 @@ time, mark, audio, video {
   }
 
   .github-stack-tablet-card {
-    /* height: 200px;
-    /* background-color: white;
-    width: 200px;
-    opacity: 0.09; */
-    /* border-radius: 6px; */
-    /* box-shadow: 1px 1px 1px 1px white; */
-    /* margin: 20px 10px;
-    background-color: rgb(255,255,255,0.09); */
     margin: 15px 14px;
     display: inline-flex;
     padding: 10px;
@@ -975,6 +939,105 @@ time, mark, audio, video {
     width: 75px;
     color: #21ce99; */
     display: none;
+  }
+
+
+
+
+
+
+
+
+  /* TESTING COMPANY NAVBAR  */
+
+    #company-nav-logo-robinhood {
+    margin-top: 20px;
+    position: relative;
+    margin-left: 23%;
+    margin-right: 20px;
+    font-size: 18px;
+    /* display: none; */
+  }
+
+  #company-nav-logo-robinhood:hover {
+    color: #21ce99;
+    transition: ease 0.5s;
+    /* display: none; */
+  }
+
+  .company-search-bar-nav {
+    height: 30px;
+    width: 400px;
+    margin-top: 12px;
+    outline: none;
+    margin-left: 12.5%;
+  }
+
+  .company-search-bar-nav {
+    height: 30px;
+    width: 350px;
+    margin-top: 14px;
+    outline: none;
+    padding-left: 8px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    display: flex;
+    margin-left: 6.5%;
+  }
+
+  .company-search-bar-nav:hover {
+    height: 30px;
+    width: 400px;
+    margin-top: 12px;
+    outline: none;
+    padding-left: 8px;
+    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.01), 0 3px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .company-search-bar-nav::placeholder {
+    font-size: 14px;
+    padding-left: 5px;
+  }
+
+  .nav-bar-nav-bar {
+    background-color: rgb(255, 255, 255);
+    height: 60px;
+    padding: 15px 10px;
+    display: flex;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .company-nav-logout-button {
+    border: none;
+    font-size: 18px;
+    color: black;
+    margin-top: 4px;
+    cursor: pointer;
+    /* display: none; */
+  }    
+
+  .company-nav-logout-button:hover {
+    cursor: pointer;
+    color: #21ce99;
+    transition: ease 0.3s;
+    /* display: none */
+  }
+
+  #company-logo-for-companies-page {
+    margin-top: 11px;
+    width: 50px;
+    margin-left: 20px;
+    margin-right: 5px;
+  }
+
+  #company-logo-for-companies-page:hover {
+    display: none;
+  }
+
+  .company-search {
+    display: flex;
   }
 
 }
@@ -1048,7 +1111,6 @@ time, mark, audio, video {
     font-weight: 100;
     margin-bottom: 12px;
     margin-left: 17%;
-    font-family: 'Lato', sans-serif;
     color: #040d14;
     margin-top: 50px;
   }
@@ -1057,7 +1119,6 @@ time, mark, audio, video {
     font-size: 20px;
     font-weight: 100;
     margin: 10px 17%;
-    font-family: 'Lato', sans-serif;
     color: #040d14;
   }
 
@@ -1145,13 +1206,11 @@ time, mark, audio, video {
   .security-h3 {
     font-size: 22px;
     margin: auto;
-    font-family: 'Lato', sans-serif;
     text-align: center;
   }
 
   .security-p {
     font-size: 17px;
-    font-family: 'Lato', sans-serif;
     margin: 5px;
     text-align: center;
     color: silver;
@@ -1226,7 +1285,6 @@ time, mark, audio, video {
 
   .github-h1 {
     color: white;
-    font-family: 'Lato', sans-serif;
     font-size: 24px;
     margin-top: 10px;
     margin-left: 12px;
@@ -1264,9 +1322,18 @@ time, mark, audio, video {
   }
 
   #company-nav-logo-robinhood {
-    margin-top: 18px;
-    position: absolute;
-    right: 5%;
+    margin-top: 20px;
+    position: relative;
+    margin-left: 23%;
+    margin-right: 20px;
+    font-size: 18px;
+    display: unset;
+  }
+
+  #company-nav-logo-robinhood:hover {
+    color: #21ce99;
+    transition: ease 0.5s;
+    display: unset;
   }
 
   .company-search-bar {
@@ -1278,6 +1345,7 @@ time, mark, audio, video {
     width: 400px;
     margin-top: 12px;
     outline: none;
+    margin-left: 12.5%;
   }
 
   .company-search-bar-nav {
@@ -1301,6 +1369,7 @@ time, mark, audio, video {
 
   .company-search-bar-nav svg {
     margin-right: 10px;
+    margin-left: 12.5%;
   }
 
   .company-search-bar-nav:hover {
@@ -1313,8 +1382,51 @@ time, mark, audio, video {
   }
 
   .company-search-bar-nav::placeholder {
-    font-family: 'Lato', sans-serif;
     font-size: 14px;
     padding-left: 5px;
+  }
+
+  .nav-bar-nav-bar {
+    background-color: rgb(255, 255, 255);
+    height: 60px;
+    padding: 15px 10px;
+    display: flex;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .company-nav-logout-button {
+    border: none;
+    font-size: 18px;
+    color: black;
+    margin-top: 4px;
+    cursor: pointer;
+    display: unset;
+  }    
+
+  .company-nav-logout-button:hover {
+    cursor: pointer;
+    color: #21ce99;
+    transition: ease 0.3s;
+    display: unset;
+  }
+
+  #company-logo-for-companies-page {
+    margin-top: 11px;
+    width: 50px;
+    margin-left: 20px;
+    margin-right: 40px;
+    display: unset;
+  }
+
+  #company-logo-for-companies-page:hover {
+    color: #21ce99;
+    transition: ease 0.3s;
+    display: unset;
+  }
+
+  .company-search {
+    display: flex;
   }
 }
