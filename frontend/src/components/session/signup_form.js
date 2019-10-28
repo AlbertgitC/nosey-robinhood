@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import logo from '../../assets/images/robinhood-logo.jpg'
 import security from '../../assets/images/security.png'
+import GreenPiedPiperLogo from '../../assets/greenlogo'
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -57,12 +58,12 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div>
-        <img className="sign-up-logo" src={logo}></img>
+        <GreenPiedPiperLogo />
         <nav className="signup-navbar">
-          <Link className="signup-nav-link">Nosey Robinhood</Link>
-          <Link className="signup-nav-link">Home</Link>
+          <Link to="/" className="signup-nav-link">Nosey Robinhood</Link>
+          <Link to="/" className="signup-nav-link">Home</Link>
           <Link to="/login" className="signup-nav-link">Login</Link>
-          <Link className="signup-nav-link sign-up-active">Sign Up</Link>
+          <Link to="/signup" className="signup-nav-link sign-up-active">Sign Up</Link>
         </nav>
         <div className="signup-underline"></div>
         <div className="main-signup-flex">
