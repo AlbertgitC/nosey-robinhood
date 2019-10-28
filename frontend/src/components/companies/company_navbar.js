@@ -6,11 +6,9 @@ class CompanyNavbar extends Component {
     return (
       <div>
         <nav className="splash-nav-bar">
-          <span className="splash-nav-logo">Nosey Robinhood</span>
-          {/* <span className="splash-nav-logo">
-            <PiedPiperLogo />
-          </span> */}
+          
           <CompanySearch />
+          <span className="splash-nav-logo" id="company-nav-logo-robinhood">Nosey Robinhood</span>
         </nav>
       </div>
     )

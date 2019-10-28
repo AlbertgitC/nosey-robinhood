@@ -1262,4 +1262,42 @@ time, mark, audio, video {
     width: 75px;
     color: #21ce99;
   }
+
+  #company-nav-logo-robinhood {
+    margin-top: 18px;
+    position: absolute;
+    right: 5%;
+  }
+
+  .company-search-bar-nav {
+    height: 30px;
+    width: 400px;
+    margin-top: 12px;
+    outline: none;
+  }
+
+  .company-search-bar-nav {
+    height: 30px;
+    width: 400px;
+    margin-top: 14px;
+    outline: none;
+    padding-left: 8px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+  }
+
+  .company-search-bar-nav:hover {
+    height: 30px;
+    width: 400px;
+    margin-top: 12px;
+    outline: none;
+    padding-left: 8px;
+    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.01), 0 3px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .company-search-bar-nav::placeholder {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    padding-left: 5px;
+  }
 }
