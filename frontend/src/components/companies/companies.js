@@ -92,8 +92,8 @@ class Companies extends React.Component {
       return (
         <div>
           <div className="stock-graph">
-            <h2>{this.props.tag}</h2>
-            <h2>${parseFloat(this.state.company[0][1]["4. close"]).toFixed(2)}</h2>
+            <h2 className='company-graph-title'>{this.props.tag}</h2>
+            <h2 className='company-graph-price'>${parseFloat(this.state.company[0][1]["4. close"]).toFixed(2)}</h2>
             <CanvasJSChart options={options} />
           </div> 
         </div>
