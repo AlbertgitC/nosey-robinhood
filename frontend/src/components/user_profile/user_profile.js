@@ -4,6 +4,7 @@ import { fetchCompanyBatchQuote, fetchCompanyDaily } from '../../actions/company
 import { Link } from 'react-router-dom';
 import '../../assets/user_profile.css';
 
+
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
