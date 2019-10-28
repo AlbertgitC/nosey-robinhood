@@ -16,311 +16,375 @@ button:focus {
   outline: none;
 }
 
-/* @media only screen and (max-width: 600px) { */
-  
-  
-/* } */
+.company-show {
+  font-family: "DIN Pro", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.25px;
+  line-height: 19px;
+  margin-left: 190px;
+  /* margin: 0;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 -6px;
+  flex-direction: column; */
+}
 
-/* @media only screen and (min-width: 992px) { */
+.company-graph-purchase {
+  display: flex;
+  /* margin: 0 auto; */
+  padding-top: 86px;
+}
+
+.company-graph {
+  min-width: 690px;
+  /* margin: 0 auto; */
+}
+
+.company-graph-title {
+  font-size: 36px;
+  line-height: 42px;
+  font-weight: 500;
+  letter-spacing: -0.29px;
+  margin-bottom: 5px;
+}
+
+.company-graph-price {
+  font-size: 36px;
+  font-weight: 400;
+  letter-spacing: -0.7px;
+  line-height: 42px;
+}
+
+.canvasjs-chart-canvas {
+  width: 100%;
+  height: 400px;
+}
+  
+.company-info {
+  /* margin: 0 auto; */
+  width: 678.656px;
+  padding-top: 36px;
+}
+
+.company-info-description-title {
+  margin-bottom: 30px;
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: -0.14px;
+  line-height: 30px;
+}
+
+.company-info-description {
+  margin-bottom: 30px;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 22px;
+}
+
+.company-info-misc {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.company-info-misc-component {
+  flex-basis: calc(25% - 12px);
+  margin: 0 6px 12px;
+}
+
+.company-info-misc-component-title {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-weight: 500;
+}
+
+.company-info-misc-component-descirption {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.purchase-sell-form-watch {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;;
+}
+
+.purchase-sell-form-container {
+  height: 388px;
+  box-shadow: 0px 0px 20px 4px #cccccc36;
+  border-radius: 8px;
+}
+
+.purchase-sell-form {
+  width: 275px;
+  height: 360px;
+  border-radius: 4px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  white-space: nowrap;
+}
+
+.purchase-sell-form::-webkit-scrollbar { width: 0 !important }
+
+.purchase-form-title {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 24px;
+  font-size: 16px;
+}
+
+.purchase-form {
+  padding: 0px 24px;
+}
+
+.purchase-form-component {
+  display: flex;
+  justify-content: space-between;
+  min-height: 48px;
+  align-items: center;
+}
+
+.purchase-form-order {
+  padding-top: 30px;
+}
+
+.purchase-form-submit {
+  display: flex;
+  align-items: center;
+  height: 48px;
+}
+
+.purchase-form input[type='submit'] {
+  margin: 13px 0px auto;
+  background-color: #21ce99;
+  width: 100%;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 48px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.25px;
+  line-height: 19px;
+}
+
+.purchase-form input[type='number'] {
+  border: 1px solid;
+  border-radius: 4px;
+  height: 34px;
+  line-height: 1.5em;
+  outline: 0;
+  padding: 0 13px;
+  width: 54px;
+  text-align: right;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.current-funds {
+  text-align: center;
+  top: 40px;
+  position: relative;
+  font-size: 16px;
+}
+
+.hidden {
+  display: none;
+}
+
+.active {
+  border-bottom: 1px solid #cccccc6b !important;
+}
+
+.purchase-sell-form-tabs {
+  display: flex;
+}
+
+.purchase-sell-form-tab-button {
+  font-size: 13px;
+  width: 100%;
+  padding: 5px 0px;
+  border: 0;
+  border-radius: 8px 8px 0px 0px;
+}
+
+.sell-form {
+  padding: 7px;
+}
+
+.sell-form::after {
+  background-color: #f4f4f5;
+  content: '';
+  display: block;
+  height: 1px;
+  margin-top: 10px;
+}
+
+.sell-form-date {
+  padding-bottom: 5px;
+}
+
+.sell-form-columns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sell-form-total-shares {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sell-form-total-sale {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sell-form-column-left {
+  display: flex;
+  flex-direction: column;
+  width: 70px;
+  justify-content: space-around;
+}
+
+.sell-form-column-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.sell-form-column-right input[type='number'] {
+  border: 1px solid;
+  border-radius: 4px;
+  height: 24px;
+  line-height: 1.5em;
+  outline: 0;
+  padding: 0 13px;
+  width: 44px;
+  text-align: right;
+  margin-bottom: 8px;
+}
+
+.sell-form-column-right input[type='submit'] {
+  background-color: #21ce99;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 28px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.25px;
+  line-height: 19px;
+}
+
+.watch-button-container {
+  align-self: center;
+  position: relative;
+  top: 50px;
+}
+
+.watch-button {
+  padding: 20px 90px;
+  background-color: white;
+  border: 1px solid #21ce99;
+  color: #21ce99;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.25px;
+  line-height: 19px;
+  margin: 0;
+  min-width: 246.75px;
+}
+
+.un-watch-button {
+  padding: 20px 90px;
+  background-color: white;
+  border: 1px solid #21ce99;
+  color: #21ce99;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.25px;
+  line-height: 19px;
+  margin: 0;
+  min-width: 246.75px;
+}
+
+.results {
+  border: 1px solid #cccccc8a;
+  background-color: white;
+  position: relative;
+}
+
+.company-search-results-list-item {
+  padding: 10px;
+}
+
+.company-search-results-list-item a {
+  text-decoration: none;
+  color: black;
+}
+
+.company-search-results-list-item a:hover {
+  cursor: pointer;
+}
+
+.company-search-results-list-item:hover {
+  background-color: whitesmoke;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+@media only screen and (max-width: 600px) {
+
   .company-show {
-    font-family: "DIN Pro", -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 13px;
-    font-weight: 400;
-    letter-spacing: 0.25px;
-    line-height: 19px;
-    margin-left: 190px;
-    /* margin: 0;
-    display: flex;
-    justify-content: space-between;
-    margin: 0 -6px;
-    flex-direction: column; */
-  }
-
-  .company-graph-purchase {
-    display: flex;
-    /* margin: 0 auto; */
-    padding-top: 86px;
+    margin: 0px 20px;
+    display: block;
   }
 
   .company-graph {
-    width: 690px;
-    /* margin: 0 auto; */
+    min-width: 320px;
   }
 
-  .company-graph-title {
-    font-size: 36px;
-    line-height: 42px;
-    font-weight: 500;
-    letter-spacing: -0.29px;
-    margin-bottom: 5px;
-  }
-
-  .company-graph-price {
-    font-size: 36px;
-    font-weight: 400;
-    letter-spacing: -0.7px;
-    line-height: 42px;
-  }
-
-  .canvasjs-chart-canvas {
-    width: 100%;
-    height: 400px;
-  }
-    
-  .company-info {
-    /* margin: 0 auto; */
-    width: 678.656px;
-    padding-top: 36px;
-  }
-
-  .company-info-description-title {
-    margin-bottom: 30px;
-    font-size: 26px;
-    font-weight: 500;
-    letter-spacing: -0.14px;
-    line-height: 30px;
-  }
-
-  .company-info-description {
-    margin-bottom: 30px;
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: 22px;
-  }
-
-  .company-info-misc {
-    display: flex;
-    flex-wrap: wrap;
-
-  }
-
-  .company-info-misc-component {
-    flex-basis: calc(25% - 12px);
-    margin: 0 6px 12px;
-  }
-
-  .company-info-misc-component-title {
-    margin-top: 0px;
-    margin-bottom: 0px;
-    font-weight: 500;
-  }
-
-  .company-info-misc-component-descirption {
-    margin-top: 0px;
-    margin-bottom: 0px;
+  .company-graph-purchase {
+    display: block;
+    padding-top: 86px;
   }
 
   .purchase-sell-form-watch {
-    display: flex;
     flex-direction: column;
-    margin-left: 20px;;
-  }
-
-  .purchase-sell-form-container {
-    height: 388px;
-    box-shadow: 0px 10px 20px 4px #ccc;
-    border-radius: 19px 19px 8px 8px;
-  }
-
-  .purchase-sell-form {
-    width: 275px;
-    height: 360px;
-    border-radius: 4px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    white-space: nowrap;
-  }
-
-  .purchase-sell-form::-webkit-scrollbar { width: 0 !important }
-
-  .purchase-form-title {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 24px;
-    font-size: 16px;
-  }
-
-  .purchase-form {
-    padding: 0px 24px;
-  }
-
-  .purchase-form-component {
-    display: flex;
-    justify-content: space-between;
-    min-height: 48px;
-    align-items: center;
-  }
-
-  .purchase-form-order {
-    padding-top: 30px;
-  }
-
-  .purchase-form-submit {
-    display: flex;
-    align-items: center;
-    height: 48px;
-  }
-
-  .purchase-form input[type='submit'] {
-    margin: 13px 0px auto;
-    background-color: #21ce99;
-    width: 100%;
-    border-radius: 4px;
-    cursor: pointer;
-    height: 48px;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.25px;
-    line-height: 19px;
-  }
-
-  .purchase-form input[type='number'] {
-    border: 1px solid;
-    border-radius: 4px;
-    height: 34px;
-    line-height: 1.5em;
-    outline: 0;
-    padding: 0 13px;
-    width: 54px;
-    text-align: right;
-  }
-
-  input[type=number]::-webkit-inner-spin-button,
-  input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-
-  .current-funds {
-    text-align: center;
-    top: 40px;
-    position: relative;
-    font-size: 16px;
-  }
-
-  .hidden {
-    display: none;
-  }
-
-  .active {
-    border-bottom: none !important;
-  }
-
-  .purchase-sell-form-tabs {
-    display: flex;
-  }
-
-  .purchase-sell-form-tab-button {
-    font-size: 13px;
-    width: 100%;
-    padding: 5px 0px;
-    border-radius: 19px 19px 0px 0px;
-  }
-
-  .sell-form {
-    padding: 7px;
-  }
-
-  .sell-form::after {
-    background-color: black;
-    content: '';
-    display: block;
-    height: 1px;
-    margin-top: 10px;
-  }
-
-  .sell-form-date {
-    padding-bottom: 5px;
-  }
-
-  .sell-form-columns {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .sell-form-total-shares {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .sell-form-total-sale {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .sell-form-column-left {
-    display: flex;
-    flex-direction: column;
-    width: 70px;
-    justify-content: space-around;
-  }
-
-  .sell-form-column-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-
-  .sell-form-column-right input[type='number'] {
-    border: 1px solid;
-    border-radius: 4px;
-    height: 24px;
-    line-height: 1.5em;
-    outline: 0;
-    padding: 0 13px;
-    width: 44px;
-    text-align: right;
-    margin-bottom: 8px;
-  }
-
-  .sell-form-column-right input[type='submit'] {
-    background-color: #21ce99;
-    border-radius: 4px;
-    cursor: pointer;
-    height: 28px;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.25px;
-    line-height: 19px;
+    margin-left: 0px;
+    margin-top: 20px;
   }
 
   .watch-button-container {
-    align-self: center;
-    position: relative;
-    top: 50px;
+    top: 30px;
   }
 
-  .watch-button {
-    padding: 20px 90px;
-    font-size: 13px;
+  .company-info {
+    padding-top: 66px;
+    width: unset;
+  }
+
+  .company-info-misc {
+    display: unset;
+  }
+
+  .purchase-sell-form-tab-button {
     background-color: white;
-    border: 1px solid #21ce99;
-    color: #21ce99;
   }
 
-  .un-watch-button {
-    padding: 20px 90px;
-    font-size: 13px;
-    background-color: white;
-    border: 1px solid #21ce99;
-    color: #21ce99;
+  .purchase-sell-form {
+    width: unset;
   }
 
-  .results {
-    border: 1px solid;
-    background-color: white;
-    position: relative;
-  }
 
-  .company-search-results-list-item {
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .company-search-results-list-item:hover {
-    background-color: whitesmoke;
-  }
-
-/* } */
+}
