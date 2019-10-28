@@ -1300,4 +1300,14 @@ time, mark, audio, video {
     font-size: 14px;
     padding-left: 5px;
   }
+
+  .nav-bar-nav-bar {
+    background-color: rgb(255, 255, 255);
+    height: 60px;
+    padding: 0px 10px;
+    display: flex;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+  }
 }

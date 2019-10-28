@@ -10,9 +10,9 @@ class CompanySearch extends React.Component {
       searchResults: undefined
     };
 
-    this.handleSubmit = this.handleSubmit.bind('this');
-    this.update = this.update.bind('this');
-    this.clearSearch = this.clearSearch.bind('this');
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.update = this.update.bind(this);
+    this.clearSearch = this.clearSearch.bind(this);
   }
 
   handleSubmit(e) {
