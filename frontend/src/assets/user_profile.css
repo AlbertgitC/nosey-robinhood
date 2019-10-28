@@ -5,3 +5,171 @@
   }
 
 }
+
+.user-profile-main {
+  padding-top: 36px;
+  font-family: 'Lato', sans-serif;
+  width: 100%;
+  max-width: 1024px;
+  display: flex;
+  margin: 0 auto;
+}
+
+.user-profile-graph {
+  width: 680px;
+  margin: 0 auto;
+}
+
+.user-profile-graph h1 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 32px;
+}
+
+.user-profile-graph h2 {
+  font-size: 36px;
+}
+.user-profile-graph > h2:last-of-type {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.stock-graph h2 {
+  font-size: 26px;
+}
+
+.user-profile-side {
+  height: 100%;
+  max-height:80vh;
+  overflow: hidden;
+  overflow-y: scroll;
+  width: 250px;
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.01), 0 3px 24px rgba(48, 51, 51, 0.09);
+  /* margin-right: 40px; */
+  margin: 0 auto;
+}
+
+.user-profile-side::-webkit-scrollbar {
+  display: none;
+}
+
+.user-profile-side > div > span {
+  display: block;
+  border-top: 1px solid #f4f4f5;
+  border-bottom: 1px solid #f4f4f5;
+  padding: 16px 12px;
+  font-size: 16px;
+}
+
+.user-profile-side div:first-of-type > span {
+  border-top: none;
+}
+
+.user-profile-side li {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  padding: 16px 12px;
+}
+
+.stock-list span {
+  font-size: 14px;
+}
+
+.holding-stock-list span {
+  font-size: 14px;
+}
+
+.stock-list span:first-of-type {
+  font-size: 14px;
+  width: 76px;
+  display: block;
+}
+
+.holding-stock-list span:first-of-type {
+  font-size: 14px;
+  width: 76px;
+  display: block;
+}
+
+.stock-list div:first-of-type div {
+  display: flex;
+}
+
+.holding-stock-list div:first-of-type div {
+  display: flex;
+}
+
+.stock-list div:first-of-type:hover {
+  cursor: pointer;
+}
+
+.holding-stock-list div:first-of-type div:hover {
+  cursor: pointer;
+}
+
+.stock-list div:first-of-type {
+  display: flex;
+}
+
+.holding-stock-list div:first-of-type {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stock-list a {
+  color: black;
+  font-size: 14px;
+}
+
+.holding-stock-list a {
+  color: black;
+  font-size: 14px;
+}
+
+.stock-list a:link {
+  text-decoration: none;
+}
+
+.holding-stock-list a:link {
+  text-decoration: none;
+}
+
+.stock-list a:visited {
+  color: inherit;
+}
+
+.holding-stock-list a:visited {
+  color: inherit;
+}
+
+.holding-stock-list li {
+  flex-direction: column;
+}
+
+.holding-stock-list li > div:last-of-type{
+  font-size: 13px;
+  color: #21CE99;
+}
+
+#green {
+  color: #21CE99;
+}
+
+#red {
+  color: #F45531;
+}
+
+#black {
+  color: black;
+}
+
+#nosey-msg-close {
+  float: right;
+  font-size: 14px;
+  color: lightslategrey;
+}
+
+#nosey-msg-close:hover {
+  cursor: pointer;
+}

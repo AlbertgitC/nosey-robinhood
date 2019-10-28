@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-export const fetchAllHoldings = user => (
-  axios.get(`/api/purchase_records/user/${user.id}`)
+export const fetchAllHoldings = () => (
+  axios.get(`/api/purchase_records/user_holdings`)
 );
 
 export const fetchCompanyHolding = companyTicker => (
