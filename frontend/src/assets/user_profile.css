@@ -188,6 +188,5 @@
   display: flex;
   position: fixed;
   width: 100%;
-  max-width: 1024px;
-  z-index: inherit;
+  z-index: 1;
 }
