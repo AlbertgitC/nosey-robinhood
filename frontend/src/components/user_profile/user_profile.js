@@ -1,5 +1,6 @@
 import React from 'react';
 import CompaniesContainer from '../companies/companies_container';
+import CompanyNavbar from '../companies/company_navbar';
 import { fetchCompanyBatchQuote, fetchCompanyDaily } from '../../actions/company_actions';
 import { Link } from 'react-router-dom';
 import xor from 'lodash/xor';
@@ -183,6 +184,7 @@ class UserProfile extends React.Component {
     } else if (this.state.watchListData.length === 0 && this.state.stockData.length === 0) {
       return (
         <div className="user-profile-main">
+          <CompanyNavbar />
           <div className="user-profile-graph">
             <div className="nosey-msg">
               <div id="nosey-msg-close" onClick={this.closeMsg}>X</div>
@@ -207,6 +209,7 @@ class UserProfile extends React.Component {
     } else if (this.state.watchListData.length !== 0 && this.state.stockData.length === 0) {
       return (
         <div className="user-profile-main">
+          <CompanyNavbar />
           <div className="user-profile-graph">
             <div className="nosey-msg">
               <div id="nosey-msg-close" onClick={this.closeMsg}>X</div>
@@ -236,6 +239,7 @@ class UserProfile extends React.Component {
     } else if (this.state.watchListData.length === 0 && this.state.stockData.length !== 0) {
       return (
         <div className="user-profile-main">
+          <CompanyNavbar />
           <div className="user-profile-graph">
             <div className="nosey-msg">
               <div id="nosey-msg-close" onClick={this.closeMsg}>X</div>
@@ -266,6 +270,7 @@ class UserProfile extends React.Component {
     
     return (
       <div className="user-profile-main">
+        <CompanyNavbar />
         <div className="user-profile-graph">
           <div className="nosey-msg">
             <div id="nosey-msg-close" onClick={this.closeMsg}>X</div>
