@@ -460,8 +460,12 @@ input[type=number]::-webkit-outer-spin-button {
   .company-search-bar-nav {
     display: flex;
     align-items: center;
-    border: 1px solid;
+    border: 1px solid lightgray;
     width: 190px;
+  }
+
+  .company-search-bar-nav svg {
+    color: lightgray;
   }
 
   .company-search-first {
