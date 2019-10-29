@@ -1,0 +1,11 @@
+.watch-list-button button {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.watch-list-button button:hover {
+  cursor: pointer;
+}

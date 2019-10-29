@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import CompanySearch from './company_search'
+import { Link } from 'react-router-dom';
 
 class CompanyNavbar extends React.Component {
 
