@@ -188,7 +188,7 @@ html, body, h1, h3, p, h2 {
   }
 
   .signup-header {
-    font-size: 36px;
+    font-size: 33px;
     font-weight: 100;
     margin-bottom: 12px;
     color: #040d14;
@@ -196,9 +196,9 @@ html, body, h1, h3, p, h2 {
   }
 
   .signup-message {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 100;
-    margin: 10px 9px;
+    margin: 12px 23px;
     text-align: center;
     color: #040d14;
   }
@@ -953,7 +953,7 @@ html, body, h1, h3, p, h2 {
 
   .stack-item:hover {
     background-color: #f1f1f1;
-    opacity: 16%;
+    /* opacity: 16%; */
     transition: 0.5s ease;
   }
 
@@ -1287,7 +1287,7 @@ html, body, h1, h3, p, h2 {
   .signup-underline {
     height: 0px;
     border: 2px solid #f5f7fa;
-    width: 500px;
+    width: 550px;
     margin: auto;
   }
 
@@ -1441,7 +1441,7 @@ html, body, h1, h3, p, h2 {
 
   .stack-item:hover {
     background-color: #f1f1f1;
-    opacity: 16%;
+    /* opacity: 16%; */
     transition: 0.5s ease;
   }
 
@@ -1629,5 +1629,12 @@ html, body, h1, h3, p, h2 {
 
   .company-search {
     display: flex;
+  }
+
+   .nav-splash-span {
+    display: flex;
+    position: absolute;
+    right: 2%;
+    margin-right: 10px;
   }
 }

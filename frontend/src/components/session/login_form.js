@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import Session from "../../assets/session.css";
 import { Link } from 'react-router-dom';
+import Navigation from '../main/navigation'
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -62,6 +63,7 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="multi-page-wrapper">
+        <Navigation />
         <div className="image-div">
         </div>
         <div className="form-container">
