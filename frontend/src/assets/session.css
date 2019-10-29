@@ -36,12 +36,20 @@ html, body, h1, h3, p, h2 {
 
 @media only screen and (max-width: 600px) {
 
+  .company-search-bar-nav {
+    margin-top: 10px;
+    margin-left: 18px;
+  }
+
+  .company-search-and-logo {
+    display: flex;
+  }
 
   .company-nav-logout-button {
     border: none;
     font-size: 16px;
     color: black;
-    margin-top: 4px;
+    align-self: center;
     cursor: pointer;
   }
 
@@ -51,6 +59,14 @@ html, body, h1, h3, p, h2 {
 
   #company-nav-logo-robinhood {
     display: none;
+  }
+
+  #company-logo-react-router {
+    color: black;
+  }
+
+  #company-name-react-router {
+    color: black;
   }
 
   /* #company-nav-logo-robinhood:hover {
@@ -513,6 +529,10 @@ html, body, h1, h3, p, h2 {
 @media only screen and (min-width: 600px) {
   html, body {
     height: 100%;
+  }
+
+  .company-search-and-logo {
+    display: flex;
   }
 
   .company-search-first {
@@ -1116,7 +1136,7 @@ html, body, h1, h3, p, h2 {
 
   .company-search-bar-nav {
     height: 37px;
-    width: 400px;
+    width: 350px;
     margin-top: 14px;
     outline: none;
     padding-left: 8px;
@@ -1124,11 +1144,12 @@ html, body, h1, h3, p, h2 {
     border-radius: 3px;
     display: flex;
     justify-content: center;
+    margin-left: 10px;
   }
 
   .company-search-bar-nav:hover {
     height: 37px;
-    width: 400px;
+    width: 350px;
     margin-top: 12px;
     outline: none;
     transition: 0.5s ease;
@@ -1153,12 +1174,11 @@ html, body, h1, h3, p, h2 {
   }
 
   .company-nav-logout-button {
-    border: none;
+        border: none;
     font-size: 18px;
     color: black;
-    margin-top: 4px;
     cursor: pointer;
-    /* display: none; */
+    margin-right: 33px;
   }    
 
   .company-nav-logout-button:hover {
@@ -1435,6 +1455,14 @@ html, body, h1, h3, p, h2 {
     /* left: 5%; */
 }
 
+.company-logo-and-logout {
+  display: flex;
+}
+
+  .company-logo-and-logout {
+   display: flex;
+  }
+
   .stack-item:hover {
     box-shadow: 0 1px 3px 1px rgba(60,64,67,.2), 0 2px 8px 4px rgba(60,64,67,.1);;
   }
@@ -1520,10 +1548,9 @@ html, body, h1, h3, p, h2 {
   }
 
   #company-nav-logo-robinhood {
-    margin-top: 20px;
+    padding-right: 20px;
+    margin-top: 28px;
     position: relative;
-    margin-left: 23%;
-    margin-right: 20px;
     font-size: 18px;
     display: unset;
   }
@@ -1598,12 +1625,13 @@ html, body, h1, h3, p, h2 {
   }
 
   .company-nav-logout-button {
+    
     border: none;
     font-size: 18px;
     color: black;
-    margin-top: 4px;
     cursor: pointer;
     display: unset;
+    align-self: center;
   }    
 
   .company-nav-logout-button:hover {
@@ -1614,7 +1642,6 @@ html, body, h1, h3, p, h2 {
   }
 
   #company-logo-for-companies-page {
-    margin-top: 11px;
     width: 50px;
     margin-left: 20px;
     margin-right: 40px;
@@ -1636,5 +1663,26 @@ html, body, h1, h3, p, h2 {
     position: absolute;
     right: 2%;
     margin-right: 10px;
+  }
+
+  .company-search-and-logo {
+    display: flex;
+    flex-direction: row;
+    margin-left: 7%;
+  }
+  .company-logo-and-logout {
+    display: flex;
+    flex-direction: row;
+    margin-right: 14%;
+  }
+
+  #company-logo-react-router {
+    color: black;
+    align-self: center;
+  }
+
+  #company-name-react-router {
+    color: black;
+    align-self: center;
   }
 }
