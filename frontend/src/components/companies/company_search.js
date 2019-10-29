@@ -45,7 +45,7 @@ class CompanySearch extends React.Component {
       active = 'results';
       searchResults = searchResults.map((result, idx) => (
         <li key={idx} className='company-search-results-list-item'>
-          <Link to={`/company/${result['2. name']}`}>
+          <Link to={`/company/${result['1. symbol']}`}>
             <div className='company-search-results-list-company-name'>
                 {result['2. name']}
             </div>
