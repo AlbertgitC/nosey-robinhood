@@ -15,7 +15,7 @@ class CompanyNavbar extends React.Component {
   }
 
   render() {
-    console.log(this.props)
+    
     return (
       <div>
         <nav className="nav-bar-nav-bar">
