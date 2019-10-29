@@ -62,7 +62,7 @@ html, body, h1, h3, p, h2 {
 
   #signup-link {
     position: absolute;
-    top: 70%;
+    top: 75%;
     background-color: white;
     border: 2px solid #21ce99;
     border-radius: 4px;
@@ -469,6 +469,25 @@ html, body, h1, h3, p, h2 {
   }
 
   /* Login */
+
+#signup-link {
+    position: absolute;
+    top: 75%;
+    background-color: white;
+    border: 2px solid #21ce99;
+    border-radius: 4px;
+    height: 48px;
+    width: 140px;
+    color: #21ce99;
+    font-size: 14px;
+    margin-left: 25px;
+    cursor: pointer;
+  }
+
+  #signup-link a {
+    color: #21ce99;
+  }
+
 
   .submit-button {
     background-color: #21ce99;
@@ -1056,6 +1075,7 @@ html, body, h1, h3, p, h2 {
     position: fixed;
     width: 100%;
     z-index: 1;
+    justify-content: center;
   }
 
   .company-nav-logout-button {
@@ -1116,7 +1136,7 @@ html, body, h1, h3, p, h2 {
 
   #signup-link {
     position: absolute;
-    top: 65%;
+    top: 75%;
     background-color: white;
     border: 2px solid #21ce99;
     border-radius: 4px;
@@ -1439,7 +1459,7 @@ html, body, h1, h3, p, h2 {
   }
 
   .company-search-bar-nav {
-    height: 30px;
+    height: 37px;
     width: 400px;
     margin-top: 14px;
     outline: none;
@@ -1462,13 +1482,18 @@ html, body, h1, h3, p, h2 {
     margin-left: 12.5%;
   }
 
+  .company-search-bar::placeholder {
+    font-size: 15px;
+  }
+
   .company-search-bar-nav:hover {
-    height: 30px;
+   height: 37px;
     width: 400px;
     margin-top: 12px;
     outline: none;
     padding-left: 8px;
     box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.01), 0 3px 6px rgba(0, 0, 0, 0.2);
+    transition: 0.5s ease;
   }
 
   .company-search-bar-nav::placeholder {
