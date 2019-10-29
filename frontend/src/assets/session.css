@@ -36,6 +36,45 @@ html, body, h1, h3, p, h2 {
 
 @media only screen and (max-width: 600px) {
 
+
+  .company-nav-logout-button {
+    border: none;
+    font-size: 16px;
+    color: black;
+    margin-top: 4px;
+    cursor: pointer;
+  }
+
+  .company-nav-logout-button:hover {
+    color:  #21ce99;
+  }
+
+  #company-nav-logo-robinhood {
+    display: none;
+  }
+
+  /* #company-nav-logo-robinhood:hover {
+    color:  #21ce99;
+  } */
+
+  #company-logo-for-companies-page {
+    width: 64px;
+  }
+
+  .company-search-bar {
+   width: 70%;
+    display: flex;
+    justify-content: center;
+    height: 28px;
+    margin: 0px 61px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    height: 37px;
+    margin-top: 14px;
+    outline: none;
+    padding-left: 8px;
+  }
+
   .github-h1-item-stack-tab {
     display: none;
   }
@@ -466,6 +505,34 @@ html, body, h1, h3, p, h2 {
 @media only screen and (min-width: 600px) {
   html, body {
     height: 100%;
+  }
+
+  .company-search-first {
+        display: flex;
+    align-items: center;
+  }
+
+
+   .company-search-bar-nav {
+    height: 30px;
+    width: 400px;
+    margin-top: 12px;
+    outline: none;
+    margin-left: 12.5%;
+  }
+
+  .company-search-bar-nav {
+    height: 37px;
+    width: 400px;
+    margin-top: 14px;
+    outline: none;
+    padding-left: 8px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: gray;
   }
 
   /* Login */
@@ -1019,45 +1086,45 @@ html, body, h1, h3, p, h2 {
   /* TESTING COMPANY NAVBAR  */
 
     #company-nav-logo-robinhood {
-    margin-top: 20px;
+    /* margin-top: 20px;
     position: relative;
     margin-left: 23%;
     margin-right: 20px;
-    font-size: 18px;
-    /* display: none; */
+    font-size: 18px; */
+    display: none;
   }
 
   #company-nav-logo-robinhood:hover {
-    color: #21ce99;
-    transition: ease 0.5s;
-    /* display: none; */
+    /* color: #21ce99;
+    transition: ease 0.5s; */
+    display: none;
   }
 
   .company-search-bar-nav {
-    height: 30px;
+    height: 37px;
     width: 400px;
     margin-top: 12px;
     outline: none;
-    margin-left: 12.5%;
   }
 
   .company-search-bar-nav {
-    height: 30px;
-    width: 350px;
+    height: 37px;
+    width: 400px;
     margin-top: 14px;
     outline: none;
     padding-left: 8px;
     border: 1px solid lightgrey;
     border-radius: 3px;
     display: flex;
-    margin-left: 6.5%;
+    justify-content: center;
   }
 
   .company-search-bar-nav:hover {
-    height: 30px;
+    height: 37px;
     width: 400px;
     margin-top: 12px;
     outline: none;
+    transition: 0.5s ease;
     padding-left: 8px;
     box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.01), 0 3px 6px rgba(0, 0, 0, 0.2);
   }
@@ -1075,7 +1142,7 @@ html, body, h1, h3, p, h2 {
     position: fixed;
     width: 100%;
     z-index: 1;
-    justify-content: center;
+    justify-content: space-evenly;
   }
 
   .company-nav-logout-button {
@@ -1091,22 +1158,33 @@ html, body, h1, h3, p, h2 {
     cursor: pointer;
     color: #21ce99;
     transition: ease 0.3s;
-    /* display: none */
   }
 
   #company-logo-for-companies-page {
-    margin-top: 11px;
-    width: 50px;
-    margin-left: 20px;
-    margin-right: 5px;
+    fill: black;
+    width: 58px;
+    position: relative;
+    top: 0px;
   }
-
-  #company-logo-for-companies-page:hover {
+  /* #company-logo-for-companies-page {
     display: none;
-  }
+  } */
+
+  /* #company-logo-for-companies-page:hover {
+    display: none;
+  } */
 
   .company-search {
     display: flex;
+  }
+
+  .company-search-input {
+    display: flex;
+    justify-content: center;
+  }
+
+  .company-search-bar {
+    border: none
   }
 
 }
