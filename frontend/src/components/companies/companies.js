@@ -1,6 +1,5 @@
 import React from 'react';
-import axios from 'axios';
-import { fetchCompanyDaily, fetchCompanyBatchQuote } from '../../actions/company_actions';
+import { fetchCompanyDaily } from '../../actions/company_actions';
 import CanvasJSReact from '../../assets/canvasjs.react';
 const CanvasJS = CanvasJSReact.CanvasJS;
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
@@ -16,17 +15,7 @@ class Companies extends React.Component {
     if (this.props.tag) {
       fetchCompanyDaily(this.props.tag).then(
         res => {
-          if (res.data["Time Series (Daily)"]) {
-            this.setState({ company: Object.entries(res.data["Time Series (Daily)"]) });
-            for (let i = 0; i < 30; i++) {
-              this.setState({
-                dataPoints: this.state.dataPoints.concat([{
-                  x: new Date(this.state.company[i][0]),
-                  y: parseFloat(this.state.company[i][1]["4. close"])
-                }])
-              });
-            };
-          }
+          this.updateData(Object.entries(res.data)[0]);
         }
       );
     } else {
@@ -36,20 +25,30 @@ class Companies extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState({ company: undefined, dataPoints: [] }, () => {
-      this.updateData(nextProps.data);
+      if (nextProps.data) {
+        this.updateData(nextProps.data);
+      } else if (nextProps.tag) {
+        fetchCompanyDaily(nextProps.tag).then(
+          res => {
+            this.updateData(Object.entries(res.data)[0]);
+          }
+        );
+      }
     });
   }
 
   async updateData(props = this.props.data) {
     await this.setState({ company: props });
-    for (let i = 0; i < this.state.company[1].chart.length; i++) {
-      this.setState({
-        dataPoints: this.state.dataPoints.concat([{
-          x: new Date(this.state.company[1].chart[i].date),
-          y: this.state.company[1].chart[i].close
-        }])
-      });
-    };
+    if (this.state.company) {
+      for (let i = 0; i < this.state.company[1].chart.length; i++) {
+        this.setState({
+          dataPoints: this.state.dataPoints.concat([{
+            x: new Date(this.state.company[1].chart[i].date),
+            y: this.state.company[1].chart[i].close
+          }])
+        });
+      };
+    }
   }
 
   render() {
@@ -88,12 +87,11 @@ class Companies extends React.Component {
     if (!this.state.company) {
       return (<div>Sorry API limit reached :(</div>);
     } else if (this.props.tag) {
-      
       return (
         <div>
           <div className="stock-graph">
-            <h2 className='company-graph-title'>{this.props.tag.toUpperCase()}</h2>
-            <h2 className='company-graph-price'>${parseFloat(this.state.company[0][1]["4. close"]).toFixed(2)}</h2>
+            <h2 className='company-graph-title'>{this.state.company[0]}</h2>
+            <h2 className='company-graph-price'>${this.state.company[1].quote.latestPrice.toFixed(2)}</h2>
             <CanvasJSChart options={options} />
           </div> 
         </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import CompaniesContainer from '../companies/companies_container';
 import CompanyNavbar from '../companies/company_navbar_container';
-import { fetchCompanyBatchQuote, fetchCompanyDaily } from '../../actions/company_actions';
+import { fetchCompanyBatchQuote } from '../../actions/company_actions';
 import { Link } from 'react-router-dom';
 import xor from 'lodash/xor';
 import '../../assets/user_profile.css';

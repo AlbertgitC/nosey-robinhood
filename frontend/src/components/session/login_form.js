@@ -69,7 +69,7 @@ class LoginForm extends React.Component {
         <div className="form-container">
           <form onSubmit={this.handleSubmit}>
             <div className="form-content-wrapper">
-              <h1 className="welcome-h1">Welcome to Robinhood</h1>
+              <h1 className="welcome-h1">Welcome to Nosey Robinhood</h1>
               <label className="form-label">
                 Email
                 <input className="form-input" type="text"
