@@ -53,6 +53,7 @@ class CompanyPurchase extends React.Component {
         ))
       .then(() => this.props.fetchCompanyHolding(this.props.companyTicker))
       .then(() => this.props.fetchUser());
+      this.setState({ shares: 0 })
     } else {
       this.props.holdingError("Insufficient Funds");
     }

@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import CompanySearch from './company_search'
+import React, { Component } from 'react';
+import CompanySearch from './company_search';
+import CompanyLogo from '../../assets/companylogo';
 import { Link } from 'react-router-dom';
 
 class CompanyNavbar extends React.Component {
@@ -20,7 +21,7 @@ class CompanyNavbar extends React.Component {
     return (
       <div>
         <nav className="nav-bar-nav-bar">
-          
+          <CompanyLogo />
           <CompanySearch />
           <span id="company-nav-logo-robinhood">Nosey Robinhood</span>
           <button className="company-nav-logout-button" onClick={this.logoutUser}>Logout</button>

@@ -3,7 +3,7 @@ import { fetchCompanySearch } from '../../actions/company_actions';
 import { Link } from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
-import CompanyLogo from '../../assets/companylogo'
+import CompanyLogo from '../../assets/companylogo';
 
 
 class CompanySearch extends React.Component {
@@ -12,25 +12,25 @@ class CompanySearch extends React.Component {
     super(props);
     this.state = {
       searchRequest: '',
-      searchResults: undefined,
+      searchResults: ['test'],
       show: false
     };
 
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.clearSearch = this.clearSearch.bind(this);
   }
 
-  handleSubmit(e) {
+  handleChange(e) {
     e.preventDefault();
-    fetchCompanySearch(this.state.searchRequest)
-      .then(searchResults => this.setState({
-        searchResults: searchResults.data.bestMatches,
-        show: true
-      }));
-  }
-
-  update(field) {
-    return e => this.setState({ [field]: e.currentTarget.value });
+    this.setState({ searchRequest: this.search.value },
+      () => fetchCompanySearch(this.search.value)
+        .then(searchResults => {
+          e.persist();
+          this.setState({
+          searchResults: searchResults.data.bestMatches,
+          show: true
+          });
+        }));
   }
 
   clearSearch() {
@@ -38,13 +38,13 @@ class CompanySearch extends React.Component {
   }
   
   render() {
-    let searchResults;
+    let searchResults = this.state.searchResults;
     let active;
     if (this.state.searchResults) {
       active = 'results';
-      searchResults = this.state.searchResults.map((result, idx) => (
+      searchResults = searchResults.map((result, idx) => (
         <li key={idx} className='company-search-results-list-item'>
-          <Link to={`/company/${result['2. name']}`}>
+          <Link to={`/company/${result['1. symbol']}`}>
             <div className='company-search-results-list-company-name'>
                 {result['2. name']}
             </div>
@@ -58,9 +58,9 @@ class CompanySearch extends React.Component {
 
     return (
       <div className='company-search'>
-        <CompanyLogo />
+        
         <div className='company-search-input'>
-          <form onSubmit={this.handleSubmit} className='company-search-bar-nav'>
+          <form className='company-search-bar-nav'>
             <div className='company-search-first'>
               <SearchIcon />
               <input
@@ -68,7 +68,9 @@ class CompanySearch extends React.Component {
                 type='text'
                 placeholder='Search'
                 value={this.state.searchRequest}
-                onChange={this.update('searchRequest')}/>
+                ref={input => this.search = input}
+                onChange={this.handleChange}
+                />
             </div>
           < HighlightOffIcon onClick={this.clearSearch} />
           </form>

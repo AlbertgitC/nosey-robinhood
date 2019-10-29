@@ -35,6 +35,15 @@ export const fetchCompanyBatchQuote = (tags) => {
   })
 }
 
+export const fetchCompanyInfo = tag => {
+  return axios({
+    transformRequest: [(data, headers) => { delete headers.common.Authorization; return data }],
+    method: 'get',
+    url: `https://cloud.iexapis.com/stable/stock/${tag}/company`,
+    params: { token: iexKey }
+  });
+};
+
 export const fetchCompanySearch = searchRequest => (
   axios.get("https://www.alphavantage.co/query",
   {
