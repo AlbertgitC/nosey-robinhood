@@ -4,10 +4,14 @@ import CompanyPurchaseContainer from './company_purchase_container';
 import CompanyNavbar from './company_navbar_container';
 import '../../assets/watch_list.css';
 import Show from '../../assets/company-show.css';
+<<<<<<< HEAD
 import {
   fetchCompanyDaily,
   fetchCompanyInfo
 } from '../../actions/company_actions';
+=======
+import { fetchCompanyDaily } from '../../actions/company_actions';
+>>>>>>> db45a72... update api stock graph and favicon
 import WatchListContainer from '../watch_list/watch_list_container';
 
 class CompanyShow extends React.Component {

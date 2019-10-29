@@ -1,7 +1,7 @@
 import React from 'react';
 import CompanySaleItem from './company_sale_item';
 import {
-  fetchCompanyDaily
+  fetchCompanyBatchQuote
 } from "../../actions/company_actions";
 
 
@@ -19,10 +19,10 @@ class CompanyPurchase extends React.Component {
 
   componentDidMount() {
     if (this.props.companyTicker) {
-      fetchCompanyDaily(this.props.companyTicker)
+      fetchCompanyBatchQuote(this.props.companyTicker)
         .then(company => {
           this.setState({
-            price: parseFloat(Object.entries(company.data["Time Series (Daily)"])[0][1]["4. close"])
+            price: Object.values(company.data)[0].quote.latestPrice
           });
         });
     }
