@@ -29,9 +29,16 @@ class CompanyPurchase extends React.Component {
     this.props.fetchUser();
   }
 
-  // componentDidUpdate() {
-  //   this.props.fetchUser();
-  // }
+  componentDidUpdate() {
+    if (this.props.companyTicker) {
+      fetchCompanyBatchQuote(this.props.companyTicker)
+        .then(company => {
+          this.setState({
+            price: Object.values(company.data)[0].quote.latestPrice
+          });
+        });
+    }
+  }
 
   update(field) {
     return e => {
@@ -117,7 +124,7 @@ class CompanyPurchase extends React.Component {
                 Market Price
               </div>
               <div>
-                {this.state.price}
+                {this.state.price.toFixed(2)}
               </div>
             </div>
             <div className='purchase-form-component'>
