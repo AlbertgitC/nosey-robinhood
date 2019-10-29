@@ -39,7 +39,6 @@ class CompanySearch extends React.Component {
   
   render() {
     let searchResults = this.state.searchResults;
-    debugger;
     let active;
     if (this.state.searchResults) {
       active = 'results';
