@@ -60,6 +60,24 @@ html, body, h1, h3, p, h2 {
     background: #0af2ac;
   }
 
+  #signup-link {
+    position: absolute;
+    top: 70%;
+    background-color: white;
+    border: 2px solid #21ce99;
+    border-radius: 4px;
+    height: 48px;
+    width: 140px;
+    color: #21ce99;
+    font-size: 14px;
+    margin-left: 25px;
+    cursor: pointer;
+  }
+
+  #signup-link a {
+    color: #21ce99;
+  }
+
   .welcome-h1 {
     font-size: 26px;
     font-weight: 600;
@@ -194,6 +212,29 @@ html, body, h1, h3, p, h2 {
   .signup-submit:hover {
     cursor: pointer;
     background-color:#269876;
+  }
+
+  #demo-button {
+    width: 167px;
+    background-color: white;
+    color: #21ce99;
+    display: block;
+    height: 20px;
+    padding: 20px 20px;
+    margin: 0 auto;
+    margin-top: 60px;
+    border: 2px solid #21ce99;
+    border-radius: 8px;
+    font-size: 18px;
+    line-height: 4px;
+    position: absolute;
+    top: 69%;
+  }
+
+  #demo-button:hover {
+    cursor: pointer;
+    background-color:#269876;
+    color: white;
   }
 
   .signup-form {
@@ -1065,9 +1106,46 @@ html, body, h1, h3, p, h2 {
     margin-bottom: 20px;
   }
 
+  #signup-link {
+    position: absolute;
+    top: 65%;
+    background-color: white;
+    border: 2px solid #21ce99;
+    border-radius: 4px;
+    height: 48px;
+    width: 140px;
+    color: #21ce99;
+    font-size: 14px;
+    margin-left: 25px;
+    cursor: pointer;
+  }
+
+  #signup-link a {
+    color: #21ce99;
+  }
+
   /* Sign up */
 
+  #demo-button {
+    width: 167px;
+    background-color: white;
+    color: #21ce99;
+    display: block;
+    height: 20px;
+    padding: 20px 20px;
+    margin: 0 auto;
+    margin-top: 60px;
+    border: 2px solid #21ce99;
+    border-radius: 8px;
+    font-size: 18px;
+    line-height: 4px;
+  }
 
+  #demo-button:hover {
+    cursor: pointer;
+    background-color:#269876;
+    color: white;
+  }
 
   .signup-navbar {
     margin-top: 20px;
@@ -1200,13 +1278,17 @@ html, body, h1, h3, p, h2 {
   .security-image {
     width: 200px;
     height: 200px;
-    margin: auto;
+    margin: 28px auto;
   }
 
   .security-h3 {
     font-size: 22px;
-    margin: auto;
+    margin: 12px auto 10px;
     text-align: center;
+  }
+
+  .security-h3:last-of-type {
+    margin: 0 auto 20px;
   }
 
   .security-p {
