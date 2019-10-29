@@ -16,6 +16,7 @@ class SignupForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.clearedErrors = false;
+    this.handleDemoSubmit = this.handleDemoSubmit.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -41,6 +42,10 @@ class SignupForm extends React.Component {
     };
 
     this.props.signup(user, this.props.history);
+  }
+
+  handleDemoSubmit() {
+    this.props.login({email: "demo@demo.com", password: "demo123"});
   }
 
   renderErrors() {
@@ -69,8 +74,8 @@ class SignupForm extends React.Component {
         <div className="main-signup-flex">
           <div className="signup-form-container">
             <form className="signup-form" onSubmit={this.handleSubmit}>
-              <h1 className="signup-header">Make Your Money Move</h1>
-              <h2 className="signup-message">Robinhood lets you invest in companies you love, commission-free.</h2>
+              <h1 className="signup-header">Make Your Imaginary Money Move</h1>
+              <h2 className="signup-message">Nosey Robinhood lets you invest in companies you love, with the money you don't have!</h2>
               <div className="login-form">
                 <br />
                 <input className="signup-input" type="text"
@@ -95,13 +100,13 @@ class SignupForm extends React.Component {
                 {this.renderErrors()}
               </div>
             </form>
+            <button id="demo-button" onClick={this.handleDemoSubmit}>Demo Log In</button>
           </div>
           <div className="signup-image-div-flex">
             <img className="security-image" src={security}></img>
-            <h3 className="security-h3">Free Stock Trading.</h3>
-            <h3 className="security-h3">Stop paying up to $10 per trade.</h3>
-            <p className="security-p">We've cut the fat that makes other brokerages costly, like manual account management
-              and hundreds of storefront locations, so we can offer zero commission trading.
+            <h3 className="security-h3">Free Stock Trading Simulation.</h3>
+            <h3 className="security-h3">Start playing with $30000.</h3>
+            <p className="security-p">We do not include the brokerage cost, taxes... etc. So real life experience may vary.
             </p>
           </div>
         </div>

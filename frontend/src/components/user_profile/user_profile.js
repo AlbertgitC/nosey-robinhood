@@ -175,16 +175,29 @@ class UserProfile extends React.Component {
 
   render() {
 
+    let allStockShares = 0;
+    if (this.state.stockData.length !== 0) {
+      this.state.stockData.map(
+        company => {
+          this.props.holdings[company[0]].map(
+            purchaseRecord => { allStockShares += purchaseRecord.shares }
+          );
+        }
+      );
+    }
+    
+
     if (this.state.techData.length === 0) {
       return (
         <div>
           Loading...
         </div>
       );
-    } else if (this.state.watchListData.length === 0 && this.state.stockData.length === 0) {
+    } else if (this.state.watchListData.length === 0 && allStockShares === 0) {
       return (
-        <div className="user-profile-main">
+        <div>
           <CompanyNavbar />
+        <div className="user-profile-main">
           <div className="user-profile-graph">
             <div className="nosey-msg">
               <div id="nosey-msg-close" onClick={this.closeMsg}>X</div>
@@ -203,12 +216,14 @@ class UserProfile extends React.Component {
             </div>
           </div>
         </div>
+        </div>
       );
 
-    } else if (this.state.watchListData.length !== 0 && this.state.stockData.length === 0) {
+    } else if (this.state.watchListData.length !== 0 && allStockShares === 0) {
       return (
-        <div className="user-profile-main">
+        <div>
           <CompanyNavbar />
+        <div className="user-profile-main">
           <div className="user-profile-graph">
             <div className="nosey-msg">
               <div id="nosey-msg-close" onClick={this.closeMsg}>X</div>
@@ -233,11 +248,13 @@ class UserProfile extends React.Component {
             </div>
           </div>
         </div>
+        </div>
       );
-    } else if (this.state.watchListData.length === 0 && this.state.stockData.length !== 0) {
+    } else if (this.state.watchListData.length === 0 && allStockShares !== 0) {
       return (
-        <div className="user-profile-main">
+        <div>
           <CompanyNavbar />
+        <div className="user-profile-main">
           <div className="user-profile-graph">
             <div className="nosey-msg">
               <div id="nosey-msg-close" onClick={this.closeMsg}>X</div>
@@ -262,13 +279,14 @@ class UserProfile extends React.Component {
             </div>
           </div>
         </div>
+        </div>
       );
     }
     
     return (
-      <div className="user-profile-main">
+      <div>
         <CompanyNavbar />
-        <div className="user-profile-content">
+      <div className="user-profile-main">
           <div className="user-profile-graph">
             <div className="nosey-msg">
               <div id="nosey-msg-close" onClick={this.closeMsg}>X</div>
@@ -298,7 +316,7 @@ class UserProfile extends React.Component {
               </ul>
             </div>
           </div>
-        </div>
+      </div>
       </div>
     );
   }

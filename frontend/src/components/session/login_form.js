@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import Session from "../../assets/session.css"
+import Session from "../../assets/session.css";
+import { Link } from 'react-router-dom';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -87,6 +88,9 @@ class LoginForm extends React.Component {
               {this.renderErrors()}
             </div>
           </form>
+          <button id="signup-link">
+            <Link to="/signup">Create Account</Link>
+          </button>
         </div>
       </div>
     );
