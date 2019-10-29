@@ -316,6 +316,9 @@ html, body, h1, h3, p, h2 {
 
   .splash-commission-section {
     background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   #express-logo-stack {
@@ -378,6 +381,7 @@ html, body, h1, h3, p, h2 {
     margin: 0px 16px;
     display: flex;
     padding-right: 120px;
+    width: 100%;
   }
 
   .stack-item-column {
@@ -846,7 +850,7 @@ html, body, h1, h3, p, h2 {
     padding: 10px;
     width: 41%;
     height: 150px;
-    margin-left: 3%;
+    /* margin-left: 3%; */
     box-shadow: 0 1px 1px 0 rgba(60,64,67,.08), 0 1px 3px 1px rgba(60,64,67,.16);
   }
 
@@ -868,6 +872,10 @@ html, body, h1, h3, p, h2 {
   .splash-commission-section {
     background-color: rgb(255, 255, 255);
     /* display: flex; */
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 
   }
 
@@ -906,7 +914,7 @@ html, body, h1, h3, p, h2 {
     font-size: 20px;
     font-weight: 700;
     margin: 25px;
-    margin-left: 5%;
+    margin-left: 9%;
     margin-right: 9%;
     border-bottom: 1px solid rgba(60,64,67,.08);
     padding-bottom: 18px;
@@ -1315,8 +1323,8 @@ html, body, h1, h3, p, h2 {
     width: 25%;
     height: 155px;
     box-shadow: 0 1px 1px 0 rgba(60,64,67,.08), 0 1px 3px 1px rgba(60,64,67,.16);
-    position: relative;
-    left: 5%;
+    /* position: relative; */
+    /* left: 5%; */
 }
 
   .stack-item:hover {
@@ -1348,8 +1356,8 @@ html, body, h1, h3, p, h2 {
   }
 
   .splash-commission-h1 {
-    margin-left: 7%;
-    margin-right: 12%;
+    margin-left: 9%;
+    margin-right: 9%;
   }
 
   .github-h1-item-stack-tab {
