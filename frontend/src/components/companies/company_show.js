@@ -54,6 +54,14 @@ class CompanyShow extends React.Component {
       }));
   }
 
+  componentDidUpdate() {
+    let companyTicker = this.props.companyTicker;
+    fetchCompanyInfo(companyTicker)
+      .then(response => this.setState({
+        companyInfo: response.data
+      }));
+  }
+
   render() {
     let companyInfo;
     let companyInfoComponent;
