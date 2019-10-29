@@ -44,13 +44,15 @@ class CompanySearch extends React.Component {
       active = 'results';
       searchResults = searchResults.map((result, idx) => (
         <li key={idx} className='company-search-results-list-item'>
-          <Link to={`/company/${result['1. symbol']}`}>
-            <div className='company-search-results-list-company-name'>
-                {result['2. name']}
-            </div>
-            < div className = 'company-search-results-list-company-ticker' >
-              {result['1. symbol']}
-            </div>
+          <Link
+            to={`/company/${result['1. symbol']}`}
+            onClick={() => this.setState({ show: false })}>
+              <div className='company-search-results-list-company-name'>
+                  {result['2. name']}
+              </div>
+              < div className = 'company-search-results-list-company-ticker' >
+                {result['1. symbol']}
+              </div>
           </Link>
         </li>
       ))
