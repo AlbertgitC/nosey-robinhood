@@ -618,7 +618,6 @@ html, body, h1, h3, p, h2 {
 
   .main-div {
     /* height: 100%; */
-    overflow: hidden;
   }
 
   .form-label {

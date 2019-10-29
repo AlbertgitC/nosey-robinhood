@@ -46,7 +46,7 @@ class CompanySaleItem extends React.Component {
     });
 
     return (
-      <li key={this.props.key} className='sell-form'>
+      <li className='sell-form'>
         <form onSubmit={this.handleSale}>
           <div className='sell-form-date'>
             {purchased_at}
