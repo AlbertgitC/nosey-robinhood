@@ -90,9 +90,9 @@ class LoginForm extends React.Component {
               {this.renderErrors()}
             </div>
           </form>
-          <button id="signup-link">
+          {/* <button id="signup-link">
             <Link to="/signup">Create Account</Link>
-          </button>
+          </button> */}
         </div>
       </div>
     );
