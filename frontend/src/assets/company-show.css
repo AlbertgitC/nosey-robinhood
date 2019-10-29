@@ -331,6 +331,7 @@ input[type=number]::-webkit-outer-spin-button {
   line-height: 19px;
   margin: 0;
   min-width: 246.75px;
+  cursor: pointer;
 }
 
 .un-watch-button {
@@ -344,6 +345,7 @@ input[type=number]::-webkit-outer-spin-button {
   line-height: 19px;
   margin: 0;
   min-width: 246.75px;
+  cursor: pointer;
 }
 
 .results {
