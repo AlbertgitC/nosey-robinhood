@@ -25,20 +25,30 @@ class Companies extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState({ company: undefined, dataPoints: [] }, () => {
-      this.updateData(nextProps.data);
+      if (nextProps.data) {
+        this.updateData(nextProps.data);
+      } else if (nextProps.tag) {
+        fetchCompanyDaily(nextProps.tag).then(
+          res => {
+            this.updateData(Object.entries(res.data)[0]);
+          }
+        );
+      }
     });
   }
 
   async updateData(props = this.props.data) {
     await this.setState({ company: props });
-    for (let i = 0; i < this.state.company[1].chart.length; i++) {
-      this.setState({
-        dataPoints: this.state.dataPoints.concat([{
-          x: new Date(this.state.company[1].chart[i].date),
-          y: this.state.company[1].chart[i].close
-        }])
-      });
-    };
+    if (this.state.company) {
+      for (let i = 0; i < this.state.company[1].chart.length; i++) {
+        this.setState({
+          dataPoints: this.state.dataPoints.concat([{
+            x: new Date(this.state.company[1].chart[i].date),
+            y: this.state.company[1].chart[i].close
+          }])
+        });
+      };
+    }
   }
 
   render() {
@@ -77,7 +87,6 @@ class Companies extends React.Component {
     if (!this.state.company) {
       return (<div>Sorry API limit reached :(</div>);
     } else if (this.props.tag) {
-      
       return (
         <div>
           <div className="stock-graph">
