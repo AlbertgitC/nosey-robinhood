@@ -58,7 +58,7 @@ class CompanySearch extends React.Component {
 
     return (
       <div className='company-search'>
-        <CompanyLogo />
+        
         <div className='company-search-input'>
           <form className='company-search-bar-nav'>
             <div className='company-search-first'>
