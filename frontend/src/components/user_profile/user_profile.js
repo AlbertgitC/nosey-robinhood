@@ -51,8 +51,67 @@ class UserProfile extends React.Component {
           );
           stockList = stockList.substring(0, stockList.length - 1);
           fetchCompanyBatchQuote(stockList).then(
-            res => { this.setState({ stockData: Object.entries(res.data) }); }
+            res => { this.setState({ stockData: Object.entries(res.data) },
+              () => {
+                let totalStockValue = 0;
+                this.state.stockData.map(
+                  stockHold => {
+                    let totalShares = 0;
+                    this.props.holdings[stockHold[0]].map(
+                      purchaseRecord => { totalShares += purchaseRecord.shares }
+                    );
+                    totalStockValue += stockHold[1].quote.latestPrice * totalShares;
+                  }
+                );
+                const totalInvest = totalStockValue + this.props.user.funds;
+                this.setState({ totalInvest: totalInvest.toFixed(2) }, () => {
+                  if (this.state.totalInvest >= 30000 && this.state.totalInvest < 33000) {
+                    this.setState({ noseyMSG: "Well go on, nothing's happening here." });
+                    this.setState({ noseyMsgColor: "black" });
+                  } else if (this.state.totalInvest >= 33000 && this.state.totalInvest < 45000) {
+                    this.setState({ noseyMSG: "Time to put the downpay for your dream car!" });
+                    this.setState({ noseyMsgColor: "green" });
+                  } else if (this.state.totalInvest >= 45000) {
+                    this.setState({ noseyMSG: "Congratulations! You're the next Warren Buffett!!!" });
+                    this.setState({ noseyMsgColor: "green" });
+                  } else if (this.state.totalInvest < 30000 && this.state.totalInvest >= 27000) {
+                    this.setState({ noseyMSG: "Uh-oh, maybe it's just bad luck..." });
+                    this.setState({ noseyMsgColor: "black" });
+                  } else if (this.state.totalInvest < 27000 && this.state.totalInvest >= 15000) {
+                    this.setState({ noseyMSG: "Hmm... time to stock up instant noodle!" });
+                    this.setState({ noseyMsgColor: "red" });
+                  } else if (this.state.totalInvest < 15000) {
+                    this.setState({ noseyMSG: "Do yourself a favor, never invest in stock market... EVER!" });
+                    this.setState({ noseyMsgColor: "red" });
+                  }
+                });
+              }
+            ); }
           );
+        } else {
+          if (this.props.user.funds) {
+            this.setState({ totalInvest: this.props.user.funds.toFixed(2) }, () => {
+              if (this.state.totalInvest >= 30000 && this.state.totalInvest < 33000) {
+                this.setState({ noseyMSG: "Well go on, nothing's happening here." });
+                this.setState({ noseyMsgColor: "black" });
+              } else if (this.state.totalInvest >= 33000 && this.state.totalInvest < 45000) {
+                this.setState({ noseyMSG: "Time to put the downpay for your dream car!" });
+                this.setState({ noseyMsgColor: "green" });
+              } else if (this.state.totalInvest >= 45000) {
+                this.setState({ noseyMSG: "Congratulations! You're the next Warren Buffett!!!" });
+                this.setState({ noseyMsgColor: "green" });
+              } else if (this.state.totalInvest < 30000 && this.state.totalInvest >= 27000) {
+                this.setState({ noseyMSG: "Uh-oh, maybe it's just bad luck..." });
+                this.setState({ noseyMsgColor: "black" });
+              } else if (this.state.totalInvest < 27000 && this.state.totalInvest >= 15000) {
+                this.setState({ noseyMSG: "Hmm... time to stock up instant noodle!" });
+                this.setState({ noseyMsgColor: "red" });
+              } else if (this.state.totalInvest < 15000) {
+                this.setState({ noseyMSG: "Do yourself a favor, never invest in stock market... EVER!" });
+                this.setState({ noseyMsgColor: "red" });
+              }
+            });
+          }
         }
       }
     );
