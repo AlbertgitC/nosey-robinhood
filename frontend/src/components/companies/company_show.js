@@ -54,12 +54,20 @@ class CompanyShow extends React.Component {
       }));
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps, prevState) {
     let companyTicker = this.props.companyTicker;
-    fetchCompanyInfo(companyTicker)
-      .then(response => this.setState({
-        companyInfo: response.data
-      }));
+    if (prevProps.companyTicker !== this.props.companyTicker) {
+      fetchCompanyInfo(companyTicker)
+        .then(response => this.setState({
+          companyInfo: response.data
+        }));
+      
+      this.setState({company: undefined}, ()=> {
+        fetchCompanyDaily(companyTicker).then(
+          res => this.setState({ company: res.data })
+        );
+      })
+    }
   }
 
   render() {
@@ -146,7 +154,9 @@ class CompanyShow extends React.Component {
           </div>
       )
     }
-  
+    if (!this.state.company || !this.state.company[this.props.companyTicker]) {
+      return null;
+    }
     return (
       <div>
         <CompanyNavbar />
@@ -173,7 +183,8 @@ class CompanyShow extends React.Component {
                   <CompanyPurchaseContainer
                     companyTicker={this.props.companyTicker}
                     buyTab={this.state.buyTab}
-                    sellTab={this.state.sellTab} />
+                    sellTab={this.state.sellTab}
+                    currentPrice={this.state.company[this.props.companyTicker].quote.latestPrice} />
                 </div>
               </div>
               <div className='watch-button-container'>
