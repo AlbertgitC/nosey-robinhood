@@ -1129,21 +1129,18 @@ html, body, h1, h3, p, h2 {
   .company-search-bar-nav {
     height: 37px;
     width: 400px;
-    margin-top: 12px;
     outline: none;
   }
 
   .company-search-bar-nav {
     height: 37px;
     width: 350px;
-    margin-top: 14px;
     outline: none;
     padding-left: 8px;
     border: 1px solid lightgrey;
     border-radius: 3px;
     display: flex;
     justify-content: center;
-    margin-left: 10px;
   }
 
   .company-search-bar-nav:hover {
@@ -1163,7 +1160,7 @@ html, body, h1, h3, p, h2 {
 
   .nav-bar-nav-bar {
     background-color: rgb(255, 255, 255);
-    height: 60px;
+    height: 40px;
     padding: 15px 10px;
     display: flex;
     position: fixed;
@@ -1567,14 +1564,12 @@ html, body, h1, h3, p, h2 {
   .company-search-bar-nav {
     height: 30px;
     width: 400px;
-    margin-top: 12px;
     outline: none;
   }
 
   .company-search-bar-nav {
     height: 37px;
     width: 400px;
-    margin-top: 14px;
     outline: none;
     padding-left: 8px;
     border: 1px solid lightgrey;
