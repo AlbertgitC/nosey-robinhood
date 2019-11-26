@@ -1,8 +1,5 @@
 import React from 'react';
 import CompanySaleItem from './company_sale_item';
-import {
-  fetchCompanyBatchQuote
-} from "../../actions/company_actions";
 
 
 class CompanyPurchase extends React.Component {
@@ -18,25 +15,13 @@ class CompanyPurchase extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.companyTicker) {
-      fetchCompanyBatchQuote(this.props.companyTicker)
-        .then(company => {
-          this.setState({
-            price: Object.values(company.data)[0].quote.latestPrice
-          });
-        });
-    }
+    this.setState({ price: this.props.currentPrice });
     this.props.fetchUser();
   }
 
-  componentDidUpdate() {
-    if (this.props.companyTicker) {
-      fetchCompanyBatchQuote(this.props.companyTicker)
-        .then(company => {
-          this.setState({
-            price: Object.values(company.data)[0].quote.latestPrice
-          });
-        });
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.companyTicker !== this.props.companyTicker) {
+      this.setState({ price: this.props.currentPrice });
     }
   }
 
