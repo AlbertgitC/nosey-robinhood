@@ -248,7 +248,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .sell-form {
-  padding: 7px;
+  padding: 15px;
 }
 
 .sell-form::after {
