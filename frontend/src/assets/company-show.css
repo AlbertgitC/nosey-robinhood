@@ -150,11 +150,24 @@ button:focus {
 
 .purchase-sell-form::-webkit-scrollbar { width: 0 !important }
 
-.purchase-form-title {
+.purchase-form-title-shares {
   display: flex;
   justify-content: space-between;
-  padding-top: 24px;
+  align-items: center;
+  padding-top: 15px;
+}
+
+.purchase-form-title {
   font-size: 16px;
+}
+
+.purchase-form-shares {
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.purchase-form-shares-total {
+  text-align: right;
 }
 
 .purchase-form {
@@ -181,7 +194,7 @@ button:focus {
 }
 
 .purchase-form-order {
-  padding-top: 30px;
+  padding-top: 10px;
 }
 
 .purchase-form-submit {
@@ -232,7 +245,17 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .active {
-  border-bottom: 1px solid #cccccc6b !important;
+  border-bottom: 2px solid #cccccc6b !important;
+}
+
+#buy {
+  border-right: 1px solid #cccccc6b !important;
+  border-radius: 8px 0px 0px 0px;
+}
+
+#sell {
+  border-left: 1px solid #cccccc6b !important;
+  border-radius: 0px 8px 0px 0px;
 }
 
 .purchase-sell-form-tabs {
@@ -242,9 +265,8 @@ input[type=number]::-webkit-outer-spin-button {
 .purchase-sell-form-tab-button {
   font-size: 13px;
   width: 100%;
-  padding: 5px 0px;
+  padding: 15px 0px;
   border: 0;
-  border-radius: 8px 8px 0px 0px;
 }
 
 .sell-form {
