@@ -29,7 +29,7 @@ class CompanyNavbar extends React.Component {
           </div>
           <div className="company-logo-and-logout">
             <Link id="company-name-react-router" to="/user_profile">
-              <span id="company-nav-logo-robinhood">Nosey Robinhood</span>
+              <span id="company-nav-logo-robinhood">User Profile</span>
             </Link>
             <button className="company-nav-logout-button" onClick={this.logoutUser}>Logout</button>
           </div>
