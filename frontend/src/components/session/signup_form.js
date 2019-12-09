@@ -106,7 +106,7 @@ class SignupForm extends React.Component {
             <img className="security-image" src={security}></img>
             <h3 className="security-h3">Free Stock Trading Simulation.</h3>
             <h3 className="security-h3">Start playing with $30000.</h3>
-            <p className="security-p">We do not include the brokerage cost, taxes... etc. So real life experience may vary.
+            <p className="security-p">We do not include the brokerage cost, taxes... etc. Real life experience may vary.
             </p>
           </div>
         </div>
