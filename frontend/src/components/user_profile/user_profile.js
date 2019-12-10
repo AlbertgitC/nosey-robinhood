@@ -54,17 +54,15 @@ class UserProfile extends React.Component {
           fetchCompanyBatchQuote(stockList).then(
             res => { this.setState({ stockData: Object.entries(res.data) },
               () => {
-                this.state.stockData.map(
-                  stockHold => {
-                    let totalShares = 0;
-                    this.props.holdings[stockHold[0]].map(
-                      purchaseRecord => { totalShares += purchaseRecord.shares }
-                    );
-                    this.setState({
-                      totalStockValue: this.state.totalStockValue + (stockHold[1].quote.latestPrice * totalShares)
-                    });
-                  }
-                );
+                let total = 0;
+                this.state.stockData.map(stockHold => {
+                  let totalShares = 0;
+                  this.props.holdings[stockHold[0]].map(purchaseRecord => {
+                    totalShares += purchaseRecord.shares;
+                  });
+                  total += (stockHold[1].quote.latestPrice * totalShares);
+                });
+                this.setState({ totalStockValue: total });
                 const totalInvest = this.state.totalStockValue + this.props.user.funds;
                 this.setState({ totalInvest: totalInvest.toFixed(2) }, () => {
                   if (this.state.totalInvest >= 30000 && this.state.totalInvest < 33000) {
@@ -129,17 +127,15 @@ class UserProfile extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     if (xor(prevState.stockData, this.state.stockData).length !== 0) {
       if (this.state.stockData.length !== 0) {
-        this.state.stockData.map(
-          stockHold => {
-            let totalShares = 0;
-            this.props.holdings[stockHold[0]].map(
-              purchaseRecord => { totalShares += purchaseRecord.shares }
-            );
-            this.setState({
-              totalStockValue: this.state.totalStockValue + (stockHold[1].quote.latestPrice * totalShares)
-            });
-          }
-        );
+        let total = 0;
+        this.state.stockData.map(stockHold => {
+          let totalShares = 0;
+          this.props.holdings[stockHold[0]].map(purchaseRecord => {
+            totalShares += purchaseRecord.shares;
+          });
+          total += (stockHold[1].quote.latestPrice * totalShares);
+        });
+        this.setState({ totalStockValue: total });
         const totalInvest = this.state.totalStockValue + this.props.user.funds;
         this.setState({ totalInvest: totalInvest.toFixed(2) }, () => {
           if (this.state.totalInvest >= 30000 && this.state.totalInvest < 33000) {
