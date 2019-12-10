@@ -169,11 +169,13 @@ class CompanyShow extends React.Component {
               <div className='purchase-sell-form-container'>
                 <div className='purchase-sell-form-tabs'>
                   <button
+                    id='buy'
                     className={`purchase-sell-form-tab-button ${this.state.buyButton}`}
                     onClick={this.switchTab}>
                       Buy
                   </button>
                   <button
+                    id='sell'
                     className={`purchase-sell-form-tab-button ${this.state.sellButton}`}
                     onClick={this.switchTab}>
                       Sell

@@ -27,6 +27,17 @@
   font-weight: bold;
 }
 
+.user-profile-investing {
+  display: flex;
+  font-size: 18px;
+  justify-content: space-between;
+  border: 1px solid #f4f4f5;
+  padding: 15px 25px;
+  background-color: #ffffff;
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.01), 0 3px 24px rgba(48, 51, 51, 0.09);
+  margin-top: 20px;
+}
+
 .user-profile-side {
   display: flex;
   flex-direction: column;

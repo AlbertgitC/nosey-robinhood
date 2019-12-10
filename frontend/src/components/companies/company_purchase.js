@@ -52,7 +52,7 @@ class CompanyPurchase extends React.Component {
   }
 
   render() {
-    let totalShares = 0;
+    let totalShares;
     let sellShares;
 
     if (this.props.companyHoldings) {
@@ -84,14 +84,25 @@ class CompanyPurchase extends React.Component {
       });
     }
 
+    if (this.props.companyHoldings) {
+      totalShares = 0;
+      this.props.companyHoldings.forEach(record => {
+        totalShares += record.shares;
+      });
+    }
+
     return (
       <div className='purchase-sell-form'>
         <form
           onSubmit={this.handlePurchase}
           className={`purchase-form ${this.props.buyTab}`}>
-          <div className='purchase-form-title'>
-            <div>
+          <div className='purchase-form-title-shares'>
+            <div className='purchase-form-title'>
               {`Buy ${this.props.companyTicker}`}
+            </div>
+            <div className='purchase-form-shares'>
+              <div>Current Shares:</div>
+              <div className='purchase-form-shares-total'>{totalShares || 0}</div>
             </div>
           </div>
           <div className='purchase-form-order'>
