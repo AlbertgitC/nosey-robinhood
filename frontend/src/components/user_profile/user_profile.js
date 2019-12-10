@@ -63,7 +63,7 @@ class UserProfile extends React.Component {
                   total += (stockHold[1].quote.latestPrice * totalShares);
                 });
                 this.setState({ totalStockValue: total });
-                const totalInvest = this.state.totalStockValue + this.props.user.funds;
+                const totalInvest = total + this.props.user.funds;
                 this.setState({ totalInvest: totalInvest.toFixed(2) }, () => {
                   if (this.state.totalInvest >= 30000 && this.state.totalInvest < 33000) {
                     this.setState({ noseyMSG: "Well go on, nothing's happening here." });
@@ -136,7 +136,7 @@ class UserProfile extends React.Component {
           total += (stockHold[1].quote.latestPrice * totalShares);
         });
         this.setState({ totalStockValue: total });
-        const totalInvest = this.state.totalStockValue + this.props.user.funds;
+        const totalInvest = total + this.props.user.funds;
         this.setState({ totalInvest: totalInvest.toFixed(2) }, () => {
           if (this.state.totalInvest >= 30000 && this.state.totalInvest < 33000) {
             this.setState({ noseyMSG: "Well go on, nothing's happening here." });
@@ -261,11 +261,13 @@ class UserProfile extends React.Component {
               <div id="nosey-msg-close" onClick={this.closeMsg}>X</div>
               <h1 id={this.state.noseyMsgColor}>{this.state.noseyMSG}</h1>
             </div>
+            <h2>Investing</h2>
+            <h2>${this.state.totalInvest}</h2>
             <CompaniesContainer data={this.state.graphData || this.state.techData[0]} />
             <div className="user-profile-investing">
               <div className="user-profile-investing-total">
-                <p>Investing</p>
-                <p>${(this.state.totalStockValue + this.props.user.funds).toFixed(2)}</p>
+                <p>Total Investments</p>
+                <p>${this.state.totalInvest}</p>
               </div>
               <div className="user-profile-investing-stocks">
                 <p>Total Value of Stock</p>
@@ -299,11 +301,13 @@ class UserProfile extends React.Component {
               <div id="nosey-msg-close" onClick={this.closeMsg}>X</div>
               <h1 id={this.state.noseyMsgColor}>{this.state.noseyMSG}</h1>
             </div>
+            <h2>Investing</h2>
+            <h2>${this.state.totalInvest}</h2>
             <CompaniesContainer data={this.state.graphData || this.state.watchListData[0]}/>
             <div className="user-profile-investing">
               <div className="user-profile-investing-total">
-                <p>Investing</p>
-                <p>${(this.state.totalStockValue + this.props.user.funds).toFixed(2)}</p>
+                <p>Total Investments</p>
+                <p>${this.state.totalInvest}</p>
               </div>
               <div className="user-profile-investing-stocks">
                 <p>Total Value of Stock</p>
@@ -342,11 +346,13 @@ class UserProfile extends React.Component {
               <div id="nosey-msg-close" onClick={this.closeMsg}>X</div>
               <h1 id={this.state.noseyMsgColor}>{this.state.noseyMSG}</h1>
             </div>
+            <h2>Investing</h2>
+            <h2>${this.state.totalInvest}</h2>
             <CompaniesContainer data={this.state.graphData || this.state.stockData[0]} />
             <div className="user-profile-investing">
               <div className="user-profile-investing-total">
-                <p>Investing</p>
-                <p>${(this.state.totalStockValue + this.props.user.funds).toFixed(2)}</p>
+                <p>Total Investments</p>
+                <p>${this.state.totalInvest}</p>
               </div>
               <div className="user-profile-investing-stocks">
                 <p>Total Value of Stock</p>
@@ -386,11 +392,13 @@ class UserProfile extends React.Component {
               <div id="nosey-msg-close" onClick={this.closeMsg}>X</div>
               <h1 id={this.state.noseyMsgColor}>{this.state.noseyMSG}</h1>
             </div>
+            <h2>Investing</h2>
+            <h2>${this.state.totalInvest}</h2>
             <CompaniesContainer data={this.state.graphData || this.state.stockData[0]} />
             <div className="user-profile-investing">
               <div className="user-profile-investing-total">
                 <p>Total Investments</p>
-                <p>${(this.state.totalStockValue + this.props.user.funds).toFixed(2)}</p>
+                <p>${this.state.totalInvest}</p>
               </div>
               <div className="user-profile-investing-stocks">
                 <p>Total Stock Value</p>
