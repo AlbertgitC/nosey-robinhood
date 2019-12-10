@@ -27,6 +27,7 @@ app.use("/api/users", users);
 app.use("/api/purchase_records", purchaseRecords);
 app.use(passport.initialize());
 require('./config/passport')(passport);
+app.use('/', express.static(path.join(__dirname, './frontend/public')));
 
 const port = process.env.PORT || 5000;
 
