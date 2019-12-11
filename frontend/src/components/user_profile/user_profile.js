@@ -245,7 +245,7 @@ class UserProfile extends React.Component {
     }
     
 
-    if (this.state.techData.length === 0) {
+    if (this.state.techData.length === 0 || !this.props.user) {
       return (
         <div>
           Loading...
