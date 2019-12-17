@@ -12,7 +12,7 @@ class MainPage extends React.Component {
         <Navigation />
         <HeroSection />
         <TechStackSection />
-        <GithubSection />
+        {/* <GithubSection /> */}
       </div>
     );
   }

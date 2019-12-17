@@ -63,8 +63,8 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div>
-        <GreenPiedPiperLogo />
         <nav className="signup-navbar">
+          <GreenPiedPiperLogo />
           <Link to="/" className="signup-nav-link">Nosey Robinhood</Link>
           <Link to="/" className="signup-nav-link">Home</Link>
           <Link to="/login" className="signup-nav-link">Login</Link>
