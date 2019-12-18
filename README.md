@@ -34,15 +34,15 @@ Nosey RobinHood is a stock market trading web application which gives users the 
 
 ### Screenshots
 
-[Login](https://imgur.com/RDMV51w)
-[Sign up](https://imgur.com/wWy3T4Y)
-[Dashboard](https://imgur.com/14Eg36T)
-[Search](https://imgur.com/fx6qxlM)
+![Splash Page](https://i.imgur.com/FnFu8Ns.png)
+![Sign In](https://i.imgur.com/RDMV51w.jpg)
+![Sign Up](https://i.imgur.com/wWy3T4Y.png)
+![Search](https://i.imgur.com/14Eg36T.png)
 
 ### Code Snippets
 
-[handleSale()](https://imgur.com/qNCySDd)
-[container](https://imgur.com/BNxnrbY)
+![handleSale()](https://i.imgur.com/qNCySDd.png)
+![container](https://i.imgur.com/BNxnrbY.png)
 
 ### Group Members
 
