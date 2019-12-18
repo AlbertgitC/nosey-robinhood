@@ -3,7 +3,7 @@ Nosey RobinHood is a game clone of the popular stock market web app RobinHood.
 
 ### Overview
 
-Nosey RobinHood will give users the ability to follow companies on the stock market. Users will be able create a portfolio where they can view, purchase and sell shares of companies. Nosey RobinHood users will be given fake funds that they will be able to invest into companies and potentially test their skills in the stock market.
+Nosey RobinHood is a stock market trading web application which gives users the ability to follow companies on the stock market. Users can view, watch, purchase and sell shares of companies. Users start with a $30,000 paper money balance so that they can safely develop their trading skills before moving onto a real-money stock market app.
 
 Link: https://nosey-robinhood.herokuapp.com/#/
 

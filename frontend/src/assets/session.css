@@ -381,15 +381,14 @@ html, body, h1, h3, p, h2 {
   }
 
   .splash-hero-h1 {
-    margin-top: 33px;
+    margin-top: 50px;
     font-size: 50px;
     font-weight: bold;
-    padding: 20px 20px;
   }
 
   .splash-hero-h3 {
     font-size: 27px;
-    padding: 0px 20px;
+    padding: 8px 30px 0px 0px;
   }
 
   .splash-commission-section {
@@ -964,22 +963,18 @@ html, body, h1, h3, p, h2 {
   .splash-hero-section {
     background-color: #21ce99;
     padding-top: 60px;
-    height: 700px;
   }
 
   .splash-hero-h1 {
-    margin-top: 95px;
+    margin-top: 180px;
     font-size: 73px;
     font-weight: bold;
-    padding: 20px 15%;
-    text-align: center;
-    margin-bottom: 20px;
   }
 
   .splash-hero-h3 {
     font-size: 27px;
-    padding: 0px 15%;
-    text-align: center;
+    padding: 12px 30px 0px 0px;
+    line-height: 1.5;
   }
 
   .hero-banner-photo {
@@ -997,7 +992,7 @@ html, body, h1, h3, p, h2 {
     display: flex;
     justify-content: center;
     width: 100px;
-    margin: 70px auto;
+    margin: 35px 0px;
   }
 
   .signup-button-on-splash:hover {
@@ -1098,7 +1093,8 @@ html, body, h1, h3, p, h2 {
 
   .splash-portfolio-section {
     background-color: black;
-    height: 365px
+    display: flex;
+    flex-direction: row;
   }
 
   .github-stack-tablet-card {
@@ -1505,7 +1501,6 @@ html, body, h1, h3, p, h2 {
   .splash-hero-section {
     background-color: #21ce99;
     padding-top: 60px;
-    height: 575px;
   }
 
   .stack-item {
@@ -1588,7 +1583,10 @@ html, body, h1, h3, p, h2 {
   }
 
   .splash-portfolio-section {
-    height: 365px;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
   }
 
   .github-span-container {
@@ -1747,4 +1745,149 @@ html, body, h1, h3, p, h2 {
     color: black;
     align-self: center;
   }
+
+  .stock-vector-image {
+    width: 500px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  
+  .manage-your-portfolio {
+    font-size: 62px;
+    color: white;
+    font-weight: 700;
+    margin-bottom: 12px;
+    margin-top: 180px;
+  }
+
+  .manage-your-portfolio-p {
+    font-size: 20px;
+    color: white;
+    font-weight: 300;
+    margin-top: 20px;
+    line-height: 1.5;
+  }
+
+  .manage-portfolio-text-article {
+    width: 500px;
+    margin: 30px;
+  }
+
+  .vector-image-article {
+    margin: 30px;
+  }
+
+  .track-your-fav-companies {
+    font-size: 36px;
+    color: black;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .tracking-software-image {
+    width: 400px;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+
+  .tracking-article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .tracking-paragraph {
+    width: 800px;
+    margin-bottom: 50px;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  #section-bottom-margin {
+    margin-bottom: 50px;
+    font-weight: 600;
+    color: #505558;
+  }
+
+  .technical-thoughts-section {
+    background-color: #F5F8FA;
+  }
+
+  .techical-thoughts-article {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .technical-t-h1 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 36px;
+    margin-bottom: 10px;
+    color: black;
+  }
+
+  .technical-t-p {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 30px;
+  }
+
+  .technical-div {
+    margin: 30px;
+    margin-top: 75px;
+    width: 300px;
+  }
+
+  #first-technical-div {
+    margin-left: 80px;
+  }
+
+  .crypto-article {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .crypto-h1 {
+    font-size: 36px;
+    color: black;
+    margin-bottom: 10px;
+    margin-right: 30px;
+  }
+
+  .crypto-image {
+    width: 500px;
+    margin: auto;
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
+
+  .splash-hero-article {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .main-hero-img {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 300px;
+  }
+
+  .left-hero-div {
+    margin-left: 12.5%;
+  }
+
+  .right-hero-div {
+    margin-right: 12.5%;
+  }
+
 }
