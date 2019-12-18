@@ -7,10 +7,13 @@ import GithubHeader from './github_header'
 function GithubSection() {
   return (
     <section className="splash-portfolio-section">
-      <GithubHeader />
-      <GithubCard name={"Zach Williams"} url={"https://github.com/ZacharyCWilliams"}/>
-      <GithubCard name={"Albert Cheng"} url={"https://github.com/AlbertgitC"} />
-      <GithubCard name={"Jasim Atiyeh"} url={"https://github.com/JasimAtiyeh"} />
+      <article className="vector-image-article">
+        <img className="stock-vector-image" src="https://www.freeiconspng.com/uploads/stock-exchange-icon-png-1.png"></img>
+      </article>
+      <article className="manage-portfolio-text-article">
+        <h1 className="manage-your-portfolio">Hone Your Trading Skills</h1>
+        <p className="manage-your-portfolio-p">Our goal is to reduce the risk one takes when investing in financial markets by providing a safe paper-money trading training envionrment.</p>
+      </article>
     </section>
   );
 }

@@ -3,6 +3,8 @@ import Navigation from './navigation'
 import HeroSection from './hero_section'
 import TechStackSection from './tech_stack'
 import GithubSection from './github_section'
+import TechnicalThoughts from './technical_thoughts'
+import Crypto from './crypto'
 
 class MainPage extends React.Component {
 
@@ -12,7 +14,9 @@ class MainPage extends React.Component {
         <Navigation />
         <HeroSection />
         <TechStackSection />
-        {/* <GithubSection /> */}
+        <TechnicalThoughts />
+        <GithubSection />
+        <Crypto />
       </div>
     );
   }
